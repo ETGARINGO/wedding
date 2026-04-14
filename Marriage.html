@@ -5,327 +5,248 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dondon & Riri | The Royal Nikah</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Great+Vibes&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --maroon: #5e0b15;
-            --dark-maroon: #3d050a;
-            --gold: #d4af37;
-            --gold-gradient: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-            --cream: #fdfaf5;
-            --white: #ffffff;
-            --glass: rgba(255, 255, 255, 0.1);
+            --royal-maroon: #4a0404;
+            --soft-gold: #c5a059;
+            --gold-gradient: linear-gradient(135deg, #8a6d3b 0%, #e1c37d 50%, #c5a059 100%);
+            --silk-white: #ffffff;
+            --champagne: #fcfbf7;
+            --glass: rgba(255, 255, 255, 0.85);
         }
 
         * { box-sizing: border-box; }
         body, html {
             margin: 0; padding: 0;
-            background-color: var(--cream);
+            background-color: var(--champagne);
             font-family: 'Montserrat', sans-serif;
+            color: var(--royal-maroon);
             overflow-x: hidden;
-            color: var(--dark-maroon);
             scroll-behavior: smooth;
         }
 
-        /* --- Custom Scrollbar --- */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--cream); }
-        ::-webkit-scrollbar-thumb { background: var(--maroon); border-radius: 10px; }
-
-        /* --- Floating Particles --- */
-        #canvas-particles {
+        /* --- Gold Dust Canvas --- */
+        #gold-dust {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 1; opacity: 0.6;
+            pointer-events: none; z-index: 1;
         }
 
-        /* --- Glassmorphic Music Controller --- */
-        .music-controller {
-            position: fixed; bottom: 30px; left: 30px; z-index: 1000;
-            display: flex; align-items: center; gap: 12px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            padding: 8px 20px 8px 8px;
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        /* --- Floating Music Bar --- */
+        .music-nav {
+            position: fixed; top: 30px; right: 30px; z-index: 1000;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            padding: 10px 25px;
+            border-radius: 100px;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            display: flex; align-items: center; gap: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: 0.5s;
         }
-        .music-btn {
-            background: var(--gold-gradient); width: 45px; height: 45px;
-            border-radius: 50%; border: none; cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-            color: var(--dark-maroon); font-size: 1rem; transition: 0.4s;
-        }
-        .music-btn.playing { animation: rotate 8s linear infinite; }
-        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .music-nav:hover { transform: translateY(-3px); border-color: var(--soft-gold); }
 
-        /* --- Hero Section with Parallax --- */
+        /* --- Hero Section --- */
         .hero {
-            height: 100vh; position: relative;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; color: white; overflow: hidden;
-        }
-        .hero-bg {
-            position: absolute; top: 0; left: 0; width: 100%; height: 110%;
-            background: linear-gradient(rgba(61, 5, 10, 0.6), rgba(61, 5, 10, 0.6)), 
+            height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), 
                         url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover; background-position: center;
-            z-index: -1; transform: translateZ(0);
+            background-size: cover; background-position: center; background-attachment: fixed;
+            position: relative; z-index: 2;
         }
+
+        .hero-logo {
+            width: 180px; margin-bottom: 30px;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+            animation: breathe 6s ease-in-out infinite;
+        }
+        @keyframes breathe { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.05); opacity: 1; } }
 
         .hero h1 {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(4rem, 15vw, 9rem);
+            font-size: clamp(4.5rem, 12vw, 8.5rem);
             margin: 0;
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
         }
 
-        /* --- Elegant Frames --- */
-        .couple-portraits {
-            display: flex; justify-content: center; gap: 40px;
-            margin-top: -120px; position: relative; z-index: 20;
+        /* --- Elegant Frame System --- */
+        .portrait-stack {
+            display: flex; justify-content: center; gap: 50px;
+            margin-top: -100px; position: relative; z-index: 10;
         }
-        .frame {
-            width: 220px; height: 220px;
-            border-radius: 50%; padding: 8px;
-            background: var(--gold-gradient);
+        .portrait-frame {
+            width: 260px; height: 360px;
+            background: var(--silk-white);
+            padding: 12px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: 0.7s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        .portrait-frame img { width: 100%; height: 100%; object-fit: cover; }
+        .portrait-frame:hover { transform: translateY(-20px) rotate(2deg); }
+
+        /* --- The Invite Pane --- */
+        .invite-pane {
+            max-width: 950px; margin: 80px auto;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 100px 50px;
+            text-align: center;
+            border: 1px solid rgba(197, 160, 89, 0.2);
             position: relative;
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .frame:hover { transform: scale(1.05) translateY(-10px); }
-        .frame img {
-            width: 100%; height: 100%; border-radius: 50%;
-            object-fit: cover; border: 5px solid var(--white);
+        .invite-pane::after {
+            content: ""; position: absolute; top: 25px; left: 25px; right: 25px; bottom: 25px;
+            border: 0.5px solid var(--soft-gold); pointer-events: none; opacity: 0.4;
         }
 
-        /* --- Improved Invite Card --- */
-        .invite-card {
-            max-width: 850px; margin: 60px auto;
-            background: var(--white); padding: 70px 40px;
-            border-radius: 8px; position: relative; text-align: center;
-            box-shadow: 0 20px 60px rgba(94, 11, 21, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.2);
+        /* --- Countdown Luxury --- */
+        .countdown-row { display: flex; justify-content: center; gap: 30px; margin: 60px 0; }
+        .count-item { text-align: center; }
+        .count-item span {
+            display: block; font-size: 3rem; font-family: 'Cinzel Decorative';
+            font-weight: 300; color: var(--soft-gold);
+            line-height: 1;
         }
-        .card-border {
-            position: absolute; top: 20px; left: 20px; right: 20px; bottom: 20px;
-            border: 1px solid var(--gold);
-            pointer-events: none; opacity: 0.6;
-        }
-        .card-corner {
-            position: absolute; width: 40px; height: 40px; border: 3px solid var(--gold);
-        }
-        .top-left { top: 0; left: 0; border-right: none; border-bottom: none; }
-        .bottom-right { bottom: 0; right: 0; border-left: none; border-top: none; }
+        .count-item label { font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.6; }
 
-        /* --- Modern Countdown --- */
-        .countdown { display: flex; justify-content: center; gap: 20px; margin: 45px 0; flex-wrap: wrap; }
-        .time-box {
-            background: var(--white); color: var(--maroon);
-            padding: 15px; min-width: 100px; border-radius: 15px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+        /* --- Info Grid --- */
+        .info-card {
+            background: white; padding: 60px 30px;
+            border: 1px solid rgba(197, 160, 89, 0.1);
+            transition: 0.4s;
+        }
+        .info-card:hover { border-color: var(--soft-gold); background: var(--champagne); }
+
+        /* --- Principal Sponsors --- */
+        .sponsor-list {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px; max-width: 1000px; margin: 50px auto;
+        }
+        .sponsor-item {
+            font-size: 0.9rem; letter-spacing: 1px; padding: 20px;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.1);
             transition: 0.3s;
         }
-        .time-box:hover { background: var(--maroon); color: var(--gold); transform: translateY(-5px); }
-        .time-box span { display: block; font-size: 2.5rem; font-family: 'Cinzel Decorative'; font-weight: 900; }
-        .time-box label { font-size: 0.7rem; letter-spacing: 2px; font-weight: bold; text-transform: uppercase; }
-
-        /* --- Sponsor Grid Upgrade --- */
-        .sponsor-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px; margin-top: 40px;
-        }
-        .sponsor-name {
-            padding: 18px; background: #fafafa;
-            border-radius: 4px; font-size: 0.9rem;
-            border-left: 4px solid var(--gold);
-            transition: 0.3s ease;
-        }
-        .sponsor-name:hover { background: var(--maroon); color: var(--gold); transform: scale(1.02); }
-
-        /* --- Copy Feature --- */
-        .copy-pill {
-            background: var(--cream); display: inline-flex; align-items: center; gap: 15px;
-            padding: 12px 30px; border-radius: 50px; font-weight: bold;
-            margin-top: 25px; border: 1.5px solid var(--gold); color: var(--maroon);
-            cursor: pointer; transition: 0.3s;
-        }
-        .copy-pill:hover { background: var(--gold); color: var(--white); }
+        .sponsor-item:hover { color: var(--soft-gold); transform: translateX(5px); }
 
         footer {
-            background: var(--dark-maroon); color: var(--gold);
-            padding: 120px 20px 60px; text-align: center;
-            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+            background: #1a1a1a; color: white;
+            padding: 120px 20px; text-align: center;
         }
 
         @media (max-width: 768px) {
-            .couple-portraits { flex-direction: column; align-items: center; margin-top: -80px; }
-            .frame { width: 180px; height: 180px; }
-            .invite-card { padding: 50px 20px; margin: 20px; }
-            .music-controller { left: 50%; transform: translateX(-50%); bottom: 20px; width: max-content; }
+            .portrait-stack { flex-direction: column; align-items: center; gap: 30px; }
+            .portrait-frame { width: 85%; height: 400px; }
+            .invite-pane { padding: 60px 20px; margin: 20px; }
+            .countdown-row { gap: 15px; }
+            .count-item span { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <canvas id="canvas-particles"></canvas>
+    <canvas id="gold-dust"></canvas>
 
-    <div class="music-controller">
-        <button class="music-btn" id="playBtn" onclick="toggleMusic()">
-            <i id="music-icon" class="fas fa-play"></i>
-        </button>
-        <div style="display:flex; flex-direction:column;">
-            <span style="font-size: 0.6rem; color: var(--maroon); font-weight: 800; letter-spacing: 1px; text-transform: uppercase;">Background</span>
-            <span style="font-size: 0.8rem; color: var(--dark-maroon); font-weight: bold;">Tap to Play</span>
+    <div class="music-nav" onclick="toggleMusic()">
+        <i id="music-icon" class="fas fa-play" style="color: var(--soft-gold);"></i>
+        <span style="font-size: 0.7rem; letter-spacing: 2px; font-weight: 600;">PLAY MELODY</span>
+    </div>
+
+    <header class="hero">
+        <img src="image_8e9066.jpg" class="hero-logo" alt="Logo">
+        <div data-aos="fade-down" style="font-size: 2.5rem; color: #fff; margin-bottom: 15px;">﷽</div>
+        <div data-aos="zoom-in" data-aos-duration="2000">
+            <p style="letter-spacing: 8px; color: #fff; font-size: 0.8rem; margin-bottom: 20px; opacity: 0.8;">THE ROYAL NIKAH OF</p>
+            <h1>Dondon & Riri</h1>
+            <p style="font-family: 'Cinzel Decorative'; color: var(--soft-gold); font-size: 1.5rem; letter-spacing: 5px; margin-top: 20px;">21 • 04 • 2026</p>
+        </div>
+    </header>
+
+    <section class="portrait-stack">
+        <div class="portrait-frame" data-aos="fade-right">
+            <img src="image_8e9031.jpg" alt="Ailmar">
+        </div>
+        <div class="portrait-frame" data-aos="fade-left" data-aos-delay="200">
+            <img src="ri.jpg" alt="Fatima" onerror="this.src='image_8e9029.jpg'">
+        </div>
+    </section>
+
+    <div class="invite-pane" data-aos="fade-up">
+        <p style="font-weight: 200; letter-spacing: 3px; font-size: 0.85rem; margin-bottom: 50px;">ASSALAMU ALAYKUM WARAHMATULLAHI TA'ALA WA BARAKATUHU</p>
+        
+        <p style="max-width: 700px; margin: 0 auto 60px; line-height: 2.2; font-weight: 300; font-size: 1.1rem;">
+            With the grace of <strong>Allah (SWT)</strong> and the blessings of our beloved parents, we cordially invite you to witness the union of two hearts.
+        </p>
+
+        <h2 style="font-family: 'Cinzel Decorative'; font-weight: 400; font-size: clamp(1.5rem, 4vw, 2rem); letter-spacing: 4px;">PAT AILMAR B. MURSIDI</h2>
+        <div style="font-family: 'Great Vibes'; font-size: 4rem; color: var(--soft-gold); margin: 20px 0;">&</div>
+        <h2 style="font-family: 'Cinzel Decorative'; font-weight: 400; font-size: clamp(1.5rem, 4vw, 2rem); letter-spacing: 4px;">PAT FATIMA IRIDZ A. ARIPIN</h2>
+
+        <div class="countdown-row">
+            <div class="count-item"><span id="days">00</span><label>Days</label></div>
+            <div class="count-item"><span id="hours">00</span><label>Hours</label></div>
+            <div class="count-item"><span id="mins">00</span><label>Mins</label></div>
+            <div class="count-item"><span id="secs">00</span><label>Secs</label></div>
         </div>
     </div>
 
-    <section class="hero">
-        <div class="hero-bg" id="heroBg"></div>
-        <img src="logo.png" class="wedding-logo" alt="Logo" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3799/3799797.png'">
-        
-        <div data-aos="fade-down" style="font-size: 3.5rem; margin-bottom: 10px; filter: drop-shadow(0 0 10px var(--gold));">﷽</div>
-        <div data-aos="zoom-in">
-            <p style="letter-spacing: 10px; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 20px;">The Marriage Celebration Of</p>
-            <h1>Dondon & Riri</h1>
-            <div style="width: 100px; height: 3px; background: var(--gold-gradient); margin: 30px auto;"></div>
-            <p style="font-family: 'Cinzel Decorative'; font-weight: 700; color: var(--gold); font-size: 1.8rem; letter-spacing: 5px;">21 • APRIL • 2026</p>
+    <section style="max-width: 1100px; margin: 0 auto 100px; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; padding: 0 20px;">
+        <div class="info-card" data-aos="fade-up">
+            <i class="fas fa-mosque" style="font-size: 2rem; color: var(--soft-gold); margin-bottom: 25px;"></i>
+            <h3 style="font-family: 'Cinzel Decorative'; letter-spacing: 2px; margin-bottom: 20px;">The Nikah Ceremony</h3>
+            <p style="font-weight: 600;">Tuesday, 21 April 2026</p>
+            <p style="opacity: 0.7;">3:00 o'clock in the afternoon</p>
+        </div>
+        <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-map-marker-alt" style="font-size: 2rem; color: var(--soft-gold); margin-bottom: 25px;"></i>
+            <h3 style="font-family: 'Cinzel Decorative'; letter-spacing: 2px; margin-bottom: 20px;">The Venue</h3>
+            <p style="font-weight: 600;">Queenie's Royalty Resort</p>
+            <p style="opacity: 0.7;">Gov. Ramos Avenue, Sta. Maria, ZC</p>
         </div>
     </section>
 
-    <section style="padding: 0 15px;">
-        <div class="couple-portraits">
-            <div class="frame" data-aos="flip-right">
-                <img src="image_8e9031.jpg" alt="Groom">
-            </div>
-            <div class="frame" data-aos="flip-left" data-aos-delay="200">
-                <img src="image_8e9029.jpg" alt="Bride">
-            </div>
-        </div>
-
-        <div class="invite-card" data-aos="fade-up">
-            <div class="card-border"></div>
-            <div class="card-corner top-left"></div>
-            <div class="card-corner bottom-right"></div>
-
-            <p style="font-style: italic; color: #777; letter-spacing: 1px; font-size: 0.9rem;">Assalamu Alaykum Warahmatullahi Ta'ala Wa Barakatuhu</p>
-            
-            <p style="margin: 40px auto; max-width: 600px; font-size: 1.1rem; line-height: 2; font-weight: 300;">
-                With the grace of <strong>Allah (SWT)</strong> and the blessings of our parents, we cordially invite you to share in our joy as we unite in the sacred bond of marriage.
-            </p>
-
-            <h2 style="font-family: 'Cinzel Decorative'; font-weight: 900; color: var(--maroon); margin: 10px 0; font-size: clamp(1.4rem, 5vw, 2.2rem);">
-                PAT AILMAR BURAHANI MURSIDI, PNP
-            </h2>
-            <div style="font-family: 'Great Vibes'; font-size: 4rem; color: var(--gold); margin: -10px 0;">&</div>
-            <h2 style="font-family: 'Cinzel Decorative'; font-weight: 900; color: var(--maroon); margin: 10px 0; font-size: clamp(1.4rem, 5vw, 2.2rem);">
-                PAT FATIMA IRIDZ ALVAREZ ARIPIN, PNP
-            </h2>
-
-            <div class="countdown" id="timer">
-                <div class="time-box"><span id="days">00</span><label>Days</label></div>
-                <div class="time-box"><span id="hours">00</span><label>Hrs</label></div>
-                <div class="time-box"><span id="mins">00</span><label>Min</label></div>
-                <div class="time-box"><span id="secs">00</span><label>Sec</label></div>
-            </div>
+    <section style="background: white; padding: 100px 20px; text-align: center;">
+        <h2 style="font-family: 'Cinzel Decorative'; letter-spacing: 5px; font-weight: 400;">Principal Sponsors</h2>
+        <div style="width: 50px; height: 1px; background: var(--soft-gold); margin: 30px auto;"></div>
+        <div class="sponsor-list">
+            <div class="sponsor-item">Mayor Almedzhar A. Hajiri, Al-Hajj</div>
+            <div class="sponsor-item">Hja. Sitti Berquiz J. Hajiri</div>
+            <div class="sponsor-item">Dr. Hja. Sitti Amina J. Mohammad</div>
+            <div class="sponsor-item">Hon. Sarah Junihim Sumulong</div>
+            <div class="sponsor-item">Ret. Mr. Makaraya U. Adil</div>
+            <div class="sponsor-item">Atty. Alexis C. De Lima</div>
+            <div class="sponsor-item">PCOL Antonio T. Duruin Jr.</div>
+            <div class="sponsor-item">PLTCOL Mary Claire S. Duruin</div>
         </div>
     </section>
 
-    <section style="max-width: 1100px; margin: auto; padding-bottom: 100px;">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; padding: 0 20px;">
-            <div class="invite-card" style="margin: 0; padding: 60px 30px;" data-aos="fade-right">
-                <i class="fas fa-kaaba" style="font-size: 3rem; color: var(--gold); margin-bottom: 25px;"></i>
-                <h3 style="font-family: 'Cinzel Decorative'; letter-spacing: 2px;">The Nikah</h3>
-                <div style="width: 50px; height: 1px; background: var(--gold); margin: 15px auto;"></div>
-                <p style="font-size: 1.1rem; margin-bottom: 5px;"><strong>Tuesday, 21 April 2026</strong></p>
-                <p style="opacity: 0.8;">Assembly: 2:30 PM | Ceremony: 3:00 PM</p>
-            </div>
-            <div class="invite-card" style="margin: 0; padding: 60px 30px;" data-aos="fade-left">
-                <i class="fas fa-map-location-dot" style="font-size: 3rem; color: var(--gold); margin-bottom: 25px;"></i>
-                <h3 style="font-family: 'Cinzel Decorative'; letter-spacing: 2px;">The Venue</h3>
-                <div style="width: 50px; height: 1px; background: var(--gold); margin: 15px auto;"></div>
-                <p style="font-size: 1.1rem; margin-bottom: 5px;"><strong>Queenie's Royalty Resort</strong></p>
-                <p style="opacity: 0.8;">Gov. Ramos Avenue, Sta. Maria, ZC</p>
-            </div>
-        </div>
-    </section>
-
-    <section style="background: #fff; padding: 120px 20px;">
-        <div style="max-width: 1000px; margin: auto;">
-            <div style="text-align: center; margin-bottom: 50px;">
-                <h2 style="font-family: 'Cinzel Decorative'; color: var(--maroon); margin: 0; font-size: 2.5rem;">Principal Sponsors</h2>
-                <div style="width: 80px; height: 2px; background: var(--gold-gradient); margin: 20px auto;"></div>
-            </div>
-            <div class="sponsor-grid">
-                <div class="sponsor-name" data-aos="fade-up">Mayor Almedzhar A. Hajiri, Al-Hajj</div>
-                <div class="sponsor-name" data-aos="fade-up" data-aos-delay="50">Hja. Sitti Berquiz J. Hajiri</div>
-                <div class="sponsor-name" data-aos="fade-up" data-aos-delay="100">Dr. Hja. Sitti Amina J. Mohammad</div>
-                <div class="sponsor-name" data-aos="fade-up" data-aos-delay="150">Hon. Sarah Junihim Sumulong</div>
-                <div class="sponsor-name" data-aos="fade-up" data-aos-delay="200">Ret. Mr. Makaraya U. Adil</div>
-                <div class="sponsor-name" data-aos="fade-up" data-aos-delay="250">Atty. Alexis C. De Lima</div>
-                <div class="sponsor-name" data-aos="fade-up" data-aos-delay="300">PCOL Antonio T. Duruin Jr.</div>
-                <div class="sponsor-name" data-aos="fade-up" data-aos-delay="350">PLTCOL Mary Claire S. Duruin</div>
-            </div>
-        </div>
-    </section>
-
-    <section style="padding: 120px 20px; text-align: center; background: var(--cream);">
-        <div class="invite-card" style="max-width: 650px; border: 2px dashed var(--gold); background: rgba(255,255,255,0.8);" data-aos="zoom-in">
-            <i class="fas fa-envelope-open-text" style="font-size: 3rem; color: var(--gold); margin-bottom: 25px;"></i>
-            <h3 style="font-family: 'Great Vibes'; font-size: 3.5rem; color: var(--maroon); margin: 0;">Wedding Gift</h3>
-            <p style="max-width: 450px; margin: 20px auto; line-height: 1.8; opacity: 0.8;">
-                Your presence is our greatest treasure. If you wish to send a gift, a monetary contribution for our new home would be deeply appreciated.
-            </p>
-            <div class="copy-pill" id="copyGcash" onclick="copyNumber()">
-                <i class="fas fa-wallet"></i>
-                <span id="gcashNum">09XX XXX XXXX</span>
-                <i class="fas fa-copy" style="font-size: 0.8rem; opacity: 0.5;"></i>
-            </div>
-            <p id="copyToast" style="font-size: 0.7rem; color: #27ae60; margin-top: 10px; font-weight: bold; visibility: hidden;">Number Copied!</p>
-        </div>
-    </section>
-
-    <footer>
+    <footer style="position: relative;">
         <div data-aos="fade-up">
-            <div style="font-size: 3.5rem; margin-bottom: 25px; filter: drop-shadow(0 0 15px var(--gold));">﷽</div>
-            <p style="max-width: 650px; margin: 0 auto 50px; line-height: 2.2; font-style: italic; font-size: 1.2rem; opacity: 0.9; font-weight: 300;">
-                "And among His signs is this, that He created for you mates from among yourselves, that you may dwell in tranquility with them; and He has put love and mercy between your hearts." <br>
-                <span style="font-weight: 600; font-style: normal; color: var(--gold); font-size: 0.9rem;">(Surah Ar-Rum 30:21)</span>
+            <div style="font-size: 3rem; color: var(--soft-gold); margin-bottom: 30px;">﷽</div>
+            <p style="max-width: 600px; margin: 0 auto 50px; line-height: 2.2; font-style: italic; font-weight: 200; font-size: 1.1rem; opacity: 0.8;">
+                "And among His signs is this, that He created for you mates from among yourselves, that you may dwell in tranquility..."
             </p>
-            <div style="width: 100px; height: 1px; background: var(--gold); margin: 40px auto; opacity: 0.5;"></div>
-            <p style="letter-spacing: 8px; font-weight: 400; font-size: 0.8rem; opacity: 0.8;">#DONDONANDRIRI2026</p>
+            <p style="letter-spacing: 10px; font-size: 0.75rem; opacity: 0.5;">#DONDONANDRIRI2026</p>
         </div>
     </footer>
 
-    <audio id="weddingMusic" loop>
-        <source src="https://fsi-languages.yojik.eu/languages/DLI/Tausug/Tausug%20Sound%20Files/Tausug%20Pop%20Music/Lagu%20Lagu%20Suluk.mp3" type="audio/mpeg">
+    <audio id="bgMusic" loop>
+        <source src="https://cdn.pixabay.com/audio/2022/03/10/audio_c97669d04a.mp3" type="audio/mpeg">
     </audio>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1200, once: true });
+        AOS.init({ duration: 1500, once: true });
 
-        // Parallax Effect
-        window.addEventListener('scroll', () => {
-            const scroll = window.pageYOffset;
-            document.getElementById('heroBg').style.transform = `translateY(${scroll * 0.4}px)`;
-        });
-
-        // Copy Number Function
-        function copyNumber() {
-            const num = "09XXXXXXXXX"; // Replace with real number
-            navigator.clipboard.writeText(num);
-            const toast = document.getElementById('copyToast');
-            toast.style.visibility = 'visible';
-            setTimeout(() => { toast.style.visibility = 'hidden'; }, 2000);
-        }
-
-        // Countdown Logic
+        // Countdown
         const target = new Date("April 21, 2026 15:00:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
@@ -337,63 +258,48 @@
             document.getElementById("secs").innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
         }, 1000);
 
-        // Music Toggle
-        const audio = document.getElementById("weddingMusic");
-        const btn = document.getElementById("playBtn");
+        // Music
+        const audio = document.getElementById("bgMusic");
         const icon = document.getElementById("music-icon");
         function toggleMusic() {
             if (audio.paused) {
                 audio.play();
-                btn.classList.add("playing");
                 icon.classList.replace("fa-play", "fa-pause");
             } else {
                 audio.pause();
-                btn.classList.remove("playing");
                 icon.classList.replace("fa-pause", "fa-play");
             }
         }
 
-        // Simple Particle System
-        const canvas = document.getElementById('canvas-particles');
+        // Luxury Gold Dust Effect
+        const canvas = document.getElementById('gold-dust');
         const ctx = canvas.getContext('2d');
         let particles = [];
-        function initCanvas() {
+        function init() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
+            particles = [];
+            for(let i=0; i<60; i++) particles.push({
+                x: Math.random()*canvas.width,
+                y: Math.random()*canvas.height,
+                s: Math.random()*2,
+                vx: Math.random()*0.5 - 0.25,
+                vy: Math.random()*0.5 + 0.2,
+                o: Math.random()
+            });
         }
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 0.5;
-                this.speedX = Math.random() * 1 - 0.5;
-                this.speedY = Math.random() * 1 - 0.5;
-                this.opacity = Math.random() * 0.5 + 0.2;
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                if (this.x > canvas.width) this.x = 0;
-                if (this.x < 0) this.x = canvas.width;
-                if (this.y > canvas.height) this.y = 0;
-                if (this.y < 0) this.y = canvas.height;
-            }
-            draw() {
-                ctx.fillStyle = `rgba(212, 175, 55, ${this.opacity})`;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
+        function draw() {
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            particles.forEach(p => {
+                p.y += p.vy; p.x += p.vx;
+                if(p.y > canvas.height) p.y = -10;
+                ctx.fillStyle = `rgba(197, 160, 89, ${p.o})`;
+                ctx.beginPath(); ctx.arc(p.x, p.y, p.s, 0, Math.PI*2); ctx.fill();
+            });
+            requestAnimationFrame(draw);
         }
-        for (let i = 0; i < 80; i++) { particles.push(new Particle()); }
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => { p.update(); p.draw(); });
-            requestAnimationFrame(animate);
-        }
-        window.addEventListener('resize', initCanvas);
-        initCanvas();
-        animate();
+        window.addEventListener('resize', init);
+        init(); draw();
     </script>
 </body>
 </html>
