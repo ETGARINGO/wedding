@@ -2,64 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>The Imperial Nikah | Dondon & Riri</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Great+Vibes&family=Montserrat:wght@200;400;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --maroon: #3d0308;
-            --royal-maroon: #1a0103;
+            --royal-maroon: #2d0205;
+            --deep-burgundy: #1a0103;
             --gold: #d4af37;
-            --gold-bright: #fcf6ba;
-            --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-            --glass: rgba(26, 1, 3, 0.92);
-            --border-gold: rgba(212, 175, 55, 0.4);
+            --gold-light: #fcf6ba;
+            --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 45%, #b38728 70%, #fbf5b7 85%, #aa771c 100%);
+            --glass: rgba(26, 1, 3, 0.9);
+            --border-gold: rgba(212, 175, 55, 0.35);
         }
 
-        /* --- Smooth Scroll & Custom Cursor --- */
-        html { scroll-behavior: smooth; cursor: none; }
-        #custom-cursor {
-            width: 20px; height: 20px; border: 2px solid var(--gold);
-            border-radius: 50%; position: fixed; pointer-events: none;
-            z-index: 9999; transition: transform 0.1s ease;
-            box-shadow: 0 0 15px var(--gold);
+        /* Reset & Core */
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html, body { 
+            margin: 0; padding: 0; width: 100%; overflow-x: hidden;
+            background-color: var(--deep-burgundy);
+            font-family: 'Montserrat', sans-serif; color: #f8f3eb;
+            scroll-behavior: smooth;
         }
 
-        body, html {
-            margin: 0; padding: 0;
-            background-color: var(--royal-maroon);
-            font-family: 'Montserrat', sans-serif;
-            color: #f8f3eb;
-            overflow-x: hidden;
+        /* --- LUXURY PRELOADER --- */
+        #loader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--royal-maroon); z-index: 9999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transition: transform 1.5s cubic-bezier(1, 0, 0, 1);
+        }
+        .loader-ornament {
+            width: 80px; height: 80px; border: 2px solid var(--gold);
+            transform: rotate(45deg); animation: loaderSpin 3s infinite;
+        }
+        @keyframes loaderSpin {
+            0% { transform: rotate(45deg) scale(1); opacity: 1; }
+            50% { transform: rotate(225deg) scale(1.2); opacity: 0.5; }
+            100% { transform: rotate(405deg) scale(1); opacity: 1; }
         }
 
-        /* --- Particle Canvas --- */
-        #luxury-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; opacity: 0.6; }
+        /* --- BACKGROUND PARTICLES --- */
+        #canvas-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.4; }
 
-        /* --- Floating Bride Locket --- */
-        .bride-locket {
-            position: fixed; top: 30px; left: 30px; z-index: 2000;
-            width: 85px; height: 85px; border-radius: 50%;
-            background: var(--gold-gradient); padding: 3px;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
-            transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-            cursor: pointer;
-        }
-        .bride-locket:hover { transform: rotate(360deg) scale(1.1); }
-        .bride-locket img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 2px solid var(--maroon); }
-
-        /* --- Cinematic Hero --- */
+        /* --- HERO SECTION --- */
         .hero {
-            height: 100vh; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; text-align: center;
-            background: linear-gradient(rgba(26, 1, 3, 0.7), rgba(26, 1, 3, 0.7)),
-                        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=2000');
-            background-size: cover; background-position: center; background-attachment: fixed;
-            position: relative; overflow: hidden;
+            height: 100vh; width: 100%;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; position: relative; padding: 20px;
+            background: linear-gradient(rgba(26, 1, 3, 0.6), rgba(26, 1, 3, 0.6)), 
+                        url('https://www.transparenttextures.com/patterns/black-linen.png');
         }
 
         .gold-shine {
@@ -67,183 +63,194 @@
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: shine 5s linear infinite;
+            animation: shine 4s linear infinite;
         }
-
         @keyframes shine { to { background-position: 200% center; } }
 
-        .hero h1 {
-            font-family: 'Great Vibes', cursive;
-            font-size: clamp(4rem, 12vw, 9rem);
-            margin: 10px 0; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
-        }
+        .bismillah { font-family: 'Cinzel Decorative'; font-size: 0.7rem; letter-spacing: 6px; color: var(--gold); margin-bottom: 10px; }
+        .hero-names { font-family: 'Great Vibes', cursive; font-size: clamp(3.5rem, 15vw, 7rem); margin: 0; line-height: 1; }
+        .hero-subtitle { font-family: 'Cinzel Decorative'; font-size: 0.9rem; letter-spacing: 8px; margin-top: 20px; color: var(--gold-light); }
 
-        .countdown-container { display: flex; gap: 20px; margin-top: 40px; z-index: 2; flex-wrap: wrap; justify-content: center; }
-        .count-box {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border-gold);
-            padding: 15px; min-width: 80px; border-radius: 8px;
-            transition: 0.4s;
+        /* --- COUNTDOWN --- */
+        .timer-grid { display: flex; gap: 12px; margin-top: 40px; }
+        .timer-item { 
+            background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-gold);
+            padding: 10px; min-width: 70px; border-radius: 4px; backdrop-filter: blur(5px);
         }
-        .count-box:hover { transform: translateY(-5px); border-color: var(--gold-bright); }
-        .count-num { display: block; font-family: 'Playfair Display'; font-size: 2rem; color: var(--gold-bright); font-weight: 700; }
+        .timer-num { display: block; font-family: 'Playfair Display'; font-size: 1.5rem; color: var(--gold-light); font-weight: 700; }
+        .timer-label { font-size: 0.6rem; letter-spacing: 2px; opacity: 0.7; }
 
-        /* --- Content Layout --- */
-        .content-section { max-width: 1100px; margin: auto; padding: 0 20px; position: relative; z-index: 5; }
-        
+        /* --- CONTENT CARDS --- */
+        .container { width: 100%; max-width: 600px; margin: 0 auto; padding: 20px; position: relative; z-index: 1; }
+
         .luxury-card {
             background: var(--glass);
             border: 1px solid var(--border-gold);
-            padding: 80px 40px; text-align: center;
-            margin-bottom: 80px; position: relative;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+            padding: 40px 25px; text-align: center;
+            margin-bottom: 40px; position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
-        .section-divider {
-            width: 150px; height: 2px; background: var(--gold-gradient);
-            margin: 40px auto; position: relative;
-        }
-        .section-divider::after {
-            content: "\f521"; font-family: "Font Awesome 6 Free"; font-weight: 900;
-            position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
-            background: var(--royal-maroon); padding: 0 10px; color: var(--gold);
+        /* Decorative Corners */
+        .luxury-card::before {
+            content: ""; position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.15); pointer-events: none;
         }
 
-        .venue-info { margin: 30px 0; font-family: 'Playfair Display'; }
-        .venue-name { font-size: 1.8rem; color: var(--gold-bright); letter-spacing: 2px; margin-bottom: 5px; }
-        .venue-address { font-size: 1rem; opacity: 0.8; font-style: italic; }
+        .section-title { font-family: 'Cinzel Decorative'; font-size: 1.1rem; color: var(--gold); letter-spacing: 4px; margin-bottom: 30px; text-transform: uppercase; }
+        .sub-text { font-family: 'Playfair Display'; font-style: italic; font-size: 0.95rem; line-height: 1.6; opacity: 0.9; margin-bottom: 30px; }
 
-        /* --- Entourage Grids --- */
-        .entourage-title { font-family: 'Cinzel Decorative'; color: var(--gold); letter-spacing: 8px; margin-bottom: 40px; font-size: 1.2rem; }
-        
-        .party-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px; margin-bottom: 60px;
+        .groom-bride-names { font-family: 'Playfair Display'; font-size: 1.3rem; font-weight: 700; line-height: 1.4; color: var(--gold-light); letter-spacing: 1px; }
+        .ampersand { font-family: 'Great Vibes'; font-size: 3rem; color: var(--gold); display: block; margin: 10px 0; }
+
+        .parent-block { margin: 25px 0; font-size: 0.85rem; line-height: 1.8; letter-spacing: 1px; }
+        .parent-label { font-family: 'Cinzel Decorative'; font-size: 0.65rem; color: var(--gold); margin-bottom: 5px; }
+
+        /* --- PROGRAM DETAILS GRID --- */
+        .details-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px;
+            padding-top: 30px; border-top: 1px solid var(--border-gold);
         }
-        .role-group { margin-bottom: 30px; }
-        .role-title { font-family: 'Cinzel Decorative'; color: var(--gold); font-size: 0.8rem; letter-spacing: 4px; margin-bottom: 15px; text-transform: uppercase; }
-        .role-names { font-family: 'Playfair Display'; font-size: 1.1rem; line-height: 1.8; color: #fff; }
+        .detail-item { text-align: center; }
+        .detail-label { font-size: 0.6rem; letter-spacing: 2px; color: var(--gold); margin-bottom: 5px; text-transform: uppercase; }
+        .detail-val { font-family: 'Playfair Display'; font-size: 1rem; color: #fff; }
 
-        .sponsor-list {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
-            text-align: left; padding: 20px; background: rgba(0,0,0,0.2); border-left: 2px solid var(--gold);
+        /* --- ENTOURAGE LISTS --- */
+        .role-title { font-family: 'Cinzel Decorative'; color: var(--gold); font-size: 0.75rem; letter-spacing: 3px; margin: 25px 0 10px; }
+        .names-list { font-family: 'Playfair Display'; font-size: 1.05rem; line-height: 1.8; }
+        .small-list { font-size: 0.85rem; line-height: 2; opacity: 0.9; }
+
+        /* --- AUDIO HUB --- */
+        .audio-hub {
+            position: fixed; bottom: 20px; right: 20px; z-index: 1000;
+            display: flex; align-items: center; gap: 10px;
+            background: rgba(26, 1, 3, 0.8); padding: 8px 15px;
+            border-radius: 30px; border: 1px solid var(--gold);
+            backdrop-filter: blur(10px);
+        }
+        .play-btn {
+            width: 35px; height: 35px; border-radius: 50%; border: none;
+            background: var(--gold-gradient); color: var(--deep-burgundy);
+            cursor: pointer; font-size: 0.9rem;
         }
 
-        /* --- Responsive --- */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 4.5rem; }
-            .sponsor-list { grid-template-columns: 1fr; }
-            .luxury-card { padding: 40px 20px; }
-            #custom-cursor { display: none; }
+        /* --- FOOTER --- */
+        footer { padding: 80px 20px; text-align: center; }
+        .quran-verse { font-family: 'Playfair Display'; font-style: italic; font-size: 1.1rem; max-width: 500px; margin: 0 auto 20px; color: var(--gold-light); }
+        .verse-ref { font-family: 'Cinzel Decorative'; font-size: 0.7rem; letter-spacing: 4px; color: var(--gold); }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 480px) {
+            .hero-names { font-size: 4rem; }
+            .luxury-card { padding: 35px 15px; }
+            .details-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <div id="custom-cursor"></div>
-    <canvas id="luxury-canvas"></canvas>
-
-    <div class="bride-locket" onclick="window.scrollTo(0, document.body.scrollHeight)">
-        <img src="ri.jpg" alt="Riri">
+    <div id="loader">
+        <div class="loader-ornament"></div>
+        <div style="margin-top: 40px; font-family: 'Cinzel Decorative'; letter-spacing: 5px; color: var(--gold); font-size: 0.7rem;">THE IMPERIAL NIKAH</div>
     </div>
 
-    <div class="audio-hub" style="position: fixed; bottom: 30px; right: 30px; z-index: 1000; background: var(--glass); padding: 10px 20px; border: 1px solid var(--gold); border-radius: 50px; display: flex; align-items: center; gap: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-        <div style="text-align: right;">
-            <div style="font-size: 0.5rem; color: var(--gold); letter-spacing: 3px; font-weight: 900;">IMPERIAL AUDIO</div>
-            <div style="font-size: 0.75rem; font-family: 'Playfair Display';">Lagu Lagu Suluk</div>
+    <canvas id="canvas-bg"></canvas>
+
+    <div class="audio-hub">
+        <div style="text-align: right">
+            <div style="font-size: 0.5rem; color: var(--gold); letter-spacing: 2px;">MUSICAL AMBIANCE</div>
+            <div style="font-size: 0.7rem; font-weight: 600;">Lagu Lagu Suluk</div>
         </div>
-        <button onclick="toggleAudio()" style="background: var(--gold-gradient); border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; transition: 0.3s;">
-            <i id="btnIcon" class="fas fa-play" style="color: var(--royal-maroon);"></i>
+        <button class="play-btn" onclick="toggleAudio()">
+            <i id="btnIcon" class="fas fa-play"></i>
         </button>
     </div>
 
     <section class="hero">
         <div data-aos="zoom-out" data-aos-duration="2500">
-            <p style="font-family: 'Cinzel Decorative'; letter-spacing: 12px; color: var(--gold); font-size: 0.9rem; margin-bottom: 0;">BI-ISMILLĀHI R-RAḤMĀNI R-RAḤĪM</p>
-            <h1 class="gold-shine">Dondon & Riri</h1>
-            <p style="font-family: 'Cinzel Decorative'; letter-spacing: 15px; font-size: 1.1rem; color: var(--gold-bright);">THE ROYAL NIKAH</p>
-
-            <div class="countdown-container">
-                <div class="count-box"><span class="count-num" id="days">00</span><small>DAYS</small></div>
-                <div class="count-box"><span class="count-num" id="hours">00</span><small>HRS</small></div>
-                <div class="count-box"><span class="count-num" id="mins">00</span><small>MINS</small></div>
-                <div class="count-box"><span class="count-num" id="secs">00</span><small>SECS</small></div>
+            <div class="bismillah">BI-ISMILLĀHI R-RAḤMĀNI R-RAḤĪM</div>
+            <h1 class="hero-names gold-shine">Dondon & Riri</h1>
+            <div class="hero-subtitle">THE ROYAL NIKAH</div>
+            
+            <div class="timer-grid">
+                <div class="timer-item"><span class="timer-num" id="days">00</span><span class="timer-label">DAYS</span></div>
+                <div class="timer-item"><span class="timer-num" id="hours">00</span><span class="timer-label">HRS</span></div>
+                <div class="timer-item"><span class="timer-num" id="mins">00</span><span class="timer-label">MINS</span></div>
+                <div class="timer-item"><span class="timer-num" id="secs">00</span><span class="timer-label">SECS</span></div>
             </div>
         </div>
     </section>
 
-    <div class="content-section">
+    <div class="container">
         
-        <div class="luxury-card" data-aos="fade-up" style="margin-top: -60px;">
-            <p style="font-family: 'Playfair Display'; font-style: italic; margin-bottom: 30px;">
+        <div class="luxury-card" data-aos="fade-up">
+            <div class="sub-text">
                 "Together with our beloved families, we humbly request the honour of your presence at our Nikah and wedding celebration."
-            </p>
+            </div>
 
-            <h2 class="gold-shine" style="font-family: 'Cinzel Decorative'; font-size: clamp(1.2rem, 3vw, 2rem); line-height: 1.4; margin: 40px 0;">
-                PAT AILMAR BURAHANI MURSIDI, PNP<br>
-                <span style="font-family: 'Great Vibes'; font-size: 4rem; color: var(--gold); display: block; margin: 15px 0;">&</span>
-                PAT FATIMA IRIDZ ALVAREZ ARIPIN, PNP
-            </h2>
+            <div class="groom-bride-names">PAT AILMAR BURAHANI MURSIDI, PNP</div>
+            <span class="ampersand">&</span>
+            <div class="groom-bride-names">PAT FATIMA IRIDZ ALVAREZ ARIPIN, PNP</div>
 
-            <div class="party-grid">
-                <div class="role-group">
-                    <div class="role-title">Son of</div>
-                    <div class="role-names">MR. MOORE J. MURSIDI &<br>MRS. HULMA B. MURSIDI</div>
+            <div class="parent-block">
+                <div class="parent-label">Son of</div>
+                MR. MOORE J. MURSIDI & MRS. HULMA B. MURSIDI
+            </div>
+            <div class="parent-block">
+                <div class="parent-label">Daughter of</div>
+                PSSG DENNIS M. ARIPIN & PSMS WIDZRA A. ALVAREZ
+            </div>
+
+            <div class="sub-text" style="margin-top: 30px; font-size: 0.8rem;">
+                "As we unite in marriage to be solemnized in accordance with Islamic rites and traditions."
+            </div>
+
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-label">The Date</div>
+                    <div class="detail-val">Tuesday | April 21, 2026</div>
                 </div>
-                <div class="role-group">
-                    <div class="role-title">Daughter of</div>
-                    <div class="role-names">PSSG DENNIS M. ARIPIN &<br>PSMS WIDZRA A. ALVAREZ</div>
+                <div class="detail-item">
+                    <div class="detail-label">The Time</div>
+                    <div class="detail-val">3:00 PM Sharp</div>
                 </div>
             </div>
 
-            <div class="section-divider"></div>
-
-            <div class="venue-info">
-                <div style="font-size: 1.2rem; letter-spacing: 5px; color: var(--gold); margin-bottom: 20px;">TUESDAY | APRIL 21, 2026 | 3:00 PM</div>
-                <div class="venue-name">QUEENIE'S ROYALTY RESORT</div>
-                <div class="venue-address">
+            <div style="margin-top: 30px;">
+                <div class="detail-label">The Venue</div>
+                <div class="detail-val" style="color: var(--gold-light);">QUEENIE'S ROYALTY RESORT</div>
+                <div style="font-size: 0.75rem; opacity: 0.8; margin-top: 5px;">
                     Monifar Alawaddin Drive Galvez Road,<br>
                     Gov. Ramos Avenue, Sta. Maria, Zamboanga City
                 </div>
             </div>
-
-            <a href="https://www.google.com/maps/search/Queenie's+Royalty+Resort+Zamboanga" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; color: var(--gold); text-decoration: none; font-weight: 600; letter-spacing: 2px; margin-top: 20px; border: 1px solid var(--gold); padding: 12px 25px; transition: 0.3s;">
-                <i class="fas fa-location-dot"></i> VIEW ON MAP
-            </a>
         </div>
 
         <div class="luxury-card" data-aos="fade-up">
-            <h3 class="entourage-title">CEREMONIAL PARTY</h3>
+            <h2 class="section-title">Ceremonial Party</h2>
             
-            <div class="role-group">
-                <div class="role-title">Officiating Imam</div>
-                <div class="role-names" style="font-size: 1.5rem; color: var(--gold-bright);">Sheikh OMAR KONG</div>
-            </div>
+            <div class="role-title">Officiating Imam</div>
+            <div class="names-list" style="color: var(--gold-light);">Sheikh OMAR KONG</div>
 
-            <div class="section-divider"></div>
+            <div class="role-title">Witnesses</div>
+            <div class="names-list">Hji. NADZHUR S. ALIH<br>Hji. HARUN M. JOE</div>
 
-            <div class="role-group">
-                <div class="role-title">Witnesses</div>
-                <div class="role-names">Hji. NADZHUR S. ALIH<br>Hji. HARUN M. JOE</div>
-            </div>
-
-            <div class="party-grid" style="margin-top: 40px;">
-                <div class="role-group">
+            <div class="details-grid">
+                <div class="detail-item">
                     <div class="role-title">Best Man</div>
-                    <div class="role-names">PAT ANDIMOORE H. MURSIDI</div>
+                    <div class="names-list">PAT ANDIMOORE H. MURSIDI</div>
                 </div>
-                <div class="role-group">
+                <div class="detail-item">
                     <div class="role-title">Maid of Honor</div>
-                    <div class="role-names">ANNILYN A. ANNI</div>
+                    <div class="names-list">ANNILYN A. ANNI</div>
                 </div>
             </div>
         </div>
 
         <div class="luxury-card" data-aos="fade-up">
-            <h3 class="entourage-title">PRINCIPAL SPONSORS</h3>
-            <div class="sponsor-list">
-                <div class="role-names" style="font-size: 0.9rem;">
+            <h2 class="section-title">Principal Sponsors</h2>
+            <div class="details-grid" style="border: none; text-align: left;">
+                <div class="small-list">
                     • Mayor ALMEDZHAR A. HAJIRI, Al-Hajj<br>
                     • Dr. Hja. SITTI AMINA JAAFAR MOHAMMAD<br>
                     • Ret. Mr. MAKARAYA U. ADIL<br>
@@ -254,7 +261,7 @@
                     • Ret. PMAJ ALSON A. ARIPIN<br>
                     • Ret. Lt/PAF Hji. RIZA M. KINANG
                 </div>
-                <div class="role-names" style="font-size: 0.9rem;">
+                <div class="small-list">
                     • Hja. SITTI BERQUIZ J. HAJIRI<br>
                     • Hon. SARAH JUNIHIM SUMULONG<br>
                     • Atty. ALEXIS C. DE LIMA<br>
@@ -269,60 +276,51 @@
         </div>
 
         <div class="luxury-card" data-aos="fade-up">
-            <h3 class="entourage-title">THE WEDDING PARTY</h3>
+            <h2 class="section-title">The Wedding Party</h2>
             
-            <div class="party-grid">
-                <div class="role-group">
+            <div class="details-grid" style="border: none;">
+                <div>
                     <div class="role-title">Groomsmen</div>
-                    <div class="role-names">
-                        NEVEN T. MAURO<br>MOH. KYZEN A. ARIPIN<br>
-                        KHIESHAN RAFF A. MURSIDI<br>SAJID M. JANANG
-                    </div>
+                    <div class="small-list">NEVEN T. MAURO<br>MOH. KYZEN A. ARIPIN<br>KHIESHAN RAFF A. MURSIDI<br>SAJID M. JANANG</div>
                 </div>
-                <div class="role-group">
+                <div>
                     <div class="role-title">Bridesmaids</div>
-                    <div class="role-names">
-                        SHANADAR M. JANANG<br>RYHAINNIE CLYNE D. ALVAREZ<br>
-                        EIRHAM TANJILIL<br>NOURUS-SIRAJ S. HADDAMAN
-                    </div>
+                    <div class="small-list">SHANADAR M. JANANG<br>RYHAINNIE CLYNE D. ALVAREZ<br>EIRHAM TANJILIL<br>NOURUS-SIRAJ S. HADDAMAN</div>
                 </div>
             </div>
 
-            <div class="role-group">
-                <div class="role-title">Flower Girls</div>
-                <div class="role-names">SAADA M. JANANG | ALIYAH MOORE C. MURSIDI | ASHADIYAH A. SAPIE</div>
-            </div>
+            <div class="role-title">Flower Girls</div>
+            <div class="small-list">SAADA M. JANANG • ALIYAH MOORE C. MURSIDI • ASHADIYAH A. SAPIE</div>
 
-            <div class="party-grid" style="margin-top: 30px;">
-                <div class="role-group">
+            <div class="details-grid" style="border: none; margin-top: 10px;">
+                <div>
                     <div class="role-title">Contract Bearer</div>
-                    <div class="role-names">DAFIL H. MURSIDI</div>
+                    <div class="small-list">DAFIL H. MURSIDI</div>
                 </div>
-                <div class="role-group">
+                <div>
                     <div class="role-title">Ring Bearer</div>
-                    <div class="role-names">SADIR M. JANANG</div>
-                </div>
-                <div class="role-group">
-                    <div class="role-title">Coin Bearer</div>
-                    <div class="role-names">MOH. SAIF M. JANANG</div>
+                    <div class="small-list">SADIR M. JANANG</div>
                 </div>
             </div>
 
-            <div class="section-divider"></div>
-            <div class="role-group">
+            <div class="role-title">Coin Bearer</div>
+            <div class="small-list">MOH. SAIF M. JANANG</div>
+
+            <div style="margin-top: 40px; border-top: 1px solid var(--border-gold); padding-top: 20px;">
                 <div class="role-title">Event Coordinator</div>
-                <div class="role-names" style="color: var(--gold-bright);">QUEENIE'S ROYALTY EVENTS</div>
+                <div class="names-list" style="color: var(--gold-light);">QUEENIE'S ROYALTY EVENTS</div>
             </div>
         </div>
+
     </div>
 
-    <footer style="padding: 120px 20px; text-align: center; background: linear-gradient(transparent, #000); position: relative; z-index: 5;">
+    <footer>
         <div data-aos="fade-up">
-            <p style="font-family: 'Playfair Display'; font-style: italic; color: var(--gold-bright); font-size: 1.4rem; max-width: 800px; margin: auto;">
+            <div class="quran-verse">
                 "And among His signs is this, that He created for you mates from among yourselves, that you may dwell in tranquility with them."
-            </p>
-            <p style="margin-top: 25px; font-weight: bold; color: var(--gold); letter-spacing: 5px; font-family: 'Cinzel Decorative';">SURAH AR-RUM 30:21</p>
-            <div style="margin-top: 50px; font-size: 0.7rem; opacity: 0.5; letter-spacing: 2px;">© 2026 THE IMPERIAL NIKAH</div>
+            </div>
+            <div class="verse-ref">SURAH AR-RUM 30:21</div>
+            <div style="margin-top: 60px; font-size: 0.6rem; opacity: 0.4; letter-spacing: 5px;">THE IMPERIAL NIKAH • 2026</div>
         </div>
     </footer>
 
@@ -332,76 +330,70 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1200, once: false, mirror: true });
-
-        // Custom Cursor
-        const cursor = document.getElementById('custom-cursor');
-        document.addEventListener('mousemove', e => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
+        // Preloader Logic
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                loader.style.transform = 'translateY(-100%)';
+                AOS.init({ duration: 1200, once: true });
+            }, 2000);
         });
 
-        // Countdown to April 21, 2026, 15:00
-        const targetDate = new Date("April 21, 2026 15:00:00").getTime();
-        function updateCountdown() {
+        // Countdown Logic
+        const target = new Date("April 21, 2026 15:00:00").getTime();
+        function updateTimer() {
             const now = new Date().getTime();
-            const gap = targetDate - now;
-            const second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24;
-            
-            if (gap > 0) {
-                document.getElementById("days").innerText = Math.floor(gap / day);
-                document.getElementById("hours").innerText = Math.floor((gap % day) / hour);
-                document.getElementById("mins").innerText = Math.floor((gap % hour) / minute);
-                document.getElementById("secs").innerText = Math.floor((gap % minute) / second);
-            }
+            const diff = target - now;
+            const d = Math.floor(diff / 86400000);
+            const h = Math.floor((diff % 86400000) / 3600000);
+            const m = Math.floor((diff % 3600000) / 60000) ;
+            const s = Math.floor((diff % 60000) / 1000);
+            document.getElementById('days').innerText = d.toString().padStart(2, '0');
+            document.getElementById('hours').innerText = h.toString().padStart(2, '0');
+            document.getElementById('mins').innerText = m.toString().padStart(2, '0');
+            document.getElementById('secs').innerText = s.toString().padStart(2, '0');
         }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+        setInterval(updateTimer, 1000); updateTimer();
 
-        // Audio Toggle
+        // Audio Logic
         const audio = document.getElementById("bgMusic");
         const btnIcon = document.getElementById("btnIcon");
         function toggleAudio() {
-            if (audio.paused) { 
-                audio.play(); 
-                btnIcon.className = "fas fa-pause"; 
-            } else { 
-                audio.pause(); 
-                btnIcon.className = "fas fa-play"; 
-            }
+            if (audio.paused) { audio.play(); btnIcon.className = "fas fa-pause"; }
+            else { audio.pause(); btnIcon.className = "fas fa-play"; }
         }
 
-        // Particle System (Gold Dust)
-        const canvas = document.getElementById('luxury-canvas');
+        // Particle System
+        const canvas = document.getElementById('canvas-bg');
         const ctx = canvas.getContext('2d');
         let particles = [];
-        function init() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 0.2;
-                this.speed = Math.random() * 0.4 + 0.1;
+        function initCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particles = [];
+            for(let i=0; i<80; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2,
+                    speed: Math.random() * 0.5 + 0.2
+                });
             }
-            draw() {
-                ctx.fillStyle = "rgba(212, 175, 55, 0.4)";
+        }
+        function draw() {
+            ctx.clearRect(0,0,canvas.width, canvas.height);
+            ctx.fillStyle = "#d4af37";
+            particles.forEach(p => {
                 ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
                 ctx.fill();
-            }
-            update() {
-                this.y -= this.speed;
-                if (this.y < 0) this.y = canvas.height;
-            }
+                p.y -= p.speed;
+                if(p.y < 0) p.y = canvas.height;
+            });
+            requestAnimationFrame(draw);
         }
-        for (let i = 0; i < 120; i++) particles.push(new Particle());
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => { p.update(); p.draw(); });
-            requestAnimationFrame(animate);
-        }
-        window.addEventListener('resize', init);
-        init(); animate();
+        window.addEventListener('resize', initCanvas);
+        initCanvas(); draw();
     </script>
 </body>
 </html>
