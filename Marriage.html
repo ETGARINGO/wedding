@@ -3,330 +3,292 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dondon & Riri | The Royal Nikah</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>The Royal Nikah | Dondon & Riri</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Great+Vibes&family=Montserrat:wght@200;400;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
-            --maroon: #5e0b15;
-            --dark-maroon: #3d050a;
-            --gold: #d4af37;
-            --gold-gradient: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-            --cream: #fdfaf5;
-            --glass: rgba(255, 255, 255, 0.9);
+            --maroon-deep: #4a0404;
+            --maroon-royal: #630d0d;
+            --gold-foil: linear-gradient(45deg, #a67c00, #ffbf00, #ffdc73, #ffbf00, #a67c00);
+            --gold-static: #d4af37;
+            --cream-silk: #fffcf5;
+            --glass-gold: rgba(255, 252, 245, 0.95);
         }
 
         * { box-sizing: border-box; }
         body, html {
             margin: 0; padding: 0;
-            background-color: var(--cream);
+            background-color: var(--cream-silk);
             font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
+            color: var(--maroon-deep);
             scroll-behavior: smooth;
         }
 
-        /* --- Animated Background Elements --- */
-        .bg-ornament {
-            position: fixed;
-            width: 300px;
-            opacity: 0.1;
-            z-index: -1;
-            pointer-events: none;
+        /* --- Luxury Background Texture --- */
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            pointer-events: none; z-index: -1;
         }
+
+        /* --- Gold Shimmer Animation --- */
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .gold-text {
+            background: var(--gold-foil);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 4s linear infinite;
+        }
+
+        /* --- Floating Music Control --- */
+        .music-player {
+            position: fixed; bottom: 40px; left: 40px; z-index: 1000;
+            display: flex; align-items: center; gap: 15px;
+        }
+        .play-disc {
+            width: 65px; height: 65px; background: var(--gold-foil);
+            border-radius: 50%; border: 3px solid #fff; cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            display: flex; align-items: center; justify-content: center;
+            transition: transform 0.5s ease;
+        }
+        .play-disc.active { animation: rotate 6s linear infinite; }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
         /* --- Hero Section --- */
         .hero {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(rgba(61, 5, 10, 0.6), rgba(61, 5, 10, 0.8)), 
-                        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=2070');
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
-            color: white;
-            overflow: hidden;
+            height: 100vh; position: relative;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1541810232674-32b0a94464cc?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover; background-attachment: fixed; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            border-bottom: 8px solid var(--gold-static);
         }
 
-        .hero::after {
-            content: "";
-            position: absolute;
-            bottom: 0; width: 100%; height: 15vh;
-            background: linear-gradient(to top, var(--cream), transparent);
+        .hero-logo {
+            width: 220px; height: auto;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+            animation: slowFloat 5s ease-in-out infinite;
         }
+        @keyframes slowFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 
         .hero h1 {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(4rem, 12vw, 7rem);
-            margin: 10px 0;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
-            animation: glow 3s ease-in-out infinite alternate;
+            font-size: clamp(4rem, 15vw, 9rem);
+            margin: 0; color: #fff; text-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
-        @keyframes glow {
-            from { text-shadow: 0 0 10px #fff, 0 0 20px var(--gold); }
-            to { text-shadow: 0 0 20px #fff, 0 0 30px var(--gold); }
-        }
-
-        /* --- Portrait Styling --- */
-        .portrait-frame {
-            position: relative;
-            width: 220px;
-            height: 220px;
-            margin: -110px auto 30px;
-            z-index: 5;
-        }
-
-        .portrait-frame img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 8px solid white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .halo {
-            position: absolute;
-            top: -10px; left: -10px; right: -10px; bottom: -10px;
-            border: 2px solid var(--gold);
-            border-radius: 50%;
-            animation: pulse-ring 2s infinite;
-        }
-
-        @keyframes pulse-ring {
-            0% { transform: scale(0.95); opacity: 1; }
-            100% { transform: scale(1.1); opacity: 0; }
-        }
-
-        /* --- Cards & Content --- */
-        section {
-            padding: 80px 20px;
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .royal-card {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            padding: 60px 40px;
-            border-radius: 15px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-            position: relative;
+        /* --- Main Invitation Card --- */
+        .luxury-wrap {
+            max-width: 1000px; margin: -100px auto 100px;
+            background: var(--glass-gold);
+            padding: 100px 50px;
+            position: relative; z-index: 100;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.1);
             text-align: center;
+            border: 1px solid rgba(166, 124, 0, 0.2);
         }
 
-        .royal-card::before {
-            content: "";
-            position: absolute;
-            top: 15px; left: 15px; right: 15px; bottom: 15px;
-            border: 1px double var(--gold);
-            border-radius: 10px;
+        .gold-border-inner {
+            position: absolute; top: 25px; left: 25px; right: 25px; bottom: 25px;
+            border: 2px solid var(--gold-static);
             pointer-events: none;
         }
 
-        .name-title {
-            font-family: 'Cinzel Decorative', serif;
-            color: var(--maroon);
-            font-size: 1.6rem;
-            letter-spacing: 2px;
-            margin: 25px 0;
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            /* Remove text fill color if you want the maroon back, keep for gold effect */
-            /* -webkit-text-fill-color: transparent; */
+        /* --- Couple Portraits --- */
+        .portrait-suite {
+            display: flex; justify-content: center; gap: 50px;
+            margin-bottom: 50px;
         }
-
-        /* --- Grid & List Updates --- */
-        .sponsor-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
+        .portrait-frame {
+            width: 220px; height: 300px;
+            border: 1px solid var(--gold-static);
+            padding: 10px; background: #fff;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.1);
+            transform: rotate(-2deg); transition: 0.5s;
         }
+        .portrait-frame:nth-child(2) { transform: rotate(2deg); }
+        .portrait-frame:hover { transform: rotate(0deg) scale(1.05); z-index: 101; }
+        .portrait-frame img { width: 100%; height: 100%; object-fit: cover; }
 
-        .sponsor-box {
-            padding: 15px;
+        /* --- Countdown Suite --- */
+        .luxury-timer {
+            display: flex; justify-content: center; gap: 20px; margin: 60px 0;
+        }
+        .timer-unit {
+            border: 1px solid var(--gold-static);
+            padding: 25px; min-width: 100px;
             background: white;
-            border-bottom: 2px solid var(--gold);
-            transition: all 0.4s ease;
-            font-size: 0.95rem;
+        }
+        .timer-unit span {
+            display: block; font-size: 2.5rem; font-family: 'Cinzel Decorative';
+            font-weight: 900; color: var(--maroon-royal);
         }
 
-        .sponsor-box:hover {
-            transform: translateY(-5px);
-            background: var(--dark-maroon);
-            color: var(--gold);
+        /* --- Grid Details --- */
+        .event-details {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px; padding: 0 20px; max-width: 1100px; margin: auto;
         }
-
-        /* --- Countdown --- */
-        .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 40px 0;
+        .detail-box {
+            background: #fff; padding: 60px 40px; border: 1px solid #eee;
+            position: relative; overflow: hidden;
         }
-
-        .unit {
-            background: var(--maroon);
-            color: var(--gold);
-            padding: 15px;
-            min-width: 75px;
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(94, 11, 21, 0.3);
-        }
-
-        .unit span {
-            display: block;
-            font-size: 1.8rem;
-            font-family: 'Cinzel Decorative', serif;
-            font-weight: 700;
+        .detail-box::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: var(--gold-foil);
         }
 
         /* --- Footer --- */
         footer {
-            background: var(--dark-maroon);
-            color: #fff;
-            padding: 80px 20px;
-            text-align: center;
-            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+            background: var(--maroon-deep);
+            color: #fff; padding: 120px 20px; text-align: center;
+            position: relative;
+        }
+        footer::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 10px; background: var(--gold-foil);
         }
 
-        .music-btn {
-            position: fixed;
-            bottom: 30px; left: 30px;
-            background: var(--gold-gradient);
-            width: 55px; height: 55px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            z-index: 1000;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            font-size: 1.5rem;
-        }
-
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 3.5rem; }
-            .royal-card { padding: 40px 20px; }
-            .name-title { font-size: 1.2rem; }
+        @media (max-width: 768px) {
+            .portrait-suite { flex-direction: column; align-items: center; }
+            .luxury-wrap { padding: 80px 20px; margin: -50px 15px 50px; }
+            .timer-unit { min-width: 75px; padding: 15px; }
         }
     </style>
 </head>
 <body>
 
-    <button class="music-btn" onclick="toggleMusic()">
-        <span id="music-icon">♪</span>
-    </button>
-
-    <div style="position:fixed; top:0; left:0; width:100%; height:100%; z-index:99; pointer-events:none;">
-        <div class="particles"></div>
+    <div class="music-player">
+        <div class="play-disc" id="disc" onclick="toggleMusic()">
+            <i id="music-icon" class="fas fa-play" style="color: white; font-size: 1.5rem;"></i>
+        </div>
+        <div style="font-size: 0.7rem; letter-spacing: 2px; font-weight: bold; color: var(--gold-static);">THE SOUND OF LOVE</div>
     </div>
 
-    <div class="hero">
-        <div data-aos="fade-down" class="bismillah">﷽</div>
-        <div data-aos="zoom-out" data-aos-duration="2000">
-            <p style="letter-spacing: 8px; text-transform: uppercase;">A Royal Wedding Celebration</p>
+    <header class="hero">
+        <img src="image_8e9066.jpg" class="hero-logo" alt="Official Logo">
+        
+        <div data-aos="fade-down" style="font-size: 3rem; color: #fff; margin-bottom: 20px;">﷽</div>
+        <div data-aos="zoom-in" data-aos-duration="2500">
+            <p style="letter-spacing: 10px; color: #fff; font-size: 0.9rem; text-transform: uppercase;">A Royal Nikah Proclamation</p>
             <h1>Dondon & Riri</h1>
-            <div class="ornament"></div>
-            <p style="font-family: 'Cinzel Decorative'; font-size: 1.2rem; color: var(--gold);">21 APRIL 2026</p>
+            <p style="font-family: 'Cinzel Decorative'; font-weight: 700; color: var(--gold-static); font-size: 1.6rem; margin-top: 25px;">APRIL 21, 2026</p>
         </div>
-        <div class="float" style="position: absolute; bottom: 12%;">
-            <p style="font-size: 0.8rem; letter-spacing: 2px;">SCROLL TO DISCOVER</p>
-        </div>
-    </div>
+    </header>
 
-    <section>
-        <div class="royal-card" data-aos="fade-up">
-            <div class="portrait-frame">
-                <div class="halo"></div>
-                <img src="ri.jpg" alt="The Bride">
-            </div>
-
-            <p style="font-style: italic; color: #666;">Assalamu Alaykum Warahmatullahi Ta'ala Wa Barakatuhu</p>
-            <p style="max-width: 600px; margin: auto;">Together with our beloved families, we humbly request the honour of your presence at the Nikah of:</p>
+    <main>
+        <section class="luxury-wrap" data-aos="fade-up">
+            <div class="gold-border-inner"></div>
             
-            <div class="name-title" data-aos="fade-right">PAT AILMAR BURAHANI MURSIDI, PNP</div>
-            <div style="font-family: 'Great Vibes'; font-size: 2.5rem; color: var(--gold);">and</div>
-            <div class="name-title" data-aos="fade-left">PAT FATIMA IRIDZ ALVAREZ ARIPIN, PNP</div>
-
-            <div class="countdown" id="timer">
-                <div class="unit"><span id="days">00</span>DAYS</div>
-                <div class="unit"><span id="hours">00</span>HRS</div>
-                <div class="unit"><span id="mins">00</span>MIN</div>
-                <div class="unit"><span id="secs">00</span>SEC</div>
+            <div class="portrait-suite">
+                <div class="portrait-frame" data-aos="fade-right">
+                    <img src="image_8e9031.jpg" alt="Groom">
+                </div>
+                <div class="portrait-frame" data-aos="fade-left">
+                    <img src="image_8e9029.jpg" alt="Bride">
+                </div>
             </div>
-        </div>
-    </section>
 
-    <section>
-        <div class="sponsor-grid">
-            <div class="royal-card" data-aos="fade-up" data-aos-delay="100">
-                <h3 style="font-family: 'Great Vibes'; font-size: 2.5rem; color: var(--maroon);">Where</h3>
-                <p><strong>Queenie's Royalty Resort</strong></p>
-                <p style="font-size: 0.9rem;">Monifar Alawaddin Drive Galvez Road, Zamboanga City</p>
+            <p style="font-style: italic; opacity: 0.7; letter-spacing: 2px;">Assalamu Alaykum Warahmatullahi Ta'ala Wa Barakatuhu</p>
+            
+            <h3 style="font-family: 'Cinzel Decorative'; font-weight: 400; letter-spacing: 4px; margin-top: 40px;">WE INVITE YOU TO WITNESS THE NIKAH OF</h3>
+
+            <h2 class="gold-text" style="font-family: 'Cinzel Decorative'; font-weight: 900; font-size: clamp(1.8rem, 5vw, 2.8rem); margin: 30px 0;">
+                PAT AILMAR BURAHANI MURSIDI, PNP
+            </h2>
+            <div style="font-family: 'Great Vibes'; font-size: 4rem; color: var(--gold-static); line-height: 0.2; margin: 40px 0;">&</div>
+            <h2 class="gold-text" style="font-family: 'Cinzel Decorative'; font-weight: 900; font-size: clamp(1.8rem, 5vw, 2.8rem); margin: 30px 0;">
+                PAT FATIMA IRIDZ ALVAREZ ARIPIN, PNP
+            </h2>
+
+            <div class="luxury-timer">
+                <div class="timer-unit"><span id="days">00</span>DAYS</div>
+                <div class="timer-unit"><span id="hours">00</span>HRS</div>
+                <div class="timer-unit"><span id="mins">00</span>MIN</div>
+                <div class="timer-unit"><span id="secs">00</span>SEC</div>
             </div>
-            <div class="royal-card" data-aos="fade-up" data-aos-delay="200">
-                <h3 style="font-family: 'Great Vibes'; font-size: 2.5rem; color: var(--maroon);">When</h3>
+        </section>
+
+        <section class="event-details">
+            <div class="detail-box" data-aos="fade-up">
+                <i class="fas fa-mosque" style="font-size: 3rem; color: var(--gold-static); margin-bottom: 25px;"></i>
+                <h3 style="font-family: 'Cinzel Decorative'; letter-spacing: 2px;">The Ceremony</h3>
                 <p><strong>Tuesday, April 21, 2026</strong></p>
-                <p>Arrival of Guests: 3:00 PM</p>
+                <p>Solemnization begins at 3:00 PM</p>
             </div>
-        </div>
-    </section>
+            <div class="detail-box" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-gem" style="font-size: 3rem; color: var(--gold-static); margin-bottom: 25px;"></i>
+                <h3 style="font-family: 'Cinzel Decorative'; letter-spacing: 2px;">The Venue</h3>
+                <p><strong>Queenie's Royalty Resort</strong></p>
+                <p>Gov. Ramos Avenue, Sta. Maria,<br>Zamboanga City</p>
+            </div>
+        </section>
 
-    <section>
-        <h2 style="text-align: center;" data-aos="fade-up">Principal Sponsors</h2>
-        <div class="sponsor-grid">
-            <div class="sponsor-box" data-aos="zoom-in">Mayor Almedzhar A. Hajiri, Al-Hajj</div>
-            <div class="sponsor-box" data-aos="zoom-in">Hja. Sitti Berquiz J. Hajiri</div>
-            <div class="sponsor-box" data-aos="zoom-in">Dr. Hja. Sitti Amina Jaafar Mohammad</div>
-            <div class="sponsor-box" data-aos="zoom-in">Hon. Sarah Junihim Sumulong</div>
-            <div class="sponsor-box" data-aos="zoom-in">Ret. Mr. Makaraya U. Adil</div>
-            <div class="sponsor-box" data-aos="zoom-in">Atty. Alexis C. De Lima</div>
-            <div class="sponsor-box" data-aos="zoom-in">PCOL Antonio T. Duruin Jr.</div>
-            <div class="sponsor-box" data-aos="zoom-in">PLTCOL Mary Claire S. Duruin</div>
-        </div>
-    </section>
+        <section style="padding: 100px 20px; text-align: center;">
+            <div class="luxury-wrap" style="max-width: 750px; margin: auto; padding: 60px 40px;" data-aos="zoom-in">
+                <div class="gold-border-inner"></div>
+                <i class="fas fa-gift" style="font-size: 3rem; color: var(--gold-static); margin-bottom: 25px;"></i>
+                <h3 style="font-family: 'Great Vibes'; font-size: 3.5rem;">A Token of Love</h3>
+                <p style="line-height: 1.8; opacity: 0.8;">In Islam, the presence of loved ones is the greatest barakah. Should you wish to bless our new beginning with a gift, a contribution to our future home would be received with deep gratitude.</p>
+                <div style="background: var(--maroon-deep); color: white; display: inline-block; padding: 18px 45px; border-radius: 4px; font-weight: bold; margin-top: 30px; letter-spacing: 2px;">
+                    GCASH: 09XX XXX XXXX (FATIMA A.)
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <div class="bismillah" style="font-size: 2rem;">﷽</div>
-        <p style="max-width: 700px; margin: 20px auto; line-height: 1.8; font-weight: 300;">
-            "And among His signs is this, that He created for you mates from among yourselves, that you may dwell in tranquility with them, and He has put love and mercy between your hearts."
-        </p>
-        <div class="ornament" style="background: var(--gold-gradient); height: 1px; width: 200px;"></div>
-        <p style="letter-spacing: 4px; margin-top: 30px;">#DondonAndRiri2026</p>
+        <div data-aos="fade-up">
+            <div style="font-size: 4rem; color: var(--gold-static); margin-bottom: 30px;">﷽</div>
+            <p style="max-width: 700px; margin: 0 auto 50px; line-height: 2.2; font-style: italic; font-size: 1.2rem; font-weight: 200;">
+                "And among His signs is this, that He created for you mates from among yourselves, that you may dwell in tranquility with them; and He has put love and mercy between your hearts."
+            </p>
+            <p style="letter-spacing: 10px; font-weight: 700; color: var(--gold-static);">#DONDONANDRIRI2026</p>
+        </div>
     </footer>
 
     <audio id="bgMusic" loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+        <source src="https://cdn.pixabay.com/audio/2022/03/10/audio_c97669d04a.mp3" type="audio/mpeg">
     </audio>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1200, once: true });
+        AOS.init({ duration: 1500, once: true });
 
-        const targetDate = new Date("April 21, 2026 15:00:00").getTime();
+        // Countdown Logic
+        const target = new Date("April 21, 2026 15:00:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
-            const diff = targetDate - now;
+            const diff = target - now;
             document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
             document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
             document.getElementById("mins").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
             document.getElementById("secs").innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
         }, 1000);
 
+        // Music Logic
         const music = document.getElementById("bgMusic");
+        const disc = document.getElementById("disc");
+        const icon = document.getElementById("music-icon");
+        
         function toggleMusic() {
             if (music.paused) {
                 music.play();
-                document.getElementById("music-icon").innerText = "⏸";
+                disc.classList.add("active");
+                icon.classList.replace("fa-play", "fa-pause");
             } else {
                 music.pause();
-                document.getElementById("music-icon").innerText = "♪";
+                disc.classList.remove("active");
+                icon.classList.replace("fa-pause", "fa-play");
             }
         }
     </script>
