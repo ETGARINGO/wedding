@@ -22,6 +22,7 @@
             background-color: var(--cream);
             font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         /* --- Animated Gold Dust Overlay --- */
@@ -39,7 +40,7 @@
             to { background-position: 500px 1000px; }
         }
 
-        /* --- Hero Section with Parallax --- */
+        /* --- Hero Section --- */
         .hero {
             position: relative;
             height: 100vh;
@@ -57,26 +58,6 @@
             clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
         }
 
-        .hero-border {
-            position: absolute;
-            top: 20px; bottom: 20px; left: 20px; right: 20px;
-            border: 2px solid var(--gold);
-            pointer-events: none;
-            animation: borderPulse 3s infinite alternate;
-        }
-
-        @keyframes borderPulse {
-            from { opacity: 0.3; transform: scale(0.98); }
-            to { opacity: 0.8; transform: scale(1); }
-        }
-
-        .bismillah {
-            font-size: 3rem;
-            color: var(--gold);
-            margin-bottom: 10px;
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
-        }
-
         .hero h1 {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(3.5rem, 10vw, 6rem);
@@ -86,21 +67,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* --- Music Toggle --- */
-        .music-btn {
-            position: fixed;
-            bottom: 20px; right: 20px;
-            background: var(--maroon);
-            color: var(--gold);
-            border: 2px solid var(--gold);
-            border-radius: 50%;
-            width: 50px; height: 50px;
-            cursor: pointer; z-index: 1000;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        /* --- Sections --- */
+        /* --- Section Styling --- */
         section {
             padding: 100px 20px;
             max-width: 1000px;
@@ -125,11 +92,37 @@
             pointer-events: none;
         }
 
-        h2 {
-            font-family: 'Cinzel Decorative', serif;
-            color: var(--maroon);
-            font-size: 1.8rem;
-            margin-bottom: 50px;
+        /* --- Bride Image Integration --- */
+        .portrait-container {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            margin: -80px auto 40px auto; /* Pulls image up and out of card slightly */
+            z-index: 10;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
+        }
+
+        .bride-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%; /* Circle shape */
+            border: 10px solid var(--cream); /* Creates a thick outer ring */
+            box-shadow: 0 0 0 5px var(--gold); /* Adds a thin gold inner ring */
+        }
+
+        .portrait-frame {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            border: 2px dashed var(--gold);
+            animation: rotateFrame 30s linear infinite;
+        }
+
+        @keyframes rotateFrame {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         /* --- Countdown --- */
@@ -146,66 +139,20 @@
             padding: 15px;
             min-width: 80px;
             border-radius: 8px;
-            transform: skew(-5deg);
-            transition: 0.3s;
         }
 
-        .time-box:hover {
-            transform: skew(-5deg) translateY(-10px);
-            background: var(--dark-maroon);
-        }
-
-        .time-box span {
-            display: block;
-            font-size: 1.8rem;
-            font-weight: bold;
-            font-family: 'Cinzel Decorative', serif;
-        }
-
-        /* --- Sponsors Grid --- */
-        .sponsor-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            text-align: left;
-        }
-
-        .sponsor-item {
-            padding: 10px;
-            border-left: 3px solid transparent;
-            transition: 0.3s;
-        }
-
-        .sponsor-item:hover {
-            border-left: 3px solid var(--gold);
-            background: #fffdf5;
-            padding-left: 20px;
-        }
-
-        /* --- Footer --- */
-        footer {
-            background: var(--dark-maroon);
-            color: #fff;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .ornament {
-            width: 100px;
-            margin: 20px auto;
-            height: 2px;
-            background: linear-gradient(to right, transparent, var(--gold), transparent);
-        }
-
-        /* Floating Animation */
-        .float {
-            animation: floating 3s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
+        /* --- Music Toggle --- */
+        .music-btn {
+            position: fixed;
+            bottom: 20px; right: 20px;
+            background: var(--maroon);
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            width: 50px; height: 50px;
+            cursor: pointer; z-index: 1000;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
     </style>
 </head>
@@ -218,27 +165,28 @@
     </button>
 
     <div class="hero">
-        <div class="hero-border"></div>
-        <div data-aos="fade-down" class="bismillah">﷽</div>
+        <div data-aos="fade-down" class="bismillah" style="font-size: 3rem; color: var(--gold);">﷽</div>
         <div data-aos="zoom-in" data-aos-duration="1500">
-            <p style="letter-spacing: 5px; text-transform: uppercase; font-size: 0.9rem;">The Marriage Of</p>
+            <p style="letter-spacing: 5px; text-transform: uppercase;">The Marriage Of</p>
             <h1>Dondon & Riri</h1>
-            <div class="ornament"></div>
             <p style="font-family: 'Cinzel Decorative'; font-weight: 700; color: var(--gold);">21 APRIL 2026</p>
-        </div>
-        <div class="float" style="margin-top: 50px;">
-            <p>↓ Scroll to Open ↓</p>
         </div>
     </div>
 
     <section>
         <div class="card" data-aos="fade-up">
+            
+            <div class="portrait-container">
+                <div class="portrait-frame"></div>
+                <img src="ri.jpg" alt="Riri, The Bride" class="bride-img">
+            </div>
+            
             <p><i>Assalamu Alaykum Warahmatullahi Ta'ala Wa Barakatuhu</i></p>
             <p>Together with our beloved families, we humbly request the honour of your presence at the Nikah of:</p>
             
-            <h2 style="margin: 20px 0;">PAT AILMAR BURAHANI MURSIDI, PNP</h2>
+            <h2 style="font-family: 'Cinzel Decorative'; color: var(--maroon); margin: 20px 0;">PAT AILMAR BURAHANI MURSIDI, PNP</h2>
             <p>and</p>
-            <h2 style="margin: 20px 0;">PAT FATIMA IRIDZ ALVAREZ ARIPIN, PNP</h2>
+            <h2 style="font-family: 'Cinzel Decorative'; color: var(--maroon); margin: 20px 0;">PAT FATIMA IRIDZ ALVAREZ ARIPIN, PNP</h2>
 
             <div class="countdown" id="timer">
                 <div class="time-box"><span id="days">00</span>Days</div>
@@ -249,93 +197,29 @@
         </div>
     </section>
 
-    <section>
-        <div class="grid" style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center;">
-            <div class="card" style="flex: 1; min-width: 300px;" data-aos="fade-right">
-                <h3 style="font-family: 'Great Vibes'; font-size: 2.5rem; color: var(--maroon);">Where</h3>
-                <p><strong>Queenie's Royalty Resort</strong></p>
-                <p>Monifar Alawaddin Drive Galvez Road,<br>Zamboanga City</p>
-            </div>
-            <div class="card" style="flex: 1; min-width: 300px;" data-aos="fade-left">
-                <h3 style="font-family: 'Great Vibes'; font-size: 2.5rem; color: var(--maroon);">When</h3>
-                <p><strong>Tuesday</strong></p>
-                <p>April 21, 2026<br>3:00 in the afternoon</p>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <h2 data-aos="fade-up">Principal Sponsors</h2>
-        <div class="card" data-aos="zoom-in">
-            <div class="sponsor-list">
-                <div class="sponsor-item">Mayor Almedzhar A. Hajiri, Al-Hajj</div>
-                <div class="sponsor-item">Hja. Sitti Berquiz J. Hajiri</div>
-                <div class="sponsor-item">Dr. Hja. Sitti Amina Jaafar Mohammad</div>
-                <div class="sponsor-item">Hon. Sarah Junihim Sumulong</div>
-                <div class="sponsor-item">Ret. Mr. Makaraya U. Adil</div>
-                <div class="sponsor-item">Atty. Alexis C. De Lima</div>
-                <div class="sponsor-item">2LT Abelardd Roldan Jr. PAF (Ret)</div>
-                <div class="sponsor-item">Atty. Hairun Mina Gani Roldan</div>
-                <div class="sponsor-item">PCOL Antonio T. Duruin Jr.</div>
-                <div class="sponsor-item">PLTCOL Mary Claire S. Duruin</div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <h2 data-aos="fade-up">The Entourage</h2>
-        <div class="grid" style="display: flex; flex-wrap: wrap; gap: 20px;">
-            <div class="card" style="flex: 1; min-width: 250px;" data-aos="flip-left">
-                <h3 style="font-family: 'Great Vibes'; font-size: 2rem; color: var(--maroon);">Best Man</h3>
-                <p>PAT ANDIMOORE H. MURSIDI</p>
-            </div>
-            <div class="card" style="flex: 1; min-width: 250px;" data-aos="flip-right">
-                <h3 style="font-family: 'Great Vibes'; font-size: 2rem; color: var(--maroon);">Maid of Honor</h3>
-                <p>ANNILYN A. ANNI</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="bismillah">﷽</div>
-        <p>"And among His signs is this, that He created for you mates from among yourselves, that you may dwell in tranquility with them..." (30:21)</p>
-        <div class="ornament"></div>
-        <p>#DondonAndRiri2026</p>
-    </footer>
-
     <audio id="bgMusic" loop>
         <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
     </audio>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize Animations
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
-
-        // Countdown Logic
+        AOS.init({ duration: 1000, once: true });
+        
+        // Countdown (Keep updated for your date)
         const targetDate = new Date("April 21, 2026 15:00:00").getTime();
         setInterval(() => {
-            const now = new Date().getTime();
-            const diff = targetDate - now;
+            const diff = targetDate - new Date().getTime();
             document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
             document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             document.getElementById("mins").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             document.getElementById("secs").innerText = Math.floor((diff % (1000 * 60)) / 1000);
         }, 1000);
 
-        // Music Control
+        // Music
         const music = document.getElementById("bgMusic");
         function toggleMusic() {
-            if (music.paused) {
-                music.play();
-                document.getElementById("music-icon").innerText = "⏸";
-            } else {
-                music.pause();
-                document.getElementById("music-icon").innerText = "♪";
-            }
+            if (music.paused) { music.play(); document.getElementById("music-icon").innerText = "⏸";
+            } else { music.pause(); document.getElementById("music-icon").innerText = "♪"; }
         }
     </script>
 </body>
