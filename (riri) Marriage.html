@@ -2,474 +2,617 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>The Imperial Nikah | Dondon & Riri</title>
-    
-    <link rel="icon" type="image/png" href="ri.jpg">
-    <link rel="apple-touch-icon" href="ri.jpg">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rico & Angel Wedding</title>
+    <link rel="icon" type="image/png" href="image1.jpg">
+    <link rel="apple-touch-icon" href="image1.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ricogotangel.netlify.app/">
+    <meta property="og:title" content="Rico & Angel Wedding | May 23, 2026">
+    <meta property="og:description" content="Join us as we celebrate the sacrament of matrimony. Rico John Siason & Angel Cagulada invite you to their wedding on May 23, 2026 in Zamboanga City.">
+    <meta property="og:image" content="https://ibb.co/4nND1D5Q">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+         
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rico & Angel Wedding | May 23, 2026">
+    <meta name="twitter:description" content="Rico John Siason & Angel Cagulada invite you to their wedding. Join the celebration on May 23, 2026.">
+         
+    <meta name="description" content="Rico & Angel Wedding - May 23, 2026 at Saint Joseph Church, Zamboanga City">
+    <meta name="theme-color" content="#10b981">
 
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root {
-            --royal-maroon: #2d0205;
-            --deep-burgundy: #1a0103;
-            --gold: #d4af37;
-            --gold-light: #fcf6ba;
-            --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 45%, #b38728 70%, #fbf5b7 85%, #aa771c 100%);
-            --glass: rgba(26, 1, 3, 0.85);
-            --border-gold: rgba(212, 175, 55, 0.4);
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+                
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Lora', serif;
+            font-style: italic;
+            overflow-x: hidden;
         }
 
-        /* Reset & Core */
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        html, body { 
-            margin: 0; padding: 0; width: 100%; overflow-x: hidden;
-            background-color: var(--deep-burgundy);
-            font-family: 'Montserrat', sans-serif; color: #f8f3eb;
-            scroll-behavior: smooth;
+        /* Smooth Cinematic Scroll Reveal CSS */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.2s cubic-bezier(0.21, 1.02, 0.43, 1.01), transform 1.2s cubic-bezier(0.21, 1.02, 0.43, 1.01);
+            will-change: transform, opacity;
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        /* --- LUXURY PRELOADER --- */
-        #loader {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--royal-maroon); z-index: 9999;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            transition: transform 1.2s cubic-bezier(0.85, 0, 0.15, 1);
+        /* Enhanced Floating Hero Texts */
+        .floating-premium {
+            font-family: 'Playfair Display', serif;
+            animation: elegantFloat 6s ease-in-out infinite;
+            will-change: transform;
         }
-        .loader-ornament {
-            width: 60px; height: 60px; border: 2px solid var(--gold);
-            transform: rotate(45deg); animation: loaderSpin 2.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+        .floating-subtle {
+            animation: elegantFloatSubtle 5s ease-in-out infinite;
+            will-change: transform;
         }
-        @keyframes loaderSpin {
-            0% { transform: rotate(45deg) scale(0.8); border-radius: 0; }
-            50% { transform: rotate(225deg) scale(1.2); border-radius: 50%; border-color: var(--gold-light); }
-            100% { transform: rotate(405deg) scale(0.8); border-radius: 0; }
+        .wavy-date {
+            font-family: 'Playfair Display', serif;
+            animation: elegantFloat 5.5s ease-in-out infinite alternate;
+            will-change: transform;
         }
 
-        /* --- BACKGROUND PARTICLES --- */
-        #canvas-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.6; }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            height: 100vh; width: 100%;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; position: relative; padding: 20px;
+        @keyframes elegantFloat {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(0.5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        @keyframes elegantFloatSubtle {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Envelope Animation Styles */
+        .envelope-container {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), visibility 1s cubic-bezier(0.4, 0, 0.2, 1);
             overflow: hidden;
         }
-
-        .hero::after {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle, transparent 20%, var(--deep-burgundy) 90%);
+        .envelope-container::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('image1.jpg') center/cover no-repeat;
+            filter: blur(15px);
+            transform: scale(1.1);
+            transition: filter 1s ease-out, transform 1.2s ease-out;
             z-index: 1;
         }
-
-        .hero-content { position: relative; z-index: 2; }
-
-        .gold-shine {
-            background: var(--gold-gradient);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shine 4s linear infinite;
-            display: inline-block;
+        .envelope-container.opened::before { filter: blur(2px); transform: scale(1); }
+        .envelope-container.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
         }
-        @keyframes shine { to { background-position: 200% center; } }
-
-        .bismillah { font-family: 'Cinzel Decorative'; font-size: 0.75rem; letter-spacing: 8px; color: var(--gold); margin-bottom: 20px; text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
-        .hero-names { font-family: 'Great Vibes', cursive; font-size: clamp(3.8rem, 16vw, 7.5rem); margin: 0; line-height: 1.1; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5)); }
-        .hero-subtitle { font-family: 'Cinzel Decorative'; font-size: 0.85rem; letter-spacing: 10px; margin-top: 25px; color: var(--gold-light); font-weight: 700; }
-
-        /* --- COUNTDOWN --- */
-        .timer-grid { display: flex; gap: 15px; margin-top: 45px; justify-content: center; }
-        .timer-item { 
-            background: rgba(255, 255, 255, 0.03); 
-            border: 1px solid var(--border-gold);
-            padding: 15px 10px; min-width: 75px; border-radius: 2px;
-            backdrop-filter: blur(8px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
-        .timer-num { display: block; font-family: 'Playfair Display'; font-size: 1.8rem; color: var(--gold-light); font-weight: 700; }
-        .timer-label { font-size: 0.55rem; letter-spacing: 3px; opacity: 0.8; color: var(--gold); margin-top: 5px; }
-
-        /* --- SCROLL INDICATOR --- */
-        .scroll-down {
-            position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
-            z-index: 2; color: var(--gold); animation: bounce 2s infinite; font-size: 1.2rem;
-        }
-        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translate(-50%, 0);} 40% {transform: translate(-50%, -10px);} 60% {transform: translate(-50%, -5px);} }
-
-        /* --- CONTENT CARDS --- */
-        .container { width: 100%; max-width: 650px; margin: 0 auto; padding: 40px 20px; position: relative; z-index: 1; }
-
-        .luxury-card {
-            background: var(--glass);
-            border: 1px solid var(--border-gold);
-            padding: 50px 30px; text-align: center;
-            margin-bottom: 60px; position: relative;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
-            transition: transform 0.4s ease;
-        }
-
-        .luxury-card::before {
-            content: ""; position: absolute; top: 12px; left: 12px; right: 12px; bottom: 12px;
-            border: 1px solid rgba(212, 175, 55, 0.1); pointer-events: none;
-        }
-
-        /* Flourish Ornament */
-        .flourish { font-size: 1.5rem; color: var(--gold); margin: 20px 0; opacity: 0.8; }
-
-        .section-title { font-family: 'Cinzel Decorative'; font-size: 1.2rem; color: var(--gold); letter-spacing: 5px; margin-bottom: 35px; text-transform: uppercase; }
-        .sub-text { font-family: 'Playfair Display'; font-style: italic; font-size: 1rem; line-height: 1.8; opacity: 0.95; margin-bottom: 35px; color: #fff; }
-
-        .groom-bride-names { font-family: 'Playfair Display'; font-size: 1.4rem; font-weight: 700; line-height: 1.4; color: var(--gold-light); letter-spacing: 1.5px; text-transform: uppercase; }
-        .ampersand { font-family: 'Great Vibes'; font-size: 3.5rem; color: var(--gold); display: block; margin: 15px 0; }
-
-        .parent-block { margin: 30px 0; font-size: 0.9rem; line-height: 2; letter-spacing: 1.2px; }
-        .parent-label { font-family: 'Cinzel Decorative'; font-size: 0.7rem; color: var(--gold); margin-bottom: 8px; font-weight: 700; }
-
-        /* --- PROGRAM DETAILS GRID --- */
-        .details-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 35px;
-            padding-top: 35px; border-top: 1px solid var(--border-gold);
-        }
-        .detail-item { text-align: center; }
-        .detail-label { font-size: 0.65rem; letter-spacing: 3px; color: var(--gold); margin-bottom: 8px; text-transform: uppercase; font-weight: 600; }
-        .detail-val { font-family: 'Playfair Display'; font-size: 1.1rem; color: #fff; font-weight: 600; }
-
-        /* --- ENTOURAGE LISTS --- */
-        .role-title { font-family: 'Cinzel Decorative'; color: var(--gold); font-size: 0.8rem; letter-spacing: 4px; margin: 30px 0 15px; font-weight: 700; }
-        .names-list { font-family: 'Playfair Display'; font-size: 1.1rem; line-height: 2; }
-        .small-list { font-size: 0.9rem; line-height: 2.2; opacity: 0.95; }
-
-        /* --- AUDIO HUB --- */
-        .audio-hub {
-            position: fixed; bottom: 25px; right: 25px; z-index: 1000;
-            display: flex; align-items: center; gap: 12px;
-            background: rgba(26, 1, 3, 0.9); padding: 10px 18px;
-            border-radius: 40px; border: 1px solid var(--gold);
-            backdrop-filter: blur(15px); box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-        }
-        .play-btn {
-            width: 40px; height: 40px; border-radius: 50%; border: none;
-            background: var(--gold-gradient); color: var(--deep-burgundy);
-            cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center;
-            transition: transform 0.3s ease;
-        }
-        .play-btn:active { transform: scale(0.9); }
-
-        /* --- FOOTER --- */
-        footer { padding: 100px 20px; text-align: center; background: linear-gradient(to bottom, transparent, var(--royal-maroon)); }
-        .quran-verse { font-family: 'Playfair Display'; font-style: italic; font-size: 1.2rem; max-width: 550px; margin: 0 auto 25px; color: var(--gold-light); line-height: 1.8; }
-        .verse-ref { font-family: 'Cinzel Decorative'; font-size: 0.75rem; letter-spacing: 5px; color: var(--gold); font-weight: 700; }
-
-        /* --- BRIDE IMAGE STYLE --- */
-        .bride-image-container {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 30px auto;
-            border-radius: 50%;
-            border: 3px solid var(--gold);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            overflow: hidden;
+        .envelope {
+            width: 90%;
+            max-width: 420px;
+            height: 290px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
             position: relative;
-            z-index: 2;
+            cursor: pointer;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            perspective: 1200px;
+            z-index: 10;
         }
-
-        .bride-image {
+        .envelope:hover { transform: scale(1.05); box-shadow: 0 40px 80px rgba(16, 185, 129, 0.25); }
+        
+        .envelope-front {
+            position: absolute;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            display: block;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(16, 185, 129, 0.15);
         }
+        .envelope-flap {
+            position: absolute;
+            width: 100%;
+            height: 55%;
+            background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+            top: 0;
+            left: 0;
+            transform-origin: top center;
+            transition: transform 0.9s cubic-bezier(0.66, -0.15, 0.26, 1.15);
+            z-index: 10;
+            border-radius: 16px 16px 0 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .envelope-flap::before {
+            content: "You're Invited";
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            color: white;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+        }
+        .envelope-flap::after {
+            content: "✦ Tap to Open with Music ✦";
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.85);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 500;
+            animation: pulseText 2s infinite;
+        }
+        @keyframes pulseText {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; transform: scale(1.02); }
+        }
+        .envelope.opening .envelope-flap { transform: rotateX(140deg); }
+        .envelope-content {
+            text-align: center;
+            z-index: 5;
+            opacity: 0;
+            transform: scale(0.9) translateY(10px);
+            transition: opacity 0.6s ease-out 0.4s, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.4s;
+            padding: 40px 20px;
+        }
+        .envelope.opening .envelope-content { opacity: 1; transform: scale(1) translateY(0); }
+        .envelope-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.85rem;
+            color: #111827;
+            line-height: 1.4;
+        }
+        
+        /* Music Control Button Customizations */
+        .music-control {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 50;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid #10b981;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            transform: translateY(40px) scale(0.8);
+        }
+        .music-control.visible { opacity: 1; transform: translateY(0) scale(1); }
+        .music-control:hover {
+            background: #10b981;
+            transform: scale(1.1) rotate(15deg);
+        }
+        .music-control:hover svg { color: white; }
+        .music-control svg { width: 28px; height: 28px; color: #10b981; transition: colors 0.3s ease; }
+        
+        @keyframes musicPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
+        }
+        .music-control.playing { animation: musicPulse 2s infinite; }
+        
+        .envelope-heart {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -40%);
+            z-index: 8;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: heartbeat 1.5s infinite ease-in-out;
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: translate(-50%, -40%) scale(1); }
+            50% { transform: translate(-50%, -40%) scale(1.12); }
+        }
+        .envelope.opening .envelope-heart { opacity: 0; transform: translate(-50%, -40%) scale(0.3); }
 
-        @media (max-width: 480px) {
-            .hero-names { font-size: 4.2rem; }
-            .luxury-card { padding: 40px 20px; }
-            .details-grid { grid-template-columns: 1fr; gap: 30px; }
-            .timer-num { font-size: 1.5rem; }
-            .timer-item { min-width: 65px; }
-            .bride-image-container { width: 120px; height: 120px; } /* Slightly smaller image on mobile */
+        /* Fancy Ring Frame Effects */
+        .image-frame-ring {
+            position: relative;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .image-frame-ring:hover {
+            transform: scale(1.02) rotate(0.5deg);
         }
     </style>
 </head>
-<body>
+<body class="bg-[#f0fdf4]">
 
-    <div id="loader">
-        <div class="loader-ornament"></div>
-        <div style="margin-top: 40px; font-family: 'Cinzel Decorative'; letter-spacing: 6px; color: var(--gold); font-size: 0.8rem; font-weight: 700;">THE IMPERIAL NIKAH</div>
+    <!-- Welcome Envelope Overlay -->
+    <div id="envelopeContainer" class="envelope-container">
+        <div class="envelope" id="envelope">
+            <div class="envelope-flap"></div>
+            <div class="envelope-front">
+                <svg class="envelope-heart" viewBox="0 0 24 24" fill="#10b981">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <div class="envelope-content">
+                    <div class="envelope-text font-bold text-emerald-800">
+                        Enter<br><span class="font-['Playfair_Display'] text-3xl italic font-normal text-gray-800">Rico &amp; Angel</span><br>Wedding
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Audio Elements -->
+    <div id="musicControl" class="music-control" title="Toggle Music">
+        <svg id="musicIcon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5h-2v-2h2l5-5v12zm6-6c0-2.76-2.24-5-5-5v2c1.66 0 3 1.34 3 3s-1.34 3-3 3v2c2.76 0 5-2.24 5-5z"></path>
+        </svg>
     </div>
 
-    <canvas id="canvas-bg"></canvas>
-
-    <div class="audio-hub">
-        <div style="text-align: right">
-
-        </div>
-        <button class="play-btn" onclick="toggleAudio()">
-            <i id="btnIcon" class="fas fa-play"></i>
-        </button>
-    </div>
-
-    <section class="hero">
-        <div class="hero-content" data-aos="zoom-out" data-aos-duration="3000">
-            <div class="bismillah">BI-ISMILLĀHI R-RAḤMĀNI R-RAḤĪM</div>
-            <h1 class="hero-names gold-shine">Dondon & Riri</h1>
-            <div class="hero-subtitle">THE ROYAL NIKAH</div>
-            
-            <div class="timer-grid">
-                <div class="timer-item"><span class="timer-num" id="days">00</span><span class="timer-label">DAYS</span></div>
-                <div class="timer-item"><span class="timer-num" id="hours">00</span><span class="timer-label">HRS</span></div>
-                <div class="timer-item"><span class="timer-num" id="mins">00</span><span class="timer-label">MINS</span></div>
-                <div class="timer-item"><span class="timer-num" id="secs">00</span><span class="timer-label">SECS</span></div>
-            </div>
-        </div>
-        <div class="scroll-down">
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
-
-    <div class="container">
-        
-        <div class="luxury-card" data-aos="fade-up">
-            <div class="flourish"><i class="fas fa-feather-pointed"></i></div>
-
-            <div class="bride-image-container" data-aos="zoom-in" data-aos-delay="300">
-                <img src="ri.jpg" alt="Bride Riri" class="bride-image">
-            </div>
-            <div class="sub-text">
-                "Together with our beloved families, we humbly request the honour of your presence at our Nikah and wedding celebration."
-            </div>
-
-            <div class="groom-bride-names">PAT AILMAR BURAHANI MURSIDI, PNP</div>
-            <span class="ampersand">&</span>
-            <div class="groom-bride-names">PAT FATIMA IRIDZ ALVAREZ ARIPIN, PNP</div>
-
-            <div class="parent-block">
-                <div class="parent-label">Son of</div>
-                MR. MOORE J. MURSIDI & MRS. HULMA B. MURSIDI
-            </div>
-            <div class="parent-block">
-                <div class="parent-label">Daughter of</div>
-                PSSG DENNIS M. ARIPIN & PSMS WIDZRA A. ALVAREZ
-            </div>
-
-            <div class="sub-text" style="margin-top: 35px; font-size: 0.85rem; border-top: 1px solid rgba(212,175,55,0.2); padding-top: 25px;">
-                "As we unite in marriage to be solemnized in accordance with Islamic rites and traditions."
-            </div>
-
-            <div class="details-grid">
-                <div class="detail-item">
-                    <div class="detail-label">The Date</div>
-                    <div class="detail-val">Tuesday | April 21, 2026</div>
-                </div>
-                <div class="detail-item">
-                    <div class="detail-label">The Time</div>
-                    <div class="detail-val">3:00 PM Sharp</div>
-                </div>
-            </div>
-
-            <div style="margin-top: 40px;">
-                <div class="detail-label">The Venue</div>
-                <div class="detail-val" style="color: var(--gold-light); font-size: 1.2rem; letter-spacing: 1px;">QUEENIE'S ROYALTY RESORT</div>
-                <div style="font-size: 0.8rem; opacity: 0.8; margin-top: 10px; line-height: 1.6;">
-                    Monifar Alawaddin Drive Galvez Road,<br>
-                    Gov. Ramos Avenue, Sta. Maria, Zamboanga City
-                </div>
-            </div>
-        </div>
-
-        <div class="luxury-card" data-aos="fade-up">
-            <h2 class="section-title">Ceremonial Party</h2>
-            
-            <div class="role-title">Officiating Imam</div>
-            <div class="names-list" style="color: var(--gold-light); font-weight: 700;">Sheikh OMAR KONG</div>
-
-            <div class="role-title">Witnesses</div>
-            <div class="names-list">Hji. NADZHUR S. ALIH<br>Hji. HARUN M. JOE</div>
-
-            <div class="details-grid">
-                <div class="detail-item">
-                    <div class="role-title">Best Man</div>
-                    <div class="names-list">PAT ANDIMOORE H. MURSIDI</div>
-                </div>
-                <div class="detail-item">
-                    <div class="role-title">Maid of Honor</div>
-                    <div class="names-list">ANNILYN A. ANNI</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="luxury-card" data-aos="fade-up">
-            <h2 class="section-title">Principal Sponsors</h2>
-            <div class="details-grid" style="border: none; text-align: left;">
-                <div class="small-list">
-                    • Mayor ALMEDZHAR A. HAJIRI, Al-Hajj<br>
-                    • Dr. Hja. SITTI AMINA JAAFAR MOHAMMAD<br>
-                    • Ret. Mr. MAKARAYA U. ADIL<br>
-                    • 2LT ABELARDD ROLDAN JR. PAF (Ret)<br>
-                    • Hji. RHAMZIE M. NASALUDDIN<br>
-                    • PCOL ANTONIO T. DURUIN JR.<br>
-                    • PCOL MUAMMAR A. MUKARAM<br>
-                    • Ret. PMAJ ALSON A. ARIPIN<br>
-                    • Ret. Lt/PAF Hji. RIZA M. KINANG
-                </div>
-                <div class="small-list">
-                    • Hja. SITTI BERQUIZ J. HAJIRI<br>
-                    • Hon. SARAH JUNIHIM SUMULONG<br>
-                    • Atty. ALEXIS C. DE LIMA<br>
-                    • Atty. HAIRUN MINA GANI Roldan<br>
-                    • PLTCOL JASON M. APANA<br>
-                    • PLTCOL MARY CLAIRE S. DURUIN<br>
-                    • Ret. PMAJ EUSTOLIA A. BUENAVENTURA<br>
-                    • Ret. PLT ZORAIDA M. ARIPIN<br>
-                    • Hja. ALUYA M. KINANG
-                </div>
-            </div>
-        </div>
-
-        <div class="luxury-card" data-aos="fade-up">
-            <h2 class="section-title">The Wedding Party</h2>
-            
-            <div class="details-grid" style="border: none;">
-                <div>
-                    <div class="role-title">Groomsmen</div>
-                    <div class="small-list">NEVEN T. MAURO<br>MOH. KYZEN A. ARIPIN<br>KHIESHAN RAFF A. MURSIDI<br>SAJID M. JANANG</div>
-                </div>
-                <div>
-                    <div class="role-title">Bridesmaids</div>
-                    <div class="small-list">SHANADAR M. JANANG<br>RYHAINNIE CLYNE D. ALVAREZ<br>EIRHAM TANJILIL<br>NOURUS-SIRAJ S. HADDAMAN</div>
-                </div>
-            </div>
-
-            <div class="role-title">Flower Girls</div>
-            <div class="small-list">SAADA M. JANANG • ALIYAH MOORE C. MURSIDI • ASHADIYAH A. SAPIE</div>
-
-            <div class="details-grid" style="border: none; margin-top: 10px;">
-                <div>
-                    <div class="role-title">Contract Bearer</div>
-                    <div class="small-list">DAFIL H. MURSIDI</div>
-                </div>
-                <div>
-                    <div class="role-title">Ring Bearer</div>
-                    <div class="small-list">SADIR M. JANANG</div>
-                </div>
-            </div>
-
-            <div class="role-title">Coin Bearer</div>
-            <div class="small-list">MOH. SAIF M. JANANG</div>
-
-            <div style="margin-top: 50px; border-top: 1px solid var(--border-gold); padding-top: 30px;">
-                <div class="role-title" style="margin-top: 0;">Event Coordinator</div>
-                <div class="names-list" style="color: var(--gold-light); font-weight: 700;">QUEENIE'S ROYALTY EVENTS</div>
-            </div>
-        </div>
-
-    </div>
-
-    <footer>
-        <div data-aos="fade-up">
-            <div class="quran-verse">
-                "And among His signs is this, that He created for you mates from among yourselves, that you may dwell in tranquility with them."
-            </div>
-            <div class="verse-ref">SURAH AR-RUM 30:21</div>
-            <div style="margin-top: 80px; font-size: 0.65rem; opacity: 0.5; letter-spacing: 6px; font-weight: 600;">THE IMPERIAL NIKAH • 2026</div>
-        </div>
-    </footer>
-
-    <audio id="bgMusic" loop>
-        <source src="https://fsi-languages.yojik.eu/languages/DLI/Tausug/Tausug%20Sound%20Files/Tausug%20Pop%20Music/Lagu%20Lagu%20Suluk.mp3" type="audio/mpeg">
+    <audio id="bgMusic" preload="auto" loop>
+        <source src="music1.mp3" type="audio/mpeg">
     </audio>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <main id="mainContent">
+        <!-- Hero/Intro Screen -->
+        <section class="relative w-full h-screen flex items-center justify-center text-center overflow-hidden bg-black">
+            <video autoplay muted loop playsinline poster="flowers2.png" class="absolute inset-0 w-full h-full object-cover z-0" style="opacity: 0.75;">
+                <source src="Vid2.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-[#f0fdf4] z-10"></div>
+            
+            <div class="relative z-20 text-white space-y-6 px-6 max-w-3xl">
+                <p class="text-xl sm:text-2xl tracking-widest floating-subtle opacity-90">
+                    By the grace of God and with<br>the blessing of our families,
+                </p>
+                <p class="text-2xl sm:text-3xl font-light floating-subtle opacity-80">We,</p>
+                                
+                <h1 class="floating-premium text-6xl sm:text-7xl lg:text-8xl break-words px-2 font-semibold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-white via-emerald-100 to-white drop-shadow-xl">
+                    Rico & Angel
+                </h1>
+                <p class="text-lg sm:text-xl max-w-xl mx-auto floating-subtle leading-relaxed text-gray-100">
+                    Cordially invite you to join us as we celebrate the sacrament of matrimony on
+                </p>
+                <p class="wavy-date text-4xl sm:text-5xl lg:text-6xl font-bold text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+                    May 23, 2026
+                </p>
+                <div class="space-y-1 floating-subtle text-emerald-100 font-medium">
+                    <p class="text-lg sm:text-2xl">@ Saint Joseph Church, Nunez Str,. Zamboanga City</p>
+                    <p class="text-lg sm:text-xl tracking-wide uppercase text-white/90">Saturday at 1:00 PM</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Reveal Section -->
+        <section class="reveal-on-scroll py-20 px-6 max-w-6xl mx-auto text-center relative -mt-10 z-20">
+            <div class="inline-block relative mx-auto mb-8 image-frame-ring">
+                <div class="bg-white p-4 rounded-2xl shadow-2xl border border-emerald-100 relative z-10">
+                    <div class="bg-[#fdf8f2] p-2 border border-emerald-200/60 rounded-xl overflow-hidden">
+                        <img src="image1.jpg" alt="Rico and Angel" class="w-64 h-64 md:w-85 md:h-85 object-cover rounded-lg shadow-inner hover:scale-105 transition-transform duration-700 ease-out">
+                    </div>
+                </div>
+                <!-- Animated Flourish Icons -->
+                <div class="absolute -top-6 -left-6 text-emerald-500 opacity-60 animate-bounce duration-[4000ms]">
+                    <svg width="45" height="45" viewBox="0 0 40 40" fill="currentColor">
+                        <path d="M20 2C10 2 2 10 2 20s8 18 18 18 18-8 18-18S30 2 20 2zm-2 24c-3-1-6-4-6-9 0-2 .8-4 2-6 1 2 2 4 2 6s1 4 2 9z"/>
+                    </svg>
+                </div>
+                <div class="absolute -bottom-6 -right-6 text-emerald-500 opacity-60 scale-x-[-1] animate-bounce duration-[4500ms]">
+                    <svg width="45" height="45" viewBox="0 0 40 40" fill="currentColor">
+                        <path d="M20 2C10 2 2 10 2 20s8 18 18 18 18-8 18-18S30 2 20 2zm-2 24c-3-1-6-4-6-9 0-2 .8-4 2-6 1 2 2 4 2 6s1 4 2 9z"/>
+                    </svg>
+                </div>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-emerald-800 mb-4 font-semibold tracking-wide">We are Getting Married!</h2>
+            <h3 class="text-2xl font-['Playfair_Display'] font-medium mb-2 text-emerald-600">Join us in celebrating our love</h3>
+            <h3 class="text-xl font-['Playfair_Display'] font-light italic text-gray-600">With Love, Rico & Angel</h3>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="reveal-on-scroll py-20 px-6 max-w-6xl mx-auto text-center bg-white/60 backdrop-blur-sm rounded-3xl shadow-xl border border-white relative">
+            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-emerald-800 mb-12 font-semibold">Our Moments</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="overflow-hidden rounded-2xl shadow-lg border border-emerald-50 group">
+                    <img src="image2.jpg" alt="Moment 1" class="w-full h-80 object-cover group-hover:scale-110 group-hover:rotate-1 transition-transform duration-700">
+                </div>
+                <div class="overflow-hidden rounded-2xl shadow-lg border border-emerald-50 group">
+                    <img src="image3.jpg" alt="Moment 2" class="w-full h-80 object-cover group-hover:scale-110 group-hover:-rotate-1 transition-transform duration-700">
+                </div>
+                <div class="overflow-hidden rounded-2xl shadow-lg border border-emerald-50 group">
+                    <img src="image5.jpg" alt="Moment 3" class="w-full h-80 object-cover group-hover:scale-110 group-hover:rotate-1 transition-transform duration-700">
+                </div>
+            </div>
+        </section>
+
+        <!-- Venue Blocks with Clickable QR Code Links -->
+        <section class="reveal-on-scroll py-20 px-6 bg-white/40 relative mt-16">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-emerald-800 text-center mb-12 font-semibold">Venue &amp; Details</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    
+                    <!-- Ceremony Container -->
+                    <div class="text-center p-8 bg-white/90 rounded-2xl shadow-md border border-emerald-100/60 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+                        <h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-4 text-emerald-700">Ceremony Venue</h3>
+                        <p class="text-xl font-bold text-gray-800">Saint Joseph Church</p>
+                        <p class="text-lg text-gray-600 italic">(Nunez Street,. Z.C.)</p>
+                        <p class="text-md mt-3 font-semibold text-emerald-600 bg-emerald-50 inline-block px-4 py-1 rounded-full">Time: 1:00 PM</p>
+                                                
+                        <div class="mt-6 flex justify-center">
+                            <!-- Clickable QR Wrapper Link -->
+                            <a href="https://maps.app.goo.gl/tDbxCJhx1rn3qUQM7?g_st=com.google.maps.preview.copy" target="_blank" rel="noopener noreferrer" class="group/qr bg-gray-50 p-3 rounded-xl border border-emerald-100 inline-block shadow-inner hover:scale-105 hover:border-emerald-400 hover:bg-emerald-50/30 transition-all duration-300 cursor-pointer" title="Click to open map">
+                                <img src="scan1.png" alt="QR code for ceremony venue" class="w-40 h-40 object-contain" />
+                                <p class="text-xs text-emerald-600 font-bold tracking-wider uppercase mt-3 transition-colors group-hover/qr:text-emerald-700">✦ Tap to Open Map ✦</p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Reception Container -->
+                    <div class="text-center p-8 bg-white/90 rounded-2xl shadow-md border border-emerald-100/60 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+                        <h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-4 text-emerald-700">Reception Venue</h3>
+                        <p class="text-xl font-bold text-gray-800">Grand Astoria Hotel</p>
+                        <p class="text-lg text-gray-600 italic">(Mayor Jaldon Street., Z.C.)</p>
+                        <p class="text-md mt-3 font-semibold text-emerald-600 bg-emerald-50 inline-block px-4 py-1 rounded-full">Time: 5:30 PM</p>
+                                                
+                        <div class="mt-6 flex justify-center">
+                            <!-- Clickable QR Wrapper Link -->
+                            <a href="https://maps.app.goo.gl/ipWuEwVhtLB7zQJS8?g_st=com.google.maps.preview.copy" target="_blank" rel="noopener noreferrer" class="group/qr bg-gray-50 p-3 rounded-xl border border-emerald-100 inline-block shadow-inner hover:scale-105 hover:border-emerald-400 hover:bg-emerald-50/30 transition-all duration-300 cursor-pointer" title="Click to open map">
+                                <img src="scan2.png" alt="QR code for reception venue" class="w-40 h-40 object-contain" />
+                                <p class="text-xs text-emerald-600 font-bold tracking-wider uppercase mt-3 transition-colors group-hover/qr:text-emerald-700">✦ Tap to Open Map ✦</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider Banner -->
+        <section class="reveal-on-scroll py-20 px-6 text-center bg-gradient-to-b from-transparent via-white/70 to-transparent">
+            <h2 class="text-2xl md:text-3xl font-['Playfair_Display'] text-emerald-700 mb-4 italic">A Journey Together</h2>
+            <p class="text-4xl md:text-5xl font-['Playfair_Display'] font-bold text-gray-800 tracking-wide">From This Day Forward</p>
+            <p class="text-md uppercase tracking-widest text-gray-500 mt-4 font-semibold">With love, faith, and endless blessings</p>
+        </section>
+
+        <!-- Entourage Lists Container -->
+        <section class="reveal-on-scroll py-20 px-6 max-w-4xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-emerald-800 text-center mb-12 font-semibold">Wedding Entourage</h2>
+                        
+            <div class="space-y-8 text-center md:text-left">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-50 hover:shadow-md transition-shadow">
+                    <h3 class="text-xl font-['Playfair_Display'] font-semibold mb-3 border-b border-emerald-100 pb-2 text-emerald-700">Parents of the Groom</h3>
+                    <p class="text-gray-800 font-medium not-italic">Mr. Enerio P. Siason & Mrs. Evelyn C. Siason</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-50 hover:shadow-md transition-shadow">
+                    <h3 class="text-xl font-['Playfair_Display'] font-semibold mb-3 border-b border-emerald-100 pb-2 text-emerald-700">Parents of the Bride</h3>
+                    <p class="text-gray-800 font-medium not-italic">Mr. Joseph S. Cagulada & Mrs. Ruth B. Cagulada</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-50">
+                        <h3 class="text-lg font-['Playfair_Display'] font-semibold mb-2 text-emerald-700">Best Man</h3>
+                        <p class="text-gray-800 font-medium not-italic">Earl Quin Dane Gaurana</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-50">
+                        <h3 class="text-lg font-['Playfair_Display'] font-semibold mb-2 text-emerald-700">Maid of Honor</h3>
+                        <p class="text-gray-800 font-medium not-italic">Christel Jane B. Cagulada</p>
+                    </div>
+                </div>
+
+                <!-- Principal Sponsors Split Layout -->
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-emerald-100/50">
+                    <h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-6 border-b border-emerald-100 pb-3 text-center text-emerald-800">Principal Sponsors</h3>
+                                        
+                    <div class="flex flex-col md:flex-row md:gap-8">
+                        <div class="flex-1 text-center md:text-right">
+                            <p class="text-xs uppercase font-bold text-emerald-600 tracking-widest mb-3">Gentlemen Sponsors</p>
+                            <div class="space-y-1.5 not-italic text-sm text-gray-700">
+                                <p><span class="font-semibold text-emerald-700">Mr.</span> Billy Renz M. Dalogdog</p>
+                                <p><span class="font-semibold text-emerald-700">Mr.</span> Ruben Balagosa</p>
+                                <p><span class="font-semibold text-emerald-700">Mr.</span> Joel Melendres</p>
+                                <p><span class="font-semibold text-emerald-700">Mr.</span> Giovani V. Surigao</p>
+                                <p><span class="font-semibold text-emerald-700">Mr.</span> Ranielle Sanson</p>
+                                <p><span class="font-semibold text-emerald-700">Mr.</span> Norico Quinan</p>
+                                <p><span class="font-semibold text-emerald-700">Mr.</span> Ruselo Cosmiano</p>
+                                <p><span class="font-semibold text-emerald-700">Mr.</span> John Natividad</p>
+                                <p><span class="font-semibold text-emerald-700">Mr.</span> Ermando H. Melon</p>
+                                <p><span class="font-semibold text-emerald-700">Mr.</span> Rodolfo M. Relano</p>
+                            </div>
+                        </div>
+
+                        <div class="hidden md:block w-px bg-gradient-to-b from-emerald-100 via-emerald-400 to-emerald-100 my-2"></div>
+                        <div class="md:hidden my-6 border-t border-emerald-100 relative">
+                            <span class="absolute left-1/2 -top-2.5 -translate-x-1/2 bg-white px-3 text-xs tracking-wider text-emerald-500 uppercase font-bold">✦</span>
+                        </div>
+
+                        <div class="flex-1 text-center md:text-left">
+                            <p class="text-xs uppercase font-bold text-emerald-600 tracking-widest mb-3">Ladies Sponsors</p>
+                            <div class="space-y-1.5 not-italic text-sm text-gray-700">
+                                <p><span class="font-semibold text-emerald-700">Mrs.</span> Rhelyn H. Dalogdog</p>
+                                <p><span class="font-semibold text-emerald-700">Mrs.</span> Aileen Balagosa</p>
+                                <p><span class="font-semibold text-emerald-700">Mrs.</span> Erlinda Melendres</p>
+                                <p><span class="font-semibold text-emerald-700">Mrs.</span> Rochelyn G. Surigao</p>
+                                <p><span class="font-semibold text-emerald-700">Mrs.</span> Nenevic O. Palis</p>
+                                <p><span class="font-semibold text-emerald-700">Mrs.</span> Marizel Quinan</p>
+                                <p><span class="font-semibold text-emerald-700">Mrs.</span> Lilian Cosmiano</p>
+                                <p><span class="font-semibold text-emerald-700">Mrs.</span> Joyce Xiong</p>
+                                <p><span class="font-semibold text-emerald-700">Mrs.</span> Rawsienna Cabarrubias</p>
+                                <p><span class="font-semibold text-emerald-700">Mrs.</span> Zarah Marie D. Bernardino</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-50">
+                    <h3 class="text-xl font-['Playfair_Display'] font-semibold mb-4 border-b border-emerald-100 pb-2 text-emerald-700">Secondary Sponsors</h3>
+                    <div class="space-y-3 text-gray-700 not-italic text-sm">
+                        <p><strong class="font-semibold text-emerald-800">Candle:</strong> Nelito James R. Muñoz & Rachael R. Muñoz</p>
+                        <p><strong class="font-semibold text-emerald-800">Veil:</strong> Erwin S. Cagulada & Karen B. Cagulada</p>
+                        <p><strong class="font-semibold text-emerald-800">Cord:</strong> Ariel Siason & Aniegay Siason </p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-50">
+                        <h3 class="text-lg font-['Playfair_Display'] font-semibold mb-3 text-emerald-700">Groomsmen</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed not-italic">Mark John Brian B. Cagulada, Mark John Rey B. Cagulada, John Carlo C. Siason, Alvin C. Siason, Alexiz C. Quitoriano, Arvin Joey Romo, Jimuel Van Galabin, Lenard Balagosa</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-50">
+                        <h3 class="text-lg font-['Playfair_Display'] font-semibold mb-3 text-emerald-700">Bridesmaids</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed not-italic">Winshei G. Cagulada, Shanine Balagosa, Marian Macapili, Dorothy Love R. Siason, Janielle Joy R. Siason, Barbie Shaixien Cagulada, April Mae Jayyari, Rhoshelle-Anne Cagulada</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Informational Sub-details Section -->
+        <section class="reveal-on-scroll py-20 px-6 bg-gradient-to-br from-emerald-50 via-white to-white rounded-t-[3rem] shadow-inner">
+            <div class="max-w-3xl mx-auto text-center space-y-12">
+                <div>
+                    <h2 class="text-3xl font-['Playfair_Display'] text-emerald-800 mb-3 font-semibold">Finer Details</h2>
+                    <p class="text-lg font-bold text-gray-800 uppercase tracking-wider">Attire: Strictly Semiformal/Formal</p>
+                    <p class="text-sm text-gray-500 max-w-md mx-auto mt-2 mb-6">We encourage you to dress according to our wedding color palette to create a cohesive and elegant celebration.</p>
+                    <div class="flex justify-center">
+                        <img src="color.png" alt="Wedding Color Palette" class="rounded-2xl shadow-lg max-w-xs hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+                <hr class="border-emerald-100 max-w-xs mx-auto">
+                <div>
+                    <h3 class="text-2xl font-['Playfair_Display'] text-emerald-800 mb-3 font-semibold">Wishing Well</h3>
+                    <p class="text-gray-600 leading-relaxed max-w-xl mx-auto italic">
+                        "With all that we have, we are truly blessed. Your presence and prayer are all that we request, but if you desire to give nonetheless, monetary gift is the one we suggest."
+                    </p>
+                </div>
+                <hr class="border-emerald-100 max-w-xs mx-auto">
+                <div>
+                    <h3 class="text-2xl font-['Playfair_Display'] text-emerald-800 mb-3 font-semibold">Unplugged Ceremony</h3>
+                    <p class="text-gray-600 max-w-lg mx-auto">
+                        We have invited a professional team to help us capture this day. Please keep your devices silent and fully enjoy the moment with us.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP Interaction Section -->
+        <section class="reveal-on-scroll py-20 px-6 text-center bg-white relative">
+            <h2 class="text-4xl font-['Playfair_Display'] text-emerald-800 mb-4 font-semibold">RSVP</h2>
+            <p class="text-sm text-gray-600 max-w-xl mx-auto mb-8 leading-relaxed">
+                As this is an intimate wedding celebration, we’ve strictly reserved seats for you! We hope for your kind understanding by not bringing plus ones to our event. <br><span class="font-bold text-emerald-700">Please confirm attendance by messaging us on Facebook on or before May 20, 2026.</span>
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+                <a href="https://www.facebook.com/share/19NP9fTqxq/" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3.5 px-8 rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl not-italic shadow-md tracking-wide text-sm">Facebook: Rico John Siason</a>
+                <a href="https://www.facebook.com/share/18ff7YziLT/?mibextid=wwXIfr" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3.5 px-8 rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl not-italic shadow-md tracking-wide text-sm">Facebook: Tchr Angelic</a>
+            </div>
+            
+            <h3 class="text-2xl font-['Playfair_Display'] text-emerald-800 mb-6 font-semibold tracking-wide">Important Reminders</h3>
+            <div class="flex flex-wrap justify-center gap-4 text-sm sm:text-base not-italic">
+                <span class="bg-emerald-50/60 text-emerald-800 px-6 py-3 rounded-full shadow-sm border border-emerald-100 hover:bg-white hover:shadow-md transition-all duration-300 font-medium">✦ Be on time</span>
+                <span class="bg-emerald-50/60 text-emerald-800 px-6 py-3 rounded-full shadow-sm border border-emerald-100 hover:bg-white hover:shadow-md transition-all duration-300 font-medium">✦ Finish the event</span>
+                <span class="bg-emerald-50/60 text-emerald-800 px-6 py-3 rounded-full shadow-sm border border-emerald-100 hover:bg-white hover:shadow-md transition-all duration-300 font-medium">✦ Be blessed &amp; Have fun</span>
+            </div>
+        </section>
+
+        <!-- Footer Element -->
+        <footer class="py-12 text-center text-gray-400 text-xs tracking-widest border-t border-gray-100 bg-white">
+            <p class="uppercase font-semibold text-gray-500 mb-1">#RicoGotHisAngel</p>
+            <p class="italic">Made with love • 2026</p>
+        </footer>
+    </main>
+
+    <!-- Script Implementations -->
+    <script src="https://cdn.jsdelivr.net/npm/sakura-js@1.3.1/sakura.min.js"></script>
     <script>
-        // Preloader Logic
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const loader = document.getElementById('loader');
-                loader.style.transform = 'translateY(-100%)';
-                AOS.init({ 
-                    duration: 1200, 
-                    once: true,
-                    offset: 50
+        document.addEventListener('DOMContentLoaded', () => {
+            const envelopeContainer = document.getElementById('envelopeContainer');
+            const envelope = document.getElementById('envelope');
+            const bgMusic = document.getElementById('bgMusic');
+            const musicControl = document.getElementById('musicControl');
+            const musicIcon = document.getElementById('musicIcon');
+
+            // Handle Envelope Click / Opening Sequence
+            envelope.addEventListener('click', () => {
+                envelope.classList.add('opening');
+                envelopeContainer.classList.add('opened');
+
+                // Interactivity Safe Audio Activation
+                bgMusic.play().then(() => {
+                    musicControl.classList.add('visible', 'playing');
+                }).catch(err => {
+                    console.log("Audio waiting for explicit manual interaction framework: ", err);
+                    musicControl.classList.add('visible');
                 });
-            }, 2500);
-        });
 
-        // Countdown Logic
-        const target = new Date("April 21, 2026 15:00:00").getTime();
-        function updateTimer() {
-            const now = new Date().getTime();
-            const diff = target - now;
-            if (diff < 0) return;
-            const d = Math.floor(diff / 86400000);
-            const h = Math.floor((diff % 86400000) / 3600000);
-            const m = Math.floor((diff % 3600000) / 60000) ;
-            const s = Math.floor((diff % 60000) / 1000);
-            document.getElementById('days').innerText = d.toString().padStart(2, '0');
-            document.getElementById('hours').innerText = h.toString().padStart(2, '0');
-            document.getElementById('mins').innerText = m.toString().padStart(2, '0');
-            document.getElementById('secs').innerText = s.toString().padStart(2, '0');
-        }
-        setInterval(updateTimer, 1000); updateTimer();
+                // Clear layout view upon wrapper animation finalization
+                setTimeout(() => {
+                    envelopeContainer.classList.add('hidden');
+                }, 1000);
+            });
 
-        // Audio Logic
-        const audio = document.getElementById("bgMusic");
-        const btnIcon = document.getElementById("btnIcon");
-        function toggleAudio() {
-            if (audio.paused) { 
-                audio.play(); 
-                btnIcon.className = "fas fa-pause"; 
-            } else { 
-                audio.pause(); 
-                btnIcon.className = "fas fa-play"; 
-            }
-        }
-
-        // Refined Particle System (Gold Dust)
-        const canvas = document.getElementById('canvas-bg');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-        
-        function initCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            particles = [];
-            for(let i=0; i<100; i++) {
-                particles.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    size: Math.random() * 1.5 + 0.5,
-                    speed: Math.random() * 0.4 + 0.1,
-                    opacity: Math.random() * 0.5 + 0.2
-                });
-            }
-        }
-        
-        function draw() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => {
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(212, 175, 55, ${p.opacity})`;
-                ctx.fill();
-                
-                p.y -= p.speed;
-                p.x += Math.sin(p.y / 50) * 0.2; // Slight drift
-                
-                if(p.y < -10) {
-                    p.y = canvas.height + 10;
-                    p.x = Math.random() * canvas.width;
+            // Toggle Audio Streaming Framework
+            musicControl.addEventListener('click', () => {
+                if (bgMusic.paused) {
+                    bgMusic.play();
+                    musicControl.classList.add('playing');
+                    musicIcon.innerHTML = `<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5h-2v-2h2l5-5v12zm6-6c0-2.76-2.24-5-5-5v2c1.66 0 3 1.34 3 3s-1.34 3-3 3v2c2.76 0 5-2.24 5-5z"></path>`;
+                } else {
+                    bgMusic.pause();
+                    musicControl.classList.remove('playing');
+                    musicIcon.innerHTML = `<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM4 9v6h4l5 5V4L8 9H4zm16.5 3c0 2.52-1.3 4.74-3.25 6l1.42 1.42C21.12 17.65 22.5 15 22.5 12s-1.38-5.65-3.83-7.42L17.25 6c1.95 1.26 3.25 3.48 3.25 6z"></path>`;
                 }
             });
-            requestAnimationFrame(draw);
-        }
-        
-        window.addEventListener('resize', initCanvas);
-        initCanvas(); 
-        draw();
+
+            // Intersection Observer Setup for Premium Scroll Effects
+            const scrollSections = document.querySelectorAll('.reveal-on-scroll');
+            const observerOptions = { threshold: 0.12, rootMargin: "0px 0px -20px 0px" };
+
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting){
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Elements stay visible once loaded
+                    }
+                });
+            }, observerOptions);
+
+            scrollSections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+
+            // Sakura Petals Falling Engine Core Configuration
+            if (typeof Sakura === 'function') {
+                new Sakura('body', {
+                    colors: [
+                        { gradientStart: '#f0fdf4', gradientEnd: '#bbf7d0', gradientMiddle: '#dcfce7' },
+                        { gradientStart: '#f0fdf4', gradientEnd: '#a7f3d0', gradientMiddle: '#ecfdf5' }
+                    ],
+                    delay: 200,
+                    maxSize: 14,
+                    minSize: 8,
+                    fallSpeed: 1.5
+                });
+            }
+        });
     </script>
 </body>
 </html>
