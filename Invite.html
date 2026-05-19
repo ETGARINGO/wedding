@@ -6,6 +6,8 @@
     <title>Rico & Angel Wedding</title>
     <link rel="icon" type="image/png" href="image2.jpg">
     <link rel="apple-touch-icon" href="image2.jpg">
+    
+    <!-- Open Graph Metadata -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ricogotangel.netlify.app/">
     <meta property="og:title" content="Rico & Angel Wedding | May 23, 2026">
@@ -15,6 +17,7 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:type" content="image/jpeg">
          
+    <!-- Twitter Card Metadata -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Rico & Angel Wedding | May 23, 2026">
     <meta name="twitter:description" content="Rico John Siason & Angel Cagulada invite you to their wedding. Join the celebration on May 23, 2026.">
@@ -24,7 +27,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
                 
         html { scroll-behavior: smooth; }
         body {
@@ -152,6 +155,7 @@
             color: white;
             letter-spacing: 0.05em;
             margin-bottom: 6px;
+            font-style: normal;
         }
         .envelope-flap::after {
             content: "✦ Tap to Open with Music ✦";
@@ -160,6 +164,7 @@
             letter-spacing: 0.12em;
             text-transform: uppercase;
             font-weight: 500;
+            font-style: normal;
             animation: pulseText 2s infinite;
         }
         @keyframes pulseText {
@@ -181,6 +186,7 @@
             font-size: 1.85rem;
             color: #111827;
             line-height: 1.4;
+            font-style: normal;
         }
         
         /* Floating Control Button Mechanics */
@@ -209,7 +215,7 @@
             transform: scale(1.1) rotate(15deg);
         }
         .music-control:hover svg { color: white; }
-        .music-control svg { width: 28px; height: 28px; color: #10b981; transition: colors 0.3s ease; }
+        .music-control svg { width: 28px; height: 28px; color: #10b981; transition: color 0.3s ease; }
         
         @keyframes musicPulse {
             0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
@@ -241,6 +247,7 @@
             opacity: 0;
             transform: translateY(40px) scale(0.8);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            font-style: normal;
         }
         .rsvp-trigger-btn.visible { opacity: 1; transform: translateY(0) scale(1); }
         .rsvp-trigger-btn:hover {
@@ -326,9 +333,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
                     </svg>
                 </div>
-                <span class="font-['Playfair_Display'] text-lg font-semibold tracking-wider text-emerald-900 group-hover:text-emerald-700 transition-colors">Rico &amp; Angel</span>
+                <span class="font-['Playfair_Display'] text-lg font-semibold tracking-wider text-emerald-900 group-hover:text-emerald-700 transition-colors not-italic">Rico &amp; Angel</span>
             </a>
-            <div class="text-xs uppercase font-semibold tracking-widest text-emerald-700/80 bg-emerald-50 border border-emerald-100 rounded-full px-3 py-1">
+            <div class="text-xs uppercase font-semibold tracking-widest text-emerald-700/80 bg-emerald-50 border border-emerald-100 rounded-full px-3 py-1 font-sans not-italic">
                 May 23, 2026
             </div>
         </div>
@@ -354,7 +361,7 @@
     <!-- Floating Interactive Action Buttons -->
     <div id="musicControl" class="music-control" title="Toggle Music">
         <svg id="musicIcon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5h-2v-2h2l5-5v12zm6-6c0-2.76-2.24-5-5-5v2c1.66 0 3 1.34 3 3s-1.34 3-3 3v2c2.76 0 5-2.24 5-5z"></path>
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
         </svg>
     </div>
 
@@ -368,10 +375,9 @@
     <!-- Upgraded RSVP Portal Modal Overlay Layout -->
     <div id="rsvpModal" class="modal-overlay">
         <div class="modal-wrapper">
-            <!-- Modal Header Core -->
             <div class="px-6 py-4 bg-gradient-to-r from-emerald-50 to-white border-b border-emerald-100 flex items-center justify-between">
                 <div class="text-left">
-                    <h2 class="font-['Playfair_Display'] text-2xl font-bold text-emerald-900">Wedding RSVP</h2>
+                    <h2 class="font-['Playfair_Display'] text-2xl font-bold text-emerald-900 not-italic">Wedding RSVP</h2>
                     <p class="text-xs text-gray-500 italic">Rico &amp; Angel Wedding • May 23, 2026</p>
                 </div>
                 <button id="closeModalBtn" class="w-10 h-10 rounded-full bg-white border border-emerald-100 flex items-center justify-center text-gray-400 hover:text-emerald-600 hover:border-emerald-300 shadow-sm transition-all duration-300 focus:outline-none" title="Close Form">
@@ -380,7 +386,6 @@
                     </svg>
                 </button>
             </div>
-            <!-- Seamless Iframe Integration Body -->
             <div class="flex-1 w-full bg-emerald-50/20 relative">
                 <iframe src="https://script.google.com/macros/s/AKfycbysJWowzk4Xt2GefILHx7ezirbfpvYHOJP4fzkrVQ_Y_tIkjFWYLApt2wEuq3sZ4LZDLw/exec" 
                         class="absolute inset-0 w-full h-full border-0" 
@@ -391,6 +396,7 @@
         </div>
     </div>
 
+    <!-- Background Media Engine Context -->
     <audio id="bgMusic" preload="auto" loop>
         <source src="music1.mp3" type="audio/mpeg">
     </audio>
@@ -409,18 +415,18 @@
                 </p>
                 <p class="text-2xl sm:text-3xl font-light floating-subtle opacity-80">We,</p>
                                 
-                <h1 class="floating-premium text-6xl sm:text-7xl lg:text-8xl break-words px-2 font-semibold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-white via-emerald-100 to-white drop-shadow-xl">
+                <h1 class="floating-premium text-6xl sm:text-7xl lg:text-8xl break-words px-2 font-semibold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-white via-emerald-100 to-white drop-shadow-xl not-italic">
                     Rico &amp; Angel
                 </h1>
                 <p class="text-lg sm:text-xl max-w-xl mx-auto floating-subtle leading-relaxed text-gray-100">
                     Cordially invite you to join us as we celebrate the sacrament of matrimony on
                 </p>
-                <p class="wavy-date text-4xl sm:text-5xl lg:text-6xl font-bold text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+                <p class="wavy-date text-4xl sm:text-5xl lg:text-6xl font-bold text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)] not-italic">
                     May 23, 2026
                 </p>
-                <div class="space-y-1 floating-subtle text-emerald-100 font-medium">
-                    <p class="text-lg sm:text-2xl">@ Saint Joseph Church, Nunez Str,. Zamboanga City</p>
-                    <p class="text-lg sm:text-xl tracking-wide uppercase text-white/90">Saturday at 1:00 PM</p>
+                <div class="space-y-1 floating-subtle text-emerald-100 font-medium not-italic">
+                    <p class="text-lg sm:text-2xl font-serif">@ Saint Joseph Church, Nunez St., Zamboanga City</p>
+                    <p class="text-lg sm:text-xl tracking-wide uppercase text-white/90 font-sans">Saturday at 1:00 PM</p>
                 </div>
             </div>
         </section>
@@ -428,23 +434,23 @@
         <!-- Premium Wedding Countdown Section -->
         <section class="reveal-on-scroll py-12 px-6 max-w-4xl mx-auto text-center relative z-30">
             <div class="bg-white/80 backdrop-blur-md rounded-3xl p-8 shadow-xl border border-emerald-100/60">
-                <h2 class="text-xl md:text-2xl font-['Playfair_Display'] text-emerald-900 mb-6 font-semibold tracking-wider uppercase">Counting Down to Our Forever</h2>
-                <div class="grid grid-cols-4 gap-4 max-w-lg mx-auto">
+                <h2 class="text-xl md:text-2xl font-['Playfair_Display'] text-emerald-900 mb-6 font-semibold tracking-wider uppercase not-italic">Counting Down to Our Forever</h2>
+                <div class="grid grid-cols-4 gap-4 max-w-lg mx-auto font-sans not-italic">
                     <div class="bg-emerald-50/70 rounded-2xl p-3 md:p-4 border border-emerald-100 shadow-sm">
                         <span id="countdown-days" class="font-['Playfair_Display'] text-3xl md:text-5xl font-bold text-emerald-800 block">00</span>
-                        <span class="text-xs uppercase font-medium tracking-widest text-emerald-600">Days</span>
+                        <span class="text-xs uppercase font-medium tracking-widest text-emerald-600 block mt-1">Days</span>
                     </div>
                     <div class="bg-emerald-50/70 rounded-2xl p-3 md:p-4 border border-emerald-100 shadow-sm">
                         <span id="countdown-hours" class="font-['Playfair_Display'] text-3xl md:text-5xl font-bold text-emerald-800 block">00</span>
-                        <span class="text-xs uppercase font-medium tracking-widest text-emerald-600">Hours</span>
+                        <span class="text-xs uppercase font-medium tracking-widest text-emerald-600 block mt-1">Hours</span>
                     </div>
                     <div class="bg-emerald-50/70 rounded-2xl p-3 md:p-4 border border-emerald-100 shadow-sm">
                         <span id="countdown-mins" class="font-['Playfair_Display'] text-3xl md:text-5xl font-bold text-emerald-800 block">00</span>
-                        <span class="text-xs uppercase font-medium tracking-widest text-emerald-600">Mins</span>
+                        <span class="text-xs uppercase font-medium tracking-widest text-emerald-600 block mt-1">Mins</span>
                     </div>
                     <div class="bg-emerald-50/70 rounded-2xl p-3 md:p-4 border border-emerald-100 shadow-sm">
                         <span id="countdown-secs" class="font-['Playfair_Display'] text-3xl md:text-5xl font-bold text-emerald-800 block">00</span>
-                        <span class="text-xs uppercase font-medium tracking-widest text-emerald-600">Secs</span>
+                        <span class="text-xs uppercase font-medium tracking-widest text-emerald-600 block mt-1">Secs</span>
                     </div>
                 </div>
             </div>
@@ -458,20 +464,19 @@
                         <img src="image1.jpg" alt="Rico and Angel" class="w-64 h-64 md:w-85 md:h-85 object-cover rounded-lg shadow-inner hover:scale-105 transition-transform duration-700 ease-out">
                     </div>
                 </div>
-                <!-- Animated Flourish Icons -->
-                <div class="absolute -top-6 -left-6 text-emerald-500 opacity-60 animate-bounce duration-[4000ms]">
+                <div class="absolute -top-6 -left-6 text-emerald-500 opacity-60 animate-bounce" style="animation-duration: 4000ms;">
                     <svg width="45" height="45" viewBox="0 0 40 40" fill="currentColor">
                         <path d="M20 2C10 2 2 10 2 20s8 18 18 18 18-8 18-18S30 2 20 2zm-2 24c-3-1-6-4-6-9 0-2 .8-4 2-6 1 2 2 4 2 6s1 4 2 9z"/>
                     </svg>
                 </div>
-                <div class="absolute -bottom-6 -right-6 text-emerald-500 opacity-60 scale-x-[-1] animate-bounce duration-[4500ms]">
+                <div class="absolute -bottom-6 -right-6 text-emerald-500 opacity-60 scale-x-[-1] animate-bounce" style="animation-duration: 4500ms;">
                     <svg width="45" height="45" viewBox="0 0 40 40" fill="currentColor">
                         <path d="M20 2C10 2 2 10 2 20s8 18 18 18 18-8 18-18S30 2 20 2zm-2 24c-3-1-6-4-6-9 0-2 .8-4 2-6 1 2 2 4 2 6s1 4 2 9z"/>
                     </svg>
                 </div>
             </div>
-            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-emerald-800 mb-4 font-semibold tracking-wide">We are Getting Married!</h2>
-            <h3 class="text-2xl font-['Playfair_Display'] font-medium mb-2 text-emerald-600">Join us in celebrating our love</h3>
+            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-emerald-800 mb-4 font-semibold tracking-wide not-italic">We are Getting Married!</h2>
+            <h3 class="text-2xl font-['Playfair_Display'] font-medium mb-2 text-emerald-600 not-italic">Join us in celebrating our love</h3>
             <h3 class="text-xl font-['Playfair_Display'] font-light italic text-gray-600">With Love, Rico &amp; Angel</h3>
         </section>
 
@@ -479,9 +484,9 @@
         <section class="reveal-on-scroll py-8 px-6 max-w-4xl mx-auto text-center">
             <div class="bg-gradient-to-r from-emerald-800 to-emerald-950 rounded-3xl p-8 md:p-12 shadow-xl border border-emerald-700/30 text-white relative overflow-hidden">
                 <div class="absolute -right-16 -bottom-16 w-44 h-44 bg-emerald-700/20 rounded-full blur-2xl"></div>
-                <h2 class="text-3xl md:text-4xl font-['Playfair_Display'] mb-3 font-semibold tracking-wide">Are You Joining Our Special Day?</h2>
+                <h2 class="text-3xl md:text-4xl font-['Playfair_Display'] mb-3 font-semibold tracking-wide not-italic">Are You Joining Our Special Day?</h2>
                 <p class="text-emerald-200/90 max-w-md mx-auto italic text-sm md:text-base mb-8">Please extend your response directly to assist us in finalizing our arrangements.</p>
-                <button id="rsvpInlineBtn" class="bg-white text-emerald-900 font-['Playfair_Display'] font-bold tracking-wider uppercase px-8 py-3.5 rounded-full shadow-lg hover:bg-emerald-50 hover:scale-105 active:scale-95 transition-all duration-300">
+                <button id="rsvpInlineBtn" class="bg-white text-emerald-900 font-['Playfair_Display'] font-bold tracking-wider uppercase px-8 py-3.5 rounded-full shadow-lg hover:bg-emerald-50 hover:scale-105 active:scale-95 transition-all duration-300 not-italic">
                     Open Response Form Portal
                 </button>
             </div>
@@ -489,7 +494,7 @@
 
         <!-- Gallery Section -->
         <section class="reveal-on-scroll py-20 px-6 max-w-6xl mx-auto text-center bg-white/60 backdrop-blur-sm rounded-3xl shadow-xl border border-white relative">
-            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-emerald-800 mb-12 font-semibold">Our Moments</h2>
+            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-emerald-800 mb-12 font-semibold not-italic">Our Moments</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="overflow-hidden rounded-2xl shadow-lg border border-emerald-50 group">
                     <img src="image2.jpg" alt="Moment 1" class="w-full h-80 object-cover group-hover:scale-110 group-hover:rotate-1 transition-transform duration-700">
@@ -506,38 +511,75 @@
         <!-- Venue Blocks with Clickable QR Code Links -->
         <section class="reveal-on-scroll py-20 px-6 bg-white/40 relative mt-16">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-emerald-800 text-center mb-12 font-semibold">Venue &amp; Details</h2>
+                <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-emerald-800 text-center mb-12 font-semibold not-italic">Venue &amp; Details</h2>
                 <div class="grid md:grid-cols-2 gap-8">
                     
                     <!-- Ceremony Container -->
                     <div class="text-center p-8 bg-white/90 rounded-2xl shadow-md border border-emerald-100/60 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
-                        <h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-4 text-emerald-700">Ceremony Venue</h3>
-                        <p class="text-xl font-bold text-gray-800">Saint Joseph Church</p>
-                        <p class="text-lg text-gray-600 italic">(Nunez Street,. Z.C.)</p>
-                        <p class="text-md mt-3 font-semibold text-emerald-600 bg-emerald-50 inline-block px-4 py-1 rounded-full">Time: 1:00 PM</p>
-                                                                                
+                        <h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-4 text-emerald-700 not-italic">Ceremony Venue</h3>
+                        <p class="text-xl font-bold text-gray-800 not-italic">Saint Joseph Church</p>
+                        <p class="text-lg text-gray-600 italic">(Nunez Street, Z.C.)</p>
+                        <p class="text-md mt-3 font-semibold text-emerald-600 bg-emerald-50 inline-block px-4 py-1 rounded-full font-sans not-italic">Time: 1:00 PM</p>
+                                                                                                        
                         <div class="mt-6 flex justify-center">
                             <a href="https://maps.app.goo.gl/tDbxCJhx1rn3qUQM7?g_st=com.google.maps.preview.copy" target="_blank" rel="noopener noreferrer" class="group/qr bg-gray-50 p-3 rounded-xl border border-emerald-100 inline-block shadow-inner hover:scale-105 hover:border-emerald-400 hover:bg-emerald-50/30 transition-all duration-300 cursor-pointer" title="Click to open map">
                                 <img src="scan1.png" alt="QR code for ceremony venue" class="w-40 h-40 object-contain" />
-                                <p class="text-xs text-emerald-600 font-bold tracking-wider uppercase mt-3 transition-colors group-hover/qr:text-emerald-700">✦ Tap to Open Map ✦</p>
+                                <p class="text-xs text-emerald-600 font-bold tracking-wider uppercase mt-3 transition-colors group-hover/qr:text-emerald-700 font-sans not-italic">✦ Tap to Open Map ✦</p>
                             </a>
                         </div>
                     </div>
 
                     <!-- Reception Container -->
                     <div class="text-center p-8 bg-white/90 rounded-2xl shadow-md border border-emerald-100/60 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
-                        <h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-4 text-emerald-700">Reception Venue</h3>
-                        <p class="text-xl font-bold text-gray-800">Grand Astoria Hotel</p>
-                        <p class="text-lg text-gray-600 italic">(Mayor Jaldon Street., Z.C.)</p>
-                        <p class="text-md mt-3 font-semibold text-emerald-600 bg-emerald-50 inline-block px-4 py-1 rounded-full">Time: 5:30 PM</p>
-                                                                                
+                        <h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-4 text-emerald-700 not-italic">Reception Venue</h3>
+                        <p class="text-xl font-bold text-gray-800 not-italic">Grand Astoria Hotel</p>
+                        <p class="text-lg text-gray-600 italic">(Mayor Jaldon Street, Z.C.)</p>
+                        <p class="text-md mt-3 font-semibold text-emerald-600 bg-emerald-50 inline-block px-4 py-1 rounded-full font-sans not-italic">Time: 5:30 PM</p>
+                                                                                                        
                         <div class="mt-6 flex justify-center">
                             <a href="https://maps.app.goo.gl/ipWuEwVhtLB7zQJS8?g_st=com.google.maps.preview.copy" target="_blank" rel="noopener noreferrer" class="group/qr bg-gray-50 p-3 rounded-xl border border-emerald-100 inline-block shadow-inner hover:scale-105 hover:border-emerald-400 hover:bg-emerald-50/30 transition-all duration-300 cursor-pointer" title="Click to open map">
                                 <img src="scan2.png" alt="QR code for reception venue" class="w-40 h-40 object-contain" />
-                                <p class="text-xs text-emerald-600 font-bold tracking-wider uppercase mt-3 transition-colors group-hover/qr:text-emerald-700">✦ Tap to Open Map ✦</p>
+                                <p class="text-xs text-emerald-600 font-bold tracking-wider uppercase mt-3 transition-colors group-hover/qr:text-emerald-700 font-sans not-italic">✦ Tap to Open Map ✦</p>
                             </a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Premium Exclusive GCash Monetary Registry Section -->
+        <section class="reveal-on-scroll py-20 px-6 max-w-4xl mx-auto text-center">
+            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-8 md:p-12 shadow-xl border border-emerald-100/60">
+                <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 border border-emerald-100 shadow-sm">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-['Playfair_Display'] text-emerald-900 font-semibold mb-4 not-italic">Gift Registry</h2>
+                <p class="text-gray-600 max-w-lg mx-auto mb-8 text-sm md:text-base leading-relaxed">
+                    Your presence at our wedding is the greatest gift of all. However, if you wish to honor us with a gift, a monetary contribution toward our future home together would be sincerely appreciated.
+                </p>
+
+                <!-- Interactive High-Fidelity GCash Portal Link Container -->
+                <div class="max-w-md mx-auto font-sans not-italic">
+                    <a href="https://fany.love/gcash?number=09177270282" target="_blank" rel="noopener noreferrer" class="group block bg-gradient-to-br from-blue-50/40 via-emerald-50/30 to-white border border-emerald-100 rounded-2xl p-6 text-center shadow-md hover:shadow-xl hover:border-emerald-400 transition-all duration-500 transform hover:-translate-y-1">
+                        
+                        <!-- QR Code Element Area -->
+                        <div class="mb-4 inline-block bg-white p-3 rounded-xl border border-emerald-100 shadow-inner group-hover:scale-105 transition-transform duration-300">
+                            <img src="gcas.jpg" alt="GCash Gift Registry QR Code" class="w-48 h-48 mx-auto object-contain rounded-lg">
+                        </div>
+
+                        <p class="text-xs uppercase font-bold tracking-widest text-emerald-700 mb-1">GCash Account</p>
+                        <p class="text-3xl font-extrabold text-gray-800 tracking-wide font-mono">0917 727 0282</p>
+                        <p class="text-sm text-gray-500 mt-1 italic">Account Name: Angel C.</p>
+                        
+                        <div class="mt-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider shadow-sm group-hover:bg-emerald-700 transition-colors">
+                            <span>✦ Send Gift Directly ✦</span>
+                            <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+                            </svg>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -545,249 +587,178 @@
         <!-- Divider Banner -->
         <section class="reveal-on-scroll py-20 px-6 text-center bg-gradient-to-b from-transparent via-white/70 to-transparent">
             <h2 class="text-2xl md:text-3xl font-['Playfair_Display'] text-emerald-700 mb-4 italic">A Journey Together</h2>
-            <p class="text-4xl md:text-5xl font-['Playfair_Display'] font-bold text-gray-800 tracking-wide">From This Day Forward</p>
-            <p class="text-md uppercase tracking-widest text-gray-500 mt-4 font-semibold">With love, faith, and endless blessings</p>
+            <p class="text-4xl md:text-5xl font-['Playfair_Display'] font-bold text-gray-800 tracking-wide not-italic">From This Day Forward</p>
+            <p class="text-md uppercase tracking-widest text-gray-500 mt-4 font-semibold font-sans not-italic">With love, faith, and endless blessings</p>
         </section>
 
         <!-- Entourage Lists Container -->
-        <section class="reveal-on-scroll py-20 px-6 max-w-4xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-emerald-800 text-center mb-12 font-semibold">Wedding Entourage</h2>
-                                
+        <section class="reveal-on-scroll py-20 px-6 max-w-4xl mx-auto pb-32">
+            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-emerald-800 text-center mb-12 font-semibold not-italic">Wedding Entourage</h2>
+                                    
             <div class="space-y-8 text-center md:text-left">
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-50 hover:shadow-md transition-shadow">
-                    <h3 class="text-xl font-['Playfair_Display'] font-semibold mb-3 border-b border-emerald-100 pb-2 text-emerald-700">Parents of the Groom</h3>
+                    <h3 class="text-xl font-['Playfair_Display'] font-semibold mb-3 border-b border-emerald-100 pb-2 text-emerald-700 not-italic">Parents of the Groom</h3>
                     <p class="text-gray-800 font-medium not-italic">Mr. Enerio P. Siason &amp; Mrs. Evelyn C. Siason</p>
                 </div>
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-50 hover:shadow-md transition-shadow">
-                    <h3 class="text-xl font-['Playfair_Display'] font-semibold mb-3 border-b border-emerald-100 pb-2 text-emerald-700">Parents of the Bride</h3>
+                    <h3 class="text-xl font-['Playfair_Display'] font-semibold mb-3 border-b border-emerald-100 pb-2 text-emerald-700 not-italic">Parents of the Bride</h3>
                     <p class="text-gray-800 font-medium not-italic">Mr. Joseph S. Cagulada &amp; Mrs. Ruth B. Cagulada</p>
                 </div>
                 
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-50">
-                        <h3 class="text-lg font-['Playfair_Display'] font-semibold mb-2 text-emerald-700">Best Man</h3>
+                        <h3 class="text-lg font-['Playfair_Display'] font-semibold mb-2 text-emerald-700 not-italic">Best Man</h3>
                         <p class="text-gray-800 font-medium not-italic">Earl Quin Dane Gaurana</p>
                     </div>
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-50">
-                        <h3 class="text-lg font-['Playfair_Display'] font-semibold mb-2 text-emerald-700">Maid of Honor</h3>
+                        <h3 class="text-lg font-['Playfair_Display'] font-semibold mb-2 text-emerald-700 not-italic">Maid of Honor</h3>
                         <p class="text-gray-800 font-medium not-italic">Christel Jane B. Cagulada</p>
                     </div>
-                </div>
-
-                <!-- Principal Sponsors Split Layout -->
-                <div class="bg-white p-8 rounded-2xl shadow-md border border-emerald-100/50">
-                    <h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-6 border-b border-emerald-100 pb-3 text-center text-emerald-800">Principal Sponsors</h3>
-                                                                        
-                    <div class="flex flex-col md:flex-row md:gap-8">
-                        <div class="flex-1 text-center md:text-right">
-                            <p class="text-xs uppercase font-bold text-emerald-600 tracking-widest mb-3">Gentlemen Sponsors</p>
-                            <div class="space-y-1.5 not-italic text-sm text-gray-700">
-                                <p><span class="font-semibold text-emerald-700">Mr.</span> Billy Renz M. Dalogdog</p>
-                                <p><span class="font-semibold text-emerald-700">Mr.</span> Ruben Balagosa</p>
-                                <p><span class="font-semibold text-emerald-700">Mr.</span> Joel Melendres</p>
-                                <p><span class="font-semibold text-emerald-700">Mr.</span> Giovani V. Surigao</p>
-                                <p><span class="font-semibold text-emerald-700">Mr.</span> Ranielle Sanson</p>
-                                <p><span class="font-semibold text-emerald-700">Mr.</span> Norico Quinan</p>
-                                <p><span class="font-semibold text-emerald-700">Mr.</span> Ruselo Cosmiano</p>
-                                <p><span class="font-semibold text-emerald-700">Mr.</span> John Natividad</p>
-                                <p><span class="font-semibold text-emerald-700">Mr.</span> Ermando H. Melon</p>
-                                <p><span class="font-semibold text-emerald-700">Mr.</span> Rodolfo M. Relano</p>
-                            </div>
-                        </div>
-
-                        <div class="hidden md:block w-px bg-gradient-to-b from-emerald-100 via-emerald-400 to-emerald-100 my-2"></div>
-                        <div class="md:hidden my-6 border-t border-emerald-100 relative">
-                            <span class="absolute left-1/2 -top-2.5 -translate-x-1/2 bg-white px-3 text-xs tracking-wider text-emerald-500 uppercase font-bold">✦</span>
-                        </div>
-
-                        <div class="flex-1 text-center md:text-left">
-                            <p class="text-xs uppercase font-bold text-emerald-600 tracking-widest mb-3">Ladies Sponsors</p>
-                            <div class="space-y-1.5 not-italic text-sm text-gray-700">
-                                <p><span class="font-semibold text-emerald-700">Mrs.</span> Rhelyn H. Dalogdog</p>
-                                <p><span class="font-semibold text-emerald-700">Mrs.</span> Aileen Balagosa</p>
-                                <p><span class="font-semibold text-emerald-700">Mrs.</span> Erlinda Melendres</p>
-                                <p><span class="font-semibold text-emerald-700">Mrs.</span> Rochelyn G. Surigao</p>
-                                <p><span class="font-semibold text-emerald-700">Mrs.</span> Nenevic O. Palis</p>
-                                <p><span class="font-semibold text-emerald-700">Mrs.</span> Marizel Quinan</p>
-                                <p><span class="font-semibold text-emerald-700">Mrs.</span> Lilian Cosmiano</p>
-                                <p><span class="font-semibold text-emerald-700">Mrs.</span> Joyce Xiong</p>
-                                <p><span class="font-semibold text-emerald-700">Mrs.</span> Rawsienna Cabarrubias</p>
-                                <p><span class="font-semibold text-emerald-700">Mrs.</span> Zarah Marie D. Bernardino</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-50">
-                    <h3 class="text-xl font-['Playfair_Display'] font-semibold mb-4 border-b border-emerald-100 pb-2 text-emerald-700">Secondary Sponsors</h3>
-                    <div class="space-y-3 text-gray-700 not-italic text-sm">
-                        <p><strong class="font-semibold text-emerald-800">Candle:</strong> Nelito James R. Muñoz &amp; Rachael R. Muñoz</p>
-                        <p><strong class="font-semibold text-emerald-800">Veil:</strong> Erwin S. Cagulada &amp; Karen B. Cagulada</p>
-                        <p><strong class="font-semibold text-emerald-800">Cord:</strong> Ariel Siason &amp; Aniegay Siason </p>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-50">
-                        <h3 class="text-lg font-['Playfair_Display'] font-semibold mb-3 text-emerald-700">Groomsmen</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed not-italic">Mark John Brian B. Cagulada, Mark John Rey B. Cagulada, John Carlo C. Siason, Alvin C. Siason, Alexiz C. Quitoriano, Arvin Joey Romo, Jimuel Van Galabin, Lenard Balagosa</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-50">
-                        <h3 class="text-lg font-['Playfair_Display'] font-semibold mb-3 text-emerald-700">Bridesmaids</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed not-italic">Winshei G. Cagulada, Shanine Balagosa, Marian Macapili, Dorothy Love R. Siason, Janielle Joy R. Siason, Barbie Shaixien Cagulada, April Mae Jayyari, Rhoshelle-Anne Cagulada</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Informational Sub-details Section -->
-        <section class="reveal-on-scroll py-20 px-6 bg-gradient-to-br from-emerald-50 via-white to-white rounded-t-[3rem] shadow-inner">
-            <div class="max-w-3xl mx-auto text-center space-y-12">
-                <div>
-                    <h2 class="text-3xl font-['Playfair_Display'] text-emerald-800 mb-3 font-semibold">Finer Details</h2>
-                    <p class="text-lg font-bold text-gray-800 uppercase tracking-wider">Attire: Strictly Semiformal/Formal</p>
-                    <p class="text-sm text-gray-500 max-w-md mx-auto mt-2 mb-6">We encourage you to dress according to our wedding color palette to create a cohesive and elegant celebration.</p>
-                    <div class="flex justify-center">
-                        <img src="color.png" alt="Wedding Color Palette" class="rounded-2xl shadow-lg max-w-xs hover:scale-105 transition-transform duration-500">
-                    </div>
-                </div>
-                <hr class="border-emerald-100 max-w-xs mx-auto">
-                <div>
-                    <h3 class="text-2xl font-['Playfair_Display'] text-emerald-800 mb-3 font-semibold">Wishing Well</h3>
-                    <p class="text-gray-600 leading-relaxed max-w-xl mx-auto italic">
-                        "With all that we have, we are truly blessed. Your presence and prayer are all that we request, but if you desire to give nonetheless, monetary gift is the one we suggest."
-                    </p>
-                </div>
-                <hr class="border-emerald-100 max-w-xs mx-auto">
-                <div>
-                    <h3 class="text-2xl font-['Playfair_Display'] text-emerald-800 mb-3 font-semibold">Unplugged Ceremony</h3>
-                    <p class="text-gray-600 max-w-lg mx-auto">
-                        We want you to be fully present with us during our ceremony. We kindly ask that all phones and cameras remain tucked away until we are pronounced husband and wife.
-                    </p>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Essential Scripts for Interactions, Modal Controls, and Countdown Logic -->
+    <!-- Global App Engine Logic Script -->
     <script>
-        // Wedding Target Date Configuration (May 23, 2026, 13:00:00)
-        const weddingDate = new Date("May 23, 2026 13:00:00").getTime();
+        document.addEventListener('DOMContentLoaded', () => {
+            // System UI Node Registry
+            const elements = {
+                envelopeContainer: document.getElementById('envelopeContainer'),
+                envelope: document.getElementById('envelope'),
+                bgMusic: document.getElementById('bgMusic'),
+                musicControl: document.getElementById('musicControl'),
+                musicIcon: document.getElementById('musicIcon'),
+                rsvpModal: document.getElementById('rsvpModal'),
+                rsvpFloatingBtn: document.getElementById('rsvpFloatingBtn'),
+                rsvpInlineBtn: document.getElementById('rsvpInlineBtn'),
+                closeModalBtn: document.getElementById('closeModalBtn'),
+                topHeader: document.getElementById('topHeader'),
+                scrollRevealNodes: document.querySelectorAll('.reveal-on-scroll')
+            };
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const timeDifference = weddingDate - now;
+            let musicIsPlaying = false;
 
-            if (timeDifference > 0) {
-                const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+            const icons = {
+                play: `<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>`,
+                mute: `<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>`
+            };
 
-                document.getElementById("countdown-days").innerText = String(days).padStart(2, '0');
-                document.getElementById("countdown-hours").innerText = String(hours).padStart(2, '0');
-                document.getElementById("countdown-mins").innerText = String(minutes).padStart(2, '0');
-                document.getElementById("countdown-secs").innerText = String(seconds).padStart(2, '0');
-            } else {
-                document.getElementById("countdown-days").innerText = "00";
-                document.getElementById("countdown-hours").innerText = "00";
-                document.getElementById("countdown-mins").innerText = "00";
-                document.getElementById("countdown-secs").innerText = "00";
+            function toggleMusic(forceState) {
+                const targetState = typeof forceState === 'boolean' ? forceState : !musicIsPlaying;
+                
+                if (targetState) {
+                    elements.bgMusic.play()
+                        .then(() => {
+                            musicIsPlaying = true;
+                            elements.musicControl.classList.add('playing');
+                            elements.musicIcon.innerHTML = icons.play;
+                        })
+                        .catch(err => console.log("Audio play request interdicted:", err));
+                } else {
+                    elements.bgMusic.pause();
+                    musicIsPlaying = false;
+                    elements.musicControl.classList.remove('playing');
+                    elements.musicIcon.innerHTML = icons.mute;
+                }
             }
-        }
-        
-        // Initialize countdown transitions
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
 
-        // Core Intersection Observer for Smooth Scroll Reveal Elements
-        document.addEventListener("DOMContentLoaded", () => {
-            const scrollElements = document.querySelectorAll(".reveal-on-scroll");
-            
-            const elementInView = (el, dividend = 1) => {
-                const elementTop = el.getBoundingClientRect().top;
-                return (elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend);
-            };
+            if (elements.envelope) {
+                elements.envelope.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    elements.envelope.classList.add('opening');
+                    elements.envelopeContainer.classList.add('opened');
+                    
+                    toggleMusic(true);
 
-            const displayScrollElement = (element) => {
-                element.classList.add("is-visible");
-            };
-
-            const handleScrollAnimation = () => {
-                scrollElements.forEach((el) => {
-                    if (elementInView(el, 1.15)) {
-                        displayScrollElement(el);
-                    }
+                    setTimeout(() => {
+                        elements.envelopeContainer.classList.add('hidden');
+                        elements.musicControl.classList.add('visible');
+                        elements.rsvpFloatingBtn.classList.add('visible');
+                        handleScrollReveal();
+                    }, 1100);
                 });
+            }
+
+            elements.musicControl.addEventListener('click', () => toggleMusic());
+
+            const toggleRSVPModal = (showState) => {
+                if (showState) {
+                    elements.rsvpModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    elements.rsvpModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
             };
 
-            window.addEventListener("scroll", handleScrollAnimation);
-            handleScrollAnimation();
-        });
+            if (elements.rsvpFloatingBtn) elements.rsvpFloatingBtn.addEventListener('click', () => toggleRSVPModal(true));
+            if (elements.rsvpInlineBtn) elements.rsvpInlineBtn.addEventListener('click', () => toggleRSVPModal(true));
+            if (elements.closeModalBtn) elements.closeModalBtn.addEventListener('click', () => toggleRSVPModal(false));
 
-        // Document View Controls & DOM Hooks
-        const envelope = document.getElementById('envelope');
-        const container = document.getElementById('envelopeContainer');
-        const topHeader = document.getElementById('topHeader');
-        const bgMusic = document.getElementById('bgMusic');
-        const musicControl = document.getElementById('musicControl');
-        const musicIcon = document.getElementById('musicIcon');
-        const rsvpFloatingBtn = document.getElementById('rsvpFloatingBtn');
-        const rsvpInlineBtn = document.getElementById('rsvpInlineBtn');
-        const rsvpModal = document.getElementById('rsvpModal');
-        const closeModalBtn = document.getElementById('closeModalBtn');
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && elements.rsvpModal.classList.contains('active')) {
+                    toggleRSVPModal(false);
+                }
+            });
 
-        // Opening Welcome Invitation Layer Engine
-        envelope.addEventListener('click', () => {
-            envelope.classList.add('opening');
-            container.classList.add('opened');
-            
-            bgMusic.play().then(() => {
-                musicControl.classList.add('playing');
-            }).catch(err => console.log("Audio play deferred or blocked by browser policies: ", err));
+            function handleScrollReveal() {
+                const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+                
+                const revealObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
 
-            setTimeout(() => {
-                container.classList.add('hidden');
-                topHeader.classList.remove('-translate-y-full', 'opacity-0');
-                musicControl.classList.add('visible');
-                rsvpFloatingBtn.classList.add('visible');
-            }, 1200);
-        });
-
-        // Interactive Audio Stream State Toggler Button
-        musicControl.addEventListener('click', () => {
-            if (bgMusic.paused) {
-                bgMusic.play();
-                musicControl.classList.add('playing');
-                musicIcon.innerHTML = '<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5h-2v-2h2l5-5v12zm6-6c0-2.76-2.24-5-5-5v2c1.66 0 3 1.34 3 3s-1.34 3-3 3v2c2.76 0 5-2.24 5-5z"></path>';
-            } else {
-                bgMusic.pause();
-                musicControl.classList.remove('playing');
-                musicIcon.innerHTML = '<path d="M4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73 4.27 3zM12 4L9.91 6.09 12 8.18V4zm4 8c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zm1.66-4.34l-1.44 1.44c.49.86.78 1.85.78 2.9 0 2.33-1.39 4.32-3.39 5.21v2.06c2.89-.98 5-3.74 5-7.27 0-1.62-.51-3.11-1.39-4.34z"></path>';
+                elements.scrollRevealNodes.forEach(node => revealObserver.observe(node));
             }
-        });
 
-        // Overlay Modal Layer Open / Close State Core Engines
-        const openRSVPModal = () => {
-            rsvpModal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Freeze layout background scrolling
-        };
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > window.innerHeight * 0.8) {
+                    elements.topHeader.classList.remove('-translate-y-full', 'opacity-0');
+                } else {
+                    elements.topHeader.classList.add('-translate-y-full', 'opacity-0');
+                }
+            }, { passive: true });
 
-        const closeRSVPModal = () => {
-            rsvpModal.classList.remove('active');
-            document.body.style.overflow = ''; // Release layout background scrolling
-        };
+            const initCountdownEngine = () => {
+                const targetTimestamp = new Date('May 23, 2026 13:00:00').getTime();
+                
+                const updateCountdownMetrics = () => {
+                    const currentTimestamp = Date.now();
+                    const temporalDelta = targetTimestamp - currentTimestamp;
 
-        // Attach Event Listeners to Buttons
-        rsvpFloatingBtn.addEventListener('click', openRSVPModal);
-        rsvpInlineBtn.addEventListener('click', openRSVPModal);
-        closeModalBtn.addEventListener('click', closeRSVPModal);
+                    if (temporalDelta <= 0) {
+                        clearInterval(countdownIntervalId);
+                        document.getElementById('countdown-days').textContent = "00";
+                        document.getElementById('countdown-hours').textContent = "00";
+                        document.getElementById('countdown-mins').textContent = "00";
+                        document.getElementById('countdown-secs').textContent = "00";
+                        return;
+                    }
 
-        // Close Modal natively when clicking outside container frame
-        rsvpModal.addEventListener('click', (e) => {
-            if (e.target === rsvpModal) {
-                closeRSVPModal();
-            }
+                    const metrics = {
+                        days: Math.floor(temporalDelta / (1000 * 60 * 60 * 24)),
+                        hours: Math.floor((temporalDelta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+                        mins: Math.floor((temporalDelta % (1000 * 60 * 60)) / (1000 * 60)),
+                        secs: Math.floor((temporalDelta % (1000 * 60)) / 1000)
+                    };
+
+                    document.getElementById('countdown-days').textContent = String(metrics.days).padStart(2, '0');
+                    document.getElementById('countdown-hours').textContent = String(metrics.hours).padStart(2, '0');
+                    document.getElementById('countdown-mins').textContent = String(metrics.mins).padStart(2, '0');
+                    document.getElementById('countdown-secs').textContent = String(metrics.secs).padStart(2, '0');
+                };
+
+                updateCountdownMetrics();
+                const countdownIntervalId = setInterval(updateCountdownMetrics, 1000);
+            };
+
+            initCountdownEngine();
         });
     </script>
 </body>
