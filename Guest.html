@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rico & Angel | Wedding Guest Monitor</title>
+    <link rel="icon" type="image/png" href="1 LOGO 3D (1).png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Google Fonts for a more modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* Professional Dark Blue */
+            --header-height: 75px;
+            --bg-color: #f8fafc;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-color);
+            overflow: hidden; /* Prevents double scrollbars */
+        }
+
+        /* HEADER DESIGN */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: var(--header-height);
+            background: #ffffff;
+            padding: 0 30px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            z-index: 10;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            height: 48px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .title-block {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 11px;
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        /* GUEST MONITOR METRICS */
+        .monitor-stats {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .stat-card {
+            background: #f1f5f9;
+            border: 1px solid var(--border-color);
+            padding: 6px 16px;
+            border-radius: 6px;
+            text-align: center;
+            min-width: 90px;
+        }
+
+        .stat-card .label {
+            font-size: 9px;
+            text-transform: uppercase;
+            color: #64748b;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-card .value {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* LIVE FEED BADGE */
+        .live-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #16a34a;
+            background: #f0fdf4;
+            padding: 6px 12px;
+            border-radius: 4px;
+            border: 1px solid #bbf7d0;
+        }
+
+        .pulse-dot {
+            width: 7px;
+            height: 7px;
+            background: #16a34a;
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7);
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.5); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(22, 163, 74, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
+        }
+
+        /* IFRAME CONTAINER */
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            height: calc(100vh - var(--header-height));
+            background: #fff;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        /* LOADING SPINNER */
+        .loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1; 
+            text-align: center;
+            color: #94a3b8;
+            font-size: 14px;
+            background: #ffffff;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.3s ease;
+        }
+
+        /* MOBILE OPTIMIZATION */
+        @media (max-width: 800px) {
+            .monitor-stats { display: none; } /* Hide metrics on small screens to save space */
+        }
+
+        @media (max-width: 600px) {
+            .header { padding: 0 15px; height: 65px; }
+            :root { --header-height: 65px; }
+            .title { font-size: 16px; }
+            .subtitle { font-size: 10px; }
+            .logo { height: 38px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="brand">
+            <a href="#">
+                <img src="1 LOGO 3D (1).png" alt="Wedding Logo" class="logo" onerror="this.src='image1.jpg';">
+            </a>
+            <div class="title-block">
+                <div class="title">Rico & Angel Wedding</div>
+                <div class="subtitle">Guest Monitoring Console</div>
+            </div>
+        </div>
+        
+        <!-- Guest Monitor Metrics -->
+        <div class="monitor-stats">
+            <div class="stat-card">
+                <div class="label">Total Invited</div>
+                <div class="value">—</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">Confirmed</div>
+                <div class="value">—</div>
+            </div>
+            <div class="live-badge">
+                <div class="pulse-dot"></div>
+                <span>LIVE WORKSPACE</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="iframe-container">
+        <!-- Loader stands in until the frame content maps visually -->
+        <div class="loader" id="loadingTerminal">
+            <p style="font-weight: 500; letter-spacing: 0.5px;">Loading Guest Database...</p>
+        </div>
+        
+        <iframe 
+            id="sheetFrame"
+            src="https://docs.google.com/spreadsheets/d/1ETRyqQZ3QW2dslNs-oJ1U6fTHwoWarh7F9r990a8zaM/edit?usp=sharing" 
+            allowfullscreen
+            onload="document.getElementById('loadingTerminal').style.opacity='0'; document.getElementById('loadingTerminal').style.pointerEvents='none';">
+        </iframe>
+    </main>
+
+</body>
+</html>
