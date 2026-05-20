@@ -24,7 +24,7 @@
             overflow: hidden; /* Prevents double scrollbars */
         }
 
-        /* HEADER DESIGN */
+        /* HEADER DESIGN WITH RUNNING BORDER ANIMATION */
         .header {
             display: flex;
             align-items: center;
@@ -32,10 +32,27 @@
             height: var(--header-height);
             background: #ffffff;
             padding: 0 30px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            border-bottom: 1px solid var(--border-color);
             position: relative;
             z-index: 10;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        /* RUNNING BORDER EFFECT */
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #e2e8f0 0%, #2c3e50 25%, #10b981 50%, #2c3e50 75%, #e2e8f0 100%);
+            background-size: 200% 100%;
+            animation: runBorder 3s linear infinite;
+        }
+
+        @keyframes runBorder {
+            0% { background-position: 200% 0; }
+            100% { background-position: 0% 0; }
         }
 
         .brand {
@@ -150,12 +167,11 @@
             display: block;
         }
 
-        /* LOADING SPINNER */
+        /* LOADING TERMINAL LAYER */
         .loader {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 0;
+            left: 0;
             z-index: 1; 
             text-align: center;
             color: #94a3b8;
@@ -167,12 +183,12 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease;
         }
 
         /* MOBILE OPTIMIZATION */
         @media (max-width: 800px) {
-            .monitor-stats { display: none; } /* Hide metrics on small screens to save space */
+            .monitor-stats { display: none; }
         }
 
         @media (max-width: 600px) {
@@ -196,26 +212,10 @@
                 <div class="subtitle">Guest Monitoring Console</div>
             </div>
         </div>
-        
-        <!-- Guest Monitor Metrics -->
-        <div class="monitor-stats">
-            <div class="stat-card">
-                <div class="label">Total Invited</div>
-                <div class="value">—</div>
-            </div>
-            <div class="stat-card">
-                <div class="label">Confirmed</div>
-                <div class="value">—</div>
-            </div>
-            <div class="live-badge">
-                <div class="pulse-dot"></div>
-                <span>LIVE WORKSPACE</span>
-            </div>
-        </div>
     </header>
 
     <main class="iframe-container">
-        <!-- Loader stands in until the frame content maps visually -->
+        <!-- Persistent loader overlay that dissolves once the Google sheet fires its load confirmation -->
         <div class="loader" id="loadingTerminal">
             <p style="font-weight: 500; letter-spacing: 0.5px;">Loading Guest Database...</p>
         </div>
@@ -224,7 +224,7 @@
             id="sheetFrame"
             src="https://docs.google.com/spreadsheets/d/1ETRyqQZ3QW2dslNs-oJ1U6fTHwoWarh7F9r990a8zaM/edit?usp=sharing" 
             allowfullscreen
-            onload="document.getElementById('loadingTerminal').style.opacity='0'; document.getElementById('loadingTerminal').style.pointerEvents='none';">
+            onload="document.getElementById('loadingTerminal').style.opacity='0'; setTimeout(function(){ document.getElementById('loadingTerminal').style.display='none'; }, 400);">
         </iframe>
     </main>
 
