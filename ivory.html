@@ -106,6 +106,17 @@
             50% { transform: translateY(-7px); }
             100% { transform: translateY(0px); }
         }
+
+        /* Fallen Flowerings Blossom Canvas Layer */
+        #petalCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 35; /* Sits gently on top of sections but behind floating HUD modals */
+        }
         
         /* Welcome Envelope Overlay Framework */
         .envelope-container {
@@ -346,6 +357,8 @@
     </style>
 </head>
 <body>
+
+    <canvas id="petalCanvas"></canvas>
 
     <header id="topHeader" class="sticky top-0 w-full z-40 glass-header transition-all duration-700 transform -translate-y-full opacity-0">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -742,6 +755,7 @@
         document.addEventListener("DOMContentLoaded", () => {
             initCountdownEngine();
             setupScrollRevealObserver();
+            initPetalsEngine();
         });
 
         // 2. Interactive Welcome Gate Overlay Envelope Component Automation
@@ -867,6 +881,89 @@
                     window.open(webFallbackUrl, '_blank');
                 }
             }, 2500);
+        }
+
+        // 9. Falling Flowerings High-Performance Dynamic Animation Engine
+        function initPetalsEngine() {
+            const canvas = document.getElementById('petalCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = window.innerHeight;
+            
+            window.addEventListener('resize', () => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            });
+            
+            const petalCount = 24; // Balanced count for premium look without cluttering text layout
+            const petals = [];
+            
+            // Luxury Color Array mirroring the Ivory Cream Theme Accents
+            const colorPalette = [
+                'rgba(234, 225, 212, 0.6)', // Cream Accent Light
+                'rgba(197, 182, 160, 0.45)', // soft warm ivory beige
+                'rgba(241, 234, 224, 0.7)',  // Pure Silk Ivory
+                'rgba(218, 207, 192, 0.5)'   // Champagne Dust
+            ];
+            
+            class Petal {
+                constructor() {
+                    this.reset();
+                    this.y = Math.random() * height; // Distribute instantly over screen on initialization
+                }
+                
+                reset() {
+                    this.x = Math.random() * width;
+                    this.y = -20;
+                    this.size = Math.random() * 8 + 6; // Delicately small petals
+                    this.speedY = Math.random() * 0.8 + 0.4; // Realistic slow cinematic drift
+                    this.speedX = Math.random() * 0.4 - 0.2;
+                    this.angle = Math.random() * Math.PI * 2;
+                    this.spinSpeed = Math.random() * 0.02 - 0.01;
+                    this.color = colorPalette[Math.floor(Math.random() * colorPalette.length)];
+                    this.aspectRatio = Math.random() * 0.4 + 0.6; // Changes petal stretching shape profile
+                }
+                
+                update() {
+                    this.y += this.speedY;
+                    this.x += this.speedX + Math.sin(this.angle * 0.5) * 0.2; // Subtle swaying wind drift
+                    this.angle += this.spinSpeed;
+                    
+                    if (this.y > height + 20 || this.x < -20 || this.x > width + 20) {
+                        this.reset();
+                    }
+                }
+                
+                draw() {
+                    ctx.save();
+                    ctx.translate(this.x, this.y);
+                    ctx.rotate(this.angle);
+                    ctx.beginPath();
+                    
+                    // Creates an organic flower blossom petal curve contour outline geometry layout
+                    ctx.ellipse(0, 0, this.size, this.size * this.aspectRatio, 0, 0, Math.PI * 2);
+                    
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                    ctx.restore();
+                }
+            }
+            
+            for (let i = 0; i < petalCount; i++) {
+                petals.push(new Petal());
+            }
+            
+            function renderLoop() {
+                ctx.clearRect(0, 0, width, height);
+                for (let i = 0; i < petalCount; i++) {
+                    petals[i].update();
+                    petals[i].draw();
+                }
+                requestAnimationFrame(renderLoop);
+            }
+            
+            requestAnimationFrame(renderLoop);
         }
     </script>
 </body>
