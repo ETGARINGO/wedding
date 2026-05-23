@@ -107,7 +107,7 @@
             100% { transform: translateY(0px); }
         }
 
-        /* Fallen Flowerings Blossom Canvas Layer */
+        /* Upgraded High-Fidelity Floating Flower Canvas Layer */
         #petalCanvas {
             position: fixed;
             top: 0;
@@ -115,7 +115,7 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 35; /* Sits gently on top of sections but behind floating HUD modals */
+            z-index: 35;
         }
         
         /* Welcome Envelope Overlay Framework */
@@ -513,6 +513,21 @@
             </div>
         </section>
 
+        <section class="reveal-on-scroll py-12 px-6 max-w-4xl mx-auto text-center">
+            <div class="nm-card rounded-[36px] p-8 md:p-12 border border-white/70">
+                <h2 class="text-3xl md:text-4xl font-['Playfair_Display'] text-[#383530] mb-4 font-bold tracking-wide not-italic">Finer Details</h2>
+                <p class="text-lg md:text-xl font-semibold text-gray-800 tracking-wide font-sans not-italic">Attire: Strictly Semiformal / Formal</p>
+                <p class="text-sm max-w-xl mx-auto mt-3 text-gray-500 font-light leading-relaxed">
+                    We encourage you to dress according to our wedding color palette to create a cohesive and elegant celebration.
+                </p>
+                <div class="mt-8 flex justify-center max-w-md mx-auto">
+                    <div class="bg-white p-3 rounded-2xl border border-gray-100 shadow-sm group overflow-hidden">
+                        <img src="images/color.png" alt="Wedding Color Palette" class="rounded-xl shadow-inner group-hover:scale-[1.02] transition-transform duration-500">
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="reveal-on-scroll py-8 px-6 max-w-4xl mx-auto text-center">
             <div class="nm-flat-accent rounded-[36px] p-8 md:p-14 text-[#4a4741] relative overflow-hidden">
                 <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-white/20 rounded-full blur-3xl"></div>
@@ -883,7 +898,7 @@
             }, 2500);
         }
 
-        // 9. Falling Flowerings High-Performance Dynamic Animation Engine
+        // 9. Upgraded High-Fidelity Falling Flowerings Dynamic Animation Engine
         function initPetalsEngine() {
             const canvas = document.getElementById('petalCanvas');
             const ctx = canvas.getContext('2d');
@@ -896,38 +911,37 @@
                 height = canvas.height = window.innerHeight;
             });
             
-            const petalCount = 24; // Balanced count for premium look without cluttering text layout
+            const petalCount = 28; // Optimized for delicate distribution without cluttering layouts
             const petals = [];
             
-            // Luxury Color Array mirroring the Ivory Cream Theme Accents
             const colorPalette = [
-                'rgba(234, 225, 212, 0.6)', // Cream Accent Light
-                'rgba(197, 182, 160, 0.45)', // soft warm ivory beige
-                'rgba(241, 234, 224, 0.7)',  // Pure Silk Ivory
-                'rgba(218, 207, 192, 0.5)'   // Champagne Dust
+                'rgba(234, 225, 212, 0.65)', // Warm Luxury Cream Accent 
+                'rgba(197, 182, 160, 0.5)',  // Deep Ivory Beige Shadow Accent
+                'rgba(241, 234, 224, 0.75)', // Radiant Silk Ivory Accent
+                'rgba(218, 207, 192, 0.55)'  // Fine Champagne Pearl Dust Accent
             ];
             
             class Petal {
                 constructor() {
                     this.reset();
-                    this.y = Math.random() * height; // Distribute instantly over screen on initialization
+                    this.y = Math.random() * height; // Distribute beautifully across viewport vertically on load
                 }
                 
                 reset() {
                     this.x = Math.random() * width;
                     this.y = -20;
-                    this.size = Math.random() * 8 + 6; // Delicately small petals
-                    this.speedY = Math.random() * 0.8 + 0.4; // Realistic slow cinematic drift
+                    this.size = Math.random() * 9 + 6; // Delicately proportioned dimensions
+                    this.speedY = Math.random() * 0.7 + 0.35; // Slow-motion luxury velocity drift
                     this.speedX = Math.random() * 0.4 - 0.2;
                     this.angle = Math.random() * Math.PI * 2;
-                    this.spinSpeed = Math.random() * 0.02 - 0.01;
+                    this.spinSpeed = Math.random() * 0.016 - 0.008; // High-end continuous tumbling execution
                     this.color = colorPalette[Math.floor(Math.random() * colorPalette.length)];
-                    this.aspectRatio = Math.random() * 0.4 + 0.6; // Changes petal stretching shape profile
+                    this.aspectRatio = Math.random() * 0.35 + 0.65; // Organic asymmetrical geometry variance
                 }
                 
                 update() {
                     this.y += this.speedY;
-                    this.x += this.speedX + Math.sin(this.angle * 0.5) * 0.2; // Subtle swaying wind drift
+                    this.x += this.speedX + Math.sin(this.angle * 0.4) * 0.25; // Swaying micro-current behavior simulation
                     this.angle += this.spinSpeed;
                     
                     if (this.y > height + 20 || this.x < -20 || this.x > width + 20) {
@@ -941,7 +955,7 @@
                     ctx.rotate(this.angle);
                     ctx.beginPath();
                     
-                    // Creates an organic flower blossom petal curve contour outline geometry layout
+                    // Complex vector rendering loop layout mapping organic flower blossom curves
                     ctx.ellipse(0, 0, this.size, this.size * this.aspectRatio, 0, 0, Math.PI * 2);
                     
                     ctx.fillStyle = this.color;
