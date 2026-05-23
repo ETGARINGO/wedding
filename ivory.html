@@ -21,7 +21,7 @@
     <meta name="twitter:description" content="Rico John Siason &amp; Angel Cagulada invite you to their wedding. Join the celebration on May 23, 2026.">
          
     <meta name="description" content="Rico &amp; Angel Wedding - May 23, 2026 at Saint Joseph Church, Zamboanga City">
-    <meta name="theme-color" content="#2b4c7e">
+    <meta name="theme-color" content="#047857">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -30,7 +30,6 @@
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Lora', serif;
-            font-style: italic;
             overflow-x: hidden;
         }
 
@@ -82,7 +81,7 @@
             align-items: center;
             justify-content: center;
             backdrop-filter: blur(12px);
-            background-color: rgba(244, 241, 234, 0.4);
+            background-color: rgba(255, 255, 255, 0.2);
             transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), visibility 1s cubic-bezier(0.4, 0, 0.2, 1);
             overflow: hidden;
         }
@@ -90,7 +89,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(rgba(43, 76, 126, 0.25), rgba(28, 49, 84, 0.4)), url('image1.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('image1.jpg') center/cover no-repeat;
             filter: blur(15px);
             transform: scale(1.1);
             transition: filter 1s ease-out, transform 1.2s ease-out;
@@ -106,34 +105,34 @@
             width: 90%;
             max-width: 420px;
             height: 290px;
-            background: #fdfbf7;
+            background: white;
             border-radius: 16px;
-            box-shadow: 0 30px 70px rgba(28, 49, 84, 0.35);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
             position: relative;
             cursor: pointer;
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
             perspective: 1200px;
             z-index: 10;
         }
-        .envelope:hover { transform: scale(1.05); box-shadow: 0 40px 80px rgba(43, 76, 126, 0.25); }
+        .envelope:hover { transform: scale(1.05); box-shadow: 0 40px 80px rgba(4, 120, 87, 0.25); }
         
         .envelope-front {
             position: absolute;
             width: 100%;
             height: 100%;
-            background: #fdfbf7;
+            background: white;
             border-radius: 16px;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(43, 76, 126, 0.15);
+            border: 1px solid rgba(4, 120, 87, 0.15);
         }
         .envelope-flap {
             position: absolute;
             width: 100%;
             height: 55%;
-            background: linear-gradient(135deg, #3a5f97 0%, #1c3154 100%);
+            background: linear-gradient(135deg, #059669 0%, #064e3b 100%);
             top: 0;
             left: 0;
             transform-origin: top center;
@@ -144,13 +143,13 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         .envelope-flap::before {
             content: "You're Invited";
             font-family: 'Playfair Display', serif;
             font-size: 1.75rem;
-            color: #fcf9f2;
+            color: white;
             letter-spacing: 0.05em;
             margin-bottom: 6px;
             font-style: normal;
@@ -158,7 +157,7 @@
         .envelope-flap::after {
             content: "✦ Tap to Open with Music ✦";
             font-size: 0.75rem;
-            color: rgba(244, 241, 234, 0.85);
+            color: rgba(255, 255, 255, 0.85);
             letter-spacing: 0.12em;
             text-transform: uppercase;
             font-weight: 500;
@@ -197,27 +196,27 @@
             height: 56px;
             border-radius: 50%;
             background: white;
-            border: 2px solid #3a5f97;
+            border: 2px solid #059669;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 10px 25px rgba(43, 76, 126, 0.3);
+            box-shadow: 0 10px 25px rgba(5, 150, 105, 0.3);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             opacity: 0;
             transform: translateY(40px) scale(0.8);
         }
         .music-control.visible { opacity: 1; transform: translateY(0) scale(1); }
         .music-control:hover {
-            background: #3a5f97;
+            background: #059669;
             transform: scale(1.1) rotate(15deg);
         }
         .music-control:hover svg { color: white; }
-        .music-control svg { width: 28px; height: 28px; color: #3a5f97; transition: color 0.3s ease; }
+        .music-control svg { width: 28px; height: 28px; color: #059669; transition: color 0.3s ease; }
         
         @keyframes musicPulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(43, 76, 126, 0.5); }
-            70% { box-shadow: 0 0 0 15px rgba(43, 76, 126, 0); }
+            0%, 100% { box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(5, 150, 105, 0); }
         }
         .music-control.playing { animation: musicPulse 2s infinite; }
 
@@ -230,7 +229,7 @@
             height: 56px;
             padding: 0 24px;
             border-radius: 30px;
-            background: linear-gradient(135deg, #3a5f97 0%, #1c3154 100%);
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
             color: white;
             display: flex;
             align-items: center;
@@ -240,7 +239,7 @@
             font-size: 1.1rem;
             letter-spacing: 0.05em;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(28, 49, 84, 0.4);
+            box-shadow: 0 10px 30px rgba(4, 120, 87, 0.4);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             opacity: 0;
             transform: translateY(40px) scale(0.8);
@@ -250,8 +249,8 @@
         .rsvp-trigger-btn.visible { opacity: 1; transform: translateY(0) scale(1); }
         .rsvp-trigger-btn:hover {
             transform: scale(1.06) translateY(-2px);
-            box-shadow: 0 14px 35px rgba(28, 49, 84, 0.5);
-            background: linear-gradient(135deg, #1c3154 0%, #12213a 100%);
+            box-shadow: 0 14px 35px rgba(4, 120, 87, 0.5);
+            background: linear-gradient(135deg, #047857 0%, #064e3b 100%);
         }
         
         .envelope-heart {
@@ -286,7 +285,7 @@
             position: fixed;
             inset: 0;
             z-index: 100;
-            background-color: rgba(28, 49, 84, 0.4);
+            background-color: rgba(6, 78, 59, 0.4);
             backdrop-filter: blur(8px);
             display: flex;
             align-items: center;
@@ -313,39 +312,44 @@
             overflow: hidden;
             transform: scale(0.9) translateY(30px);
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(43, 76, 126, 0.15);
+            border: 1px solid rgba(5, 150, 105, 0.15);
         }
         .modal-overlay.active .modal-wrapper {
             transform: scale(1) translateY(0);
         }
 
-        /* Registry Details Active States Styling */
-        .registry-card {
+        /* Tab Active States Transition System */
+        .tab-content-panel {
             display: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
         }
-        .registry-card.active {
+        .tab-content-panel.active {
             display: block;
-            animation: fadeInTab 0.5s ease-out forwards;
+            opacity: 1;
+            transform: translateY(0);
         }
-        @keyframes fadeInTab {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
+        .tab-nav-btn.active {
+            background-color: #047857;
+            color: white;
+            box-shadow: 0 4px 12px rgba(4, 120, 87, 0.2);
         }
     </style>
 </head>
-<body class="bg-[#f4f1ea]">
+<body class="bg-[#f0fdf4] text-gray-800 antialiased">
 
-    <header id="topHeader" class="sticky top-0 w-full z-40 bg-white/80 backdrop-blur-md border-b border-slate-200/50 transition-all duration-500 transform -translate-y-full opacity-0">
+    <header id="topHeader" class="sticky top-0 w-full z-40 bg-white/70 backdrop-blur-md border-b border-emerald-100/50 transition-all duration-500 transform -translate-y-full opacity-0">
         <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
             <a href="#" class="flex items-center gap-3 group transition-transform duration-300 hover:scale-[1.02]" title="Back to top">
-                <div class="w-10 h-10 rounded-full border border-slate-200 shadow-sm overflow-hidden bg-slate-50 flex items-center justify-center">
-                    <svg class="w-6 h-6 text-slate-600 group-hover:rotate-12 transition-transform duration-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <div class="w-10 h-10 rounded-full border border-emerald-200 shadow-sm overflow-hidden bg-emerald-50 flex items-center justify-center">
+                    <svg class="w-6 h-6 text-emerald-600 group-hover:rotate-12 transition-transform duration-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
                     </svg>
                 </div>
-                <span class="font-['Playfair_Display'] text-lg font-semibold tracking-wider text-slate-900 group-hover:text-slate-700 transition-colors not-italic">Rico &amp; Angel</span>
+                <span class="font-['Playfair_Display'] text-lg font-semibold tracking-wider text-emerald-900 group-hover:text-emerald-700 transition-colors">Rico &amp; Angel</span>
             </a>
-            <div class="text-xs uppercase font-semibold tracking-widest text-slate-700/80 bg-slate-100/80 border border-slate-200 rounded-full px-3 py-1 font-sans not-italic">
+            <div class="text-xs uppercase font-semibold tracking-widest text-emerald-700/80 bg-emerald-50 border border-emerald-100 rounded-full px-3 py-1 font-sans">
                 May 23, 2026
             </div>
         </div>
@@ -355,12 +359,12 @@
         <div class="envelope" id="envelope">
             <div class="envelope-flap"></div>
             <div class="envelope-front">
-                <svg class="envelope-heart" viewBox="0 0 24 24" fill="#3a5f97">
+                <svg class="envelope-heart" viewBox="0 0 24 24" fill="#059669">
                     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                 </svg>
                 <div class="envelope-content">
-                    <div class="envelope-text font-bold text-slate-800">
-                        Enter<br><span class="font-['Playfair_Display'] text-3xl italic font-normal text-slate-700">Rico &amp; Angel</span><br>Wedding
+                    <div class="envelope-text font-bold text-emerald-800">
+                        Enter<br><span class="font-['Playfair_Display'] text-3xl italic font-normal text-gray-800">Rico &amp; Angel</span><br>Wedding
                     </div>
                 </div>
             </div>
@@ -382,18 +386,18 @@
 
     <div id="rsvpModal" class="modal-overlay">
         <div class="modal-wrapper">
-            <div class="px-6 py-4 bg-gradient-to-r from-slate-50 to-white border-b border-slate-100 flex items-center justify-between">
+            <div class="px-6 py-4 bg-gradient-to-r from-emerald-50 to-white border-b border-emerald-100 flex items-center justify-between">
                 <div class="text-left">
-                    <h2 class="font-['Playfair_Display'] text-2xl font-bold text-slate-900 not-italic">Wedding RSVP</h2>
+                    <h2 class="font-['Playfair_Display'] text-2xl font-bold text-emerald-900">Wedding RSVP</h2>
                     <p class="text-xs text-gray-500 italic">Rico &amp; Angel Wedding • May 23, 2026</p>
                 </div>
-                <button id="closeModalBtn" class="w-10 h-10 rounded-full bg-white border border-slate-100 flex items-center justify-center text-gray-400 hover:text-slate-600 hover:border-slate-300 shadow-sm transition-all duration-300 focus:outline-none" title="Close Form">
+                <button id="closeModalBtn" class="w-10 h-10 rounded-full bg-white border border-emerald-100 flex items-center justify-center text-gray-400 hover:text-emerald-600 hover:border-emerald-300 shadow-sm transition-all duration-300 focus:outline-none" title="Close Form">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
             </div>
-            <div class="flex-1 w-full bg-slate-50/20 relative">
+            <div class="flex-1 w-full bg-emerald-50/20 relative">
                 <iframe src="https://script.google.com/macros/s/AKfycbysJWowzk4Xt2GefILHx7ezirbfpvYHOJP4fzkrVQ_Y_tIkjFWYLApt2wEuq3sZ4LZDLw/exec" 
                         class="absolute inset-0 w-full h-full border-0" 
                         allow="geolocation; microphone; camera">
@@ -408,154 +412,349 @@
     </audio>
 
     <main id="mainContent">
-        <section class="relative w-full h-screen flex items-center justify-center text-center overflow-hidden bg-slate-950">
-            <video autoplay muted loop playsinline poster="flowers2.png" class="absolute inset-0 w-full h-full object-cover z-0" style="opacity: 0.55;">
+        <section class="relative w-full h-screen flex items-center justify-center text-center overflow-hidden bg-black">
+            <video autoplay muted loop playsinline poster="flowers2.png" class="absolute inset-0 w-full h-full object-cover z-0" style="opacity: 0.65;">
                 <source src="Vid2.mp4" type="video/mp4">
             </video>
-            <div class="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-900/40 to-[#f4f1ea] z-10"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-[#f0fdf4] z-10"></div>
             
             <div class="relative z-20 text-white space-y-6 px-6 max-w-3xl">
-                <p class="text-xl sm:text-2xl tracking-widest floating-subtle opacity-90 font-['Playfair_Display'] text-amber-100/90">
-                    By the grace of God and with<br>the blessing of our families,
+                <p class="text-xl sm:text-2xl font-light tracking-widest floating-subtle text-emerald-100 italic">
+                    By the grace of God and with the blessing of our families,
                 </p>
-                <p class="text-2xl sm:text-3xl font-light floating-subtle opacity-80">We,</p>
+                <p class="text-xl sm:text-2xl font-light tracking-wide text-gray-300">We,</p>
                                 
-                <h1 class="floating-premium text-6xl sm:text-7xl lg:text-8xl break-words px-2 font-semibold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-amber-100 drop-shadow-xl not-italic">
+                <h1 class="floating-premium text-5xl sm:text-7xl lg:text-8xl px-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-emerald-100 to-white drop-shadow-2xl">
                     Rico &amp; Angel
                 </h1>
-                <p class="text-lg sm:text-xl max-w-xl mx-auto floating-subtle leading-relaxed text-slate-100">
+                <p class="text-base sm:text-lg max-w-xl mx-auto tracking-wide leading-relaxed text-gray-200">
                     Cordially invite you to join us as we celebrate the sacrament of matrimony on
                 </p>
-                <p class="wavy-date text-4xl sm:text-5xl lg:text-6xl font-bold text-amber-100/90 drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] not-italic">
+                <p class="wavy-date text-4xl sm:text-5xl lg:text-6xl font-bold text-emerald-300 drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">
                     May 23, 2026
                 </p>
-                <div class="space-y-1 floating-subtle text-slate-200 font-medium not-italic">
-                    <p class="text-lg sm:text-2xl font-serif text-slate-100">@ Saint Joseph Church, Nunez St., Zamboanga City</p>
-                    <p class="text-lg sm:text-xl tracking-wide uppercase text-amber-100/80 font-sans">Saturday at 1:00 PM</p>
+                <div class="space-y-2 text-white font-medium">
+                    <p class="text-lg sm:text-2xl font-['Playfair_Display'] tracking-wide">@ Saint Joseph Church, Nuñez St., Zamboanga City</p>
+                    <p class="text-sm sm:text-base tracking-widest uppercase text-emerald-200 font-sans font-semibold">Saturday at 1:00 PM</p>
                 </div>
             </div>
         </section>
 
         <section class="reveal-on-scroll py-12 px-6 max-w-4xl mx-auto text-center relative z-30">
-            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-8 shadow-xl border border-slate-200/60">
-                <h2 class="text-xl md:text-2xl font-['Playfair_Display'] text-slate-900 mb-6 font-semibold tracking-wider uppercase not-italic">Counting Down to Our Forever</h2>
-                <div class="grid grid-cols-4 gap-4 max-w-lg mx-auto font-sans not-italic">
-                    <div class="bg-slate-50 rounded-2xl p-3 md:p-4 border border-slate-200 shadow-sm">
-                        <span id="countdown-days" class="font-['Playfair_Display'] text-3xl md:text-5xl font-bold text-slate-800 block">00</span>
-                        <span class="text-xs uppercase font-medium tracking-widest text-slate-500 block mt-1">Days</span>
+            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-8 shadow-xl border border-emerald-100/60">
+                <h2 class="text-xl md:text-2xl font-['Playfair_Display'] text-emerald-900 mb-6 font-semibold tracking-wider uppercase">Counting Down to Our Forever</h2>
+                <div class="grid grid-cols-4 gap-4 max-w-lg mx-auto font-sans font-medium">
+                    <div class="bg-emerald-50/70 rounded-2xl p-3 md:p-4 border border-emerald-100 shadow-sm">
+                        <span id="countdown-days" class="font-['Playfair_Display'] text-2xl md:text-5xl font-bold text-emerald-800 block">00</span>
+                        <span class="text-[10px] md:text-xs uppercase font-semibold tracking-widest text-emerald-600 block mt-1">Days</span>
                     </div>
-                    <div class="bg-slate-50 rounded-2xl p-3 md:p-4 border border-slate-200 shadow-sm">
-                        <span id="countdown-hours" class="font-['Playfair_Display'] text-3xl md:text-5xl font-bold text-slate-800 block">00</span>
-                        <span class="text-xs uppercase font-medium tracking-widest text-slate-500 block mt-1">Hours</span>
+                    <div class="bg-emerald-50/70 rounded-2xl p-3 md:p-4 border border-emerald-100 shadow-sm">
+                        <span id="countdown-hours" class="font-['Playfair_Display'] text-2xl md:text-5xl font-bold text-emerald-800 block">00</span>
+                        <span class="text-[10px] md:text-xs uppercase font-semibold tracking-widest text-emerald-600 block mt-1">Hours</span>
                     </div>
-                    <div class="bg-slate-50 rounded-2xl p-3 md:p-4 border border-slate-200 shadow-sm">
-                        <span id="countdown-mins" class="font-['Playfair_Display'] text-3xl md:text-5xl font-bold text-slate-800 block">00</span>
-                        <span class="text-xs uppercase font-medium tracking-widest text-slate-500 block mt-1">Mins</span>
+                    <div class="bg-emerald-50/70 rounded-2xl p-3 md:p-4 border border-emerald-100 shadow-sm">
+                        <span id="countdown-mins" class="font-['Playfair_Display'] text-2xl md:text-5xl font-bold text-emerald-800 block">00</span>
+                        <span class="text-[10px] md:text-xs uppercase font-semibold tracking-widest text-emerald-600 block mt-1">Mins</span>
                     </div>
-                    <div class="bg-slate-50 rounded-2xl p-3 md:p-4 border border-slate-200 shadow-sm">
-                        <span id="countdown-secs" class="font-['Playfair_Display'] text-3xl md:text-5xl font-bold text-slate-800 block">00</span>
-                        <span class="text-xs uppercase font-medium tracking-widest text-slate-500 block mt-1">Secs</span>
+                    <div class="bg-emerald-50/70 rounded-2xl p-3 md:p-4 border border-emerald-100 shadow-sm">
+                        <span id="countdown-secs" class="font-['Playfair_Display'] text-2xl md:text-5xl font-bold text-emerald-800 block">00</span>
+                        <span class="text-[10px] md:text-xs uppercase font-semibold tracking-widest text-emerald-600 block mt-1">Secs</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="reveal-on-scroll py-20 px-6 max-w-6xl mx-auto text-center relative -mt-10 z-20">
+        <section class="reveal-on-scroll py-16 px-6 max-w-6xl mx-auto text-center relative -mt-6 z-20">
             <div class="inline-block relative mx-auto mb-8 image-frame-ring">
-                <div class="bg-white p-4 rounded-2xl shadow-2xl border border-slate-200/60 relative z-10">
-                    <div class="bg-[#fcfaf5] p-2 border border-slate-200/60 rounded-xl overflow-hidden">
+                <div class="bg-white p-4 rounded-2xl shadow-2xl border border-emerald-100 relative z-10">
+                    <div class="bg-[#fdf8f2] p-2 border border-emerald-200/60 rounded-xl overflow-hidden">
                         <img src="image1.jpg" alt="Rico and Angel" class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-lg shadow-inner hover:scale-105 transition-transform duration-700 ease-out">
                     </div>
                 </div>
-                <div class="absolute -top-6 -left-6 text-slate-400 opacity-60 animate-bounce" style="animation-duration: 4000ms;">
-                    <svg width="45" height="45" viewBox="0 0 40 40" fill="currentColor">
-                        <path d="M20 2C10 2 2 10 2 20s8 18 18 18 18-8 18-18S30 2 20 2zm-2 24c-3-1-6-4-6-9 0-2 .8-4 2-6 1 2 2 4 2 6s1 4 2 9z"/>
+                <div class="absolute -top-6 -left-6 text-emerald-600 opacity-70 animate-bounce" style="animation-duration: 4000ms;">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                     </svg>
                 </div>
-                <div class="absolute -bottom-6 -right-6 text-slate-400 opacity-60 scale-x-[-1] animate-bounce" style="animation-duration: 4500ms;">
-                    <svg width="45" height="45" viewBox="0 0 40 40" fill="currentColor">
-                        <path d="M20 2C10 2 2 10 2 20s8 18 18 18 18-8 18-18S30 2 20 2zm-2 24c-3-1-6-4-6-9 0-2 .8-4 2-6 1 2 2 4 2 6s1 4 2 9z"/>
+                <div class="absolute -bottom-6 -right-6 text-emerald-600 opacity-70 scale-x-[-1] animate-bounce" style="animation-duration: 4500ms;">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                     </svg>
                 </div>
             </div>
-            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-slate-800 mb-4 font-semibold tracking-wide not-italic">We are Getting Married!</h2>
-            <h3 class="text-2xl font-['Playfair_Display'] font-medium mb-2 text-slate-600 not-italic">Join us in celebrating our love</h3>
-            <h3 class="text-xl font-['Playfair_Display'] font-light italic text-gray-600 mb-8">With Love, Rico &amp; Angel</h3>
+            
+            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-emerald-800 mb-3 font-semibold tracking-wide">We are Getting Married!</h2>
+            <h3 class="text-xl md:text-2xl font-['Playfair_Display'] font-medium mb-1 text-emerald-600">Join us in celebrating our love</h3>
+            <h3 class="text-lg font-['Playfair_Display'] font-light italic text-gray-500 mb-8">With Love, Rico &amp; Angel</h3>
 
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-                <a href="https://www.facebook.com/share/19NP9fTqxq/" target="_blank" rel="noopener noreferrer" class="bg-slate-700 hover:bg-slate-800 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg flex items-center gap-2 font-sans not-italic">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 font-sans">
+                <a href="https://www.facebook.com/share/19NP9fTqxq/" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg flex items-center justify-center gap-2 shadow-md">
                     <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                         <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
                     </svg>
-                    Facebook: Rico John Siason
+                    <span>Rico John Siason</span>
                 </a>
-                <a href="https://www.facebook.com/share/18ff7YziLT/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="bg-slate-700 hover:bg-slate-800 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg flex items-center gap-2 font-sans not-italic">
+                <a href="https://www.facebook.com/share/18ff7YziLT/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg flex items-center justify-center gap-2 shadow-md">
                     <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                         <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
                     </svg>
-                    Facebook: Tchr Angelic
+                    <span>Tchr Angelic</span>
                 </a>
             </div>
         </section>
 
         <section class="reveal-on-scroll py-8 px-6 max-w-4xl mx-auto text-center">
-            <div class="bg-gradient-to-r from-slate-800 to-slate-950 rounded-3xl p-8 md:p-12 shadow-xl border border-slate-700/30 text-white relative overflow-hidden">
-                <div class="absolute -right-16 -bottom-16 w-44 h-44 bg-slate-700/20 rounded-full blur-2xl"></div>
-                <h2 class="text-3xl md:text-4xl font-['Playfair_Display'] mb-3 font-semibold tracking-wide not-italic text-amber-50/90">Are You Joining Our Special Day?</h2>
-                <p class="text-slate-200/90 max-w-md mx-auto italic text-sm md:text-base mb-8">Please extend your response directly to assist us in finalizing our arrangements.</p>
-                <button id="rsvpInlineBtn" class="bg-white text-slate-900 font-['Playfair_Display'] font-bold tracking-wider uppercase px-8 py-3.5 rounded-full shadow-lg hover:bg-slate-50 hover:scale-105 active:scale-95 transition-all duration-300 not-italic">
+            <div class="bg-gradient-to-r from-emerald-800 to-emerald-950 rounded-3xl p-8 md:p-12 shadow-xl border border-emerald-700/30 text-white relative overflow-hidden">
+                <div class="absolute -right-16 -bottom-16 w-44 h-44 bg-emerald-700/20 rounded-full blur-2xl"></div>
+                <h2 class="text-3xl md:text-4xl font-['Playfair_Display'] mb-3 font-semibold tracking-wide">Are You Joining Our Special Day?</h2>
+                <p class="text-emerald-200/90 max-w-md mx-auto italic text-sm md:text-base mb-8">Please extend your response directly to assist us in finalizing our arrangements.</p>
+                <button id="rsvpInlineBtn" class="bg-white text-emerald-900 font-['Playfair_Display'] font-bold tracking-wider uppercase px-8 py-3.5 rounded-full shadow-lg hover:bg-emerald-50 hover:scale-105 active:scale-95 transition-all duration-300">
                     Open Response Form Portal
                 </button>
             </div>
         </section>
 
-        <section class="reveal-on-scroll py-20 px-6 max-w-6xl mx-auto text-center bg-white/40 backdrop-blur-sm rounded-3xl shadow-xl border border-white/60 relative">
-            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-slate-800 mb-12 font-semibold not-italic">Our Moments</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="overflow-hidden rounded-2xl shadow-lg border border-slate-100 group">
-                    <img src="image2.jpg" alt="Moment 1" class="w-full h-80 object-cover group-hover:scale-110 group-hover:rotate-1 transition-transform duration-700">
+        <section class="reveal-on-scroll py-20 px-6 max-w-6xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-emerald-800 mb-12 font-semibold">Our Moments</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="overflow-hidden rounded-2xl shadow-md border border-emerald-100 bg-white p-2 group">
+                    <img src="image2.jpg" alt="Moment 1" class="w-full h-80 object-cover rounded-xl group-hover:scale-105 transition-transform duration-500">
                 </div>
-                <div class="overflow-hidden rounded-2xl shadow-lg border border-slate-100 group">
-                    <img src="image3.jpg" alt="Moment 2" class="w-full h-80 object-cover group-hover:scale-110 group-hover:-rotate-1 transition-transform duration-700">
+                <div class="overflow-hidden rounded-2xl shadow-md border border-emerald-100 bg-white p-2 group">
+                    <img src="image3.jpg" alt="Moment 2" class="w-full h-80 object-cover rounded-xl group-hover:scale-105 transition-transform duration-500">
                 </div>
-                <div class="overflow-hidden rounded-2xl shadow-lg border border-slate-100 group">
-                    <img src="image5.jpg" alt="Moment 3" class="w-full h-80 object-cover group-hover:scale-110 group-hover:rotate-1 transition-transform duration-700">
+                <div class="overflow-hidden rounded-2xl shadow-md border border-emerald-100 bg-white p-2 group" class="sm:col-span-2 md:col-span-1">
+                    <img src="image5.jpg" alt="Moment 3" class="w-full h-80 object-cover rounded-xl group-hover:scale-105 transition-transform duration-500">
                 </div>
             </div>
         </section>
 
-        <section class="reveal-on-scroll py-20 px-6 max-w-4xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-slate-800 text-center mb-12 font-semibold not-italic">Wedding Entourage</h2>
+        <section class="reveal-on-scroll py-16 px-4 max-w-4xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-emerald-800 text-center mb-10 font-semibold">Wedding Entourage</h2>
             
-            <div class="space-y-10 text-center md:text-left">
-                <div class="bg-white/90 p-6 rounded-xl shadow-md border border-slate-100">
-                    <h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-4 border-b-2 border-slate-200/80 pb-2 text-slate-700 not-italic">Parents of the Groom</h3>
-                    <p class="text-gray-800 font-sans not-italic">Mr. Enerio P. Siason &amp; Mrs. Evelyn C. Siason</p>
-                </div>
+            <div class="flex flex-wrap justify-center gap-2 mb-8 bg-emerald-900/5 p-2 rounded-2xl border border-emerald-800/10 font-sans">
+                <button type="button" class="tab-nav-btn active px-4 py-2.5 rounded-xl text-sm font-semibold tracking-wide transition-all duration-300" data-target="tab-parents">Parents</button>
+                <button type="button" class="tab-nav-btn px-4 py-2.5 rounded-xl text-sm font-semibold tracking-wide transition-all duration-300" data-target="tab-honors">Primary Attendants</button>
+                <button type="button" class="tab-nav-btn px-4 py-2.5 rounded-xl text-sm font-semibold tracking-wide transition-all duration-300" data-target="tab-sponsors">Principal Sponsors</button>
+            </div>
+
+            <div id="entourageContentArea" class="relative">
                 
-                <div class="bg-white/90 p-6 rounded-xl shadow-md border border-slate-100">
-                    <h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-4 border-b-2 border-slate-200/80 pb-2 text-slate-700 not-italic">Parents of the Bride</h3>
-                    <p class="text-gray-800 font-sans not-italic">Mr. Joseph S. Cagulada &amp; Mrs. Ruth B. Cagulada</p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="bg-white/90 p-6 rounded-xl shadow-md border border-slate-100 text-center">
-                        <h3 class="text-xl font-['Playfair_Display'] font-semibold mb-3 text-slate-700 not-italic">Best Man</h3>
-                        <p class="text-gray-800 font-sans not-italic">Earl Quin Dane Gaurana</p>
+                <div id="tab-parents" class="tab-content-panel active space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-sm border border-emerald-100/70 text-center">
+                            <h3 class="text-xl font-['Playfair_Display'] font-bold mb-3 text-emerald-800">Parents of the Groom</h3>
+                            <div class="h-0.5 w-12 bg-emerald-200 mx-auto mb-4"></div>
+                            <p class="text-gray-700 font-medium">Mr. Enerio P. Siason</p>
+                            <p class="text-gray-700 font-medium mt-1">Mrs. Evelyn C. Siason</p>
+                        </div>
+                        <div class="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-sm border border-emerald-100/70 text-center">
+                            <h3 class="text-xl font-['Playfair_Display'] font-bold mb-3 text-emerald-800">Parents of the Bride</h3>
+                            <div class="h-0.5 w-12 bg-emerald-200 mx-auto mb-4"></div>
+                            <p class="text-gray-700 font-medium">Mr. Joseph S. Cagulada</p>
+                            <p class="text-gray-700 font-medium mt-1">Mrs. Ruth B. Cagulada</p>
+                        </div>
                     </div>
-                    <div class="bg-white/90 p-6 rounded-xl shadow-md border border-slate-100 text-center">
-                        <h3 class="text-xl font-['Playfair_Display'] font-semibold mb-3 text-slate-700 not-italic">Maid of Honor</h3>
-                        <p class="text-gray-800 font-sans not-italic">Christel Jane B. Cagulada</p>
+                </div>
+
+                <div id="tab-honors" class="tab-content-panel space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-sm border border-emerald-100/70 text-center">
+                            <h3 class="text-lg uppercase tracking-widest font-semibold text-emerald-600 mb-1 font-sans">Best Man</h3>
+                            <p class="text-2xl font-['Playfair_Display'] font-bold text-emerald-900">Earl Quin Dane Gaurana</p>
+                        </div>
+                        <div class="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-sm border border-emerald-100/70 text-center">
+                            <h3 class="text-lg uppercase tracking-widest font-semibold text-emerald-600 mb-1 font-sans">Maid of Honor</h3>
+                            <p class="text-2xl font-['Playfair_Display'] font-bold text-emerald-900">Christel Jane B. Cagulada</p>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="bg-white/90 p-6 rounded-xl shadow-md border border-slate-100">
-                    <h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-4 border-b-2 border-slate-200/80 pb-2 text-slate-700 text-center md:text-left not-italic">Principal Sponsors</h3>
-                    <div class="flex flex-col md:flex-row md:gap-6">
-                        <div class="flex-1">
-                            <p class="text-sm font-medium text-slate-800 mb-2 md:hidden font-sans uppercase tracking-wider">Gentlemen Sponsors</p>
-                            <div class="space-y-1 font-sans not-italic">
-                                <p class="text-sm text-gray-700 leading-relaxed"><span class="font-semibold text-slate-600">Mr.</span> Billy Renz M. Dalogdog</p>
-                                <p class="text-sm text-gray-700 leading-relaxed"><span class="font-semibold text-slate-600">Mr.</span> Ruben Balagosa</p>
-                                <p class="text-sm text-gray-700 leading-relaxed"><span class="font-semibold text-slate-600">Mr.</span> Joel Melendres</p>
-                                <p class="text-sm text-gray-7
+
+                <div id="tab-sponsors" class="tab-content-panel">
+                    <div class="bg-white/90 backdrop-blur-md p-6 md:p-8 rounded-3xl shadow-md border border-emerald-100/70">
+                        <div class="grid sm:grid-cols-2 gap-8 relative">
+                            
+                            <div>
+                                <h4 class="text-xs font-bold text-emerald-800 uppercase tracking-widest border-b border-emerald-100 pb-2 mb-4 font-sans text-center sm:text-left">Gentlemen Sponsors</h4>
+                                <ul class="space-y-2.5 font-sans text-sm text-gray-700">
+                                    <li class="flex items-center gap-1.5"><span class="font-bold text-emerald-600">Mr.</span> Billy Renz M. Dalogdog</li>
+                                    <li class="flex items-center gap-1.5"><span class="font-bold text-emerald-600">Mr.</span> Ruben Balagosa</li>
+                                    <li class="flex items-center gap-1.5"><span class="font-bold text-emerald-600">Mr.</span> Joel Melendres</li>
+                                    <li class="flex items-center gap-1.5"><span class="font-bold text-emerald-600">Mr.</span> Giovani V. Surigao</li>
+                                    <li class="flex items-center gap-1.5"><span class="font-bold text-emerald-600">Mr.</span> Ranielle Sanson</li>
+                                    <li class="flex items-center gap-1.5"><span class="font-bold text-emerald-600">Mr.</span> Norico Quinan</li>
+                                    <li class="flex items-center gap-1.5"><span class="font-bold text-emerald-600">Mr.</span> Ruselo Cosmiano</li>
+                                </ul>
+                            </div>
+
+                            <div class="border-t border-emerald-50 pt-6 sm:border-t-0 sm:pt-0">
+                                <h4 class="text-xs font-bold text-emerald-800 uppercase tracking-widest border-b border-emerald-100 pb-2 mb-4 font-sans text-center sm:text-left">Lady Sponsors</h4>
+                                <ul class="space-y-2.5 font-sans text-sm text-gray-700">
+                                    <li class="flex items-center gap-1.5"><span class="font-bold text-emerald-600">Mrs.</span> Sample Lady Sponsor 1</li>
+                                    <li class="flex items-center gap-1.5"><span class="font-bold text-emerald-600">Mrs.</span> Sample Lady Sponsor 2</li>
+                                    <li class="flex items-center gap-1.5"><span class="font-bold text-emerald-600">Mrs.</span> Sample Lady Sponsor 3</li>
+                                    <li class="flex items-center gap-1.5"><span class="font-bold text-emerald-600">Mrs.</span> Sample Lady Sponsor 4</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-emerald-950 text-emerald-200/60 text-center py-8 px-6 text-xs font-sans tracking-wide border-t border-emerald-900">
+        <p>&copy; 2026 Rico &amp; Angel Wedding. All Rights Reserved.</p>
+        <p class="mt-1 text-emerald-400/40 font-mono">Designed elegantly via Tailwind CSS Framework Architecture</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Elements Registry ---
+            const envelopeContainer = document.getElementById('envelopeContainer');
+            const envelope = document.getElementById('envelope');
+            const bgMusic = document.getElementById('bgMusic');
+            const musicControl = document.getElementById('musicControl');
+            const musicIcon = document.getElementById('musicIcon');
+            const topHeader = document.getElementById('topHeader');
+            
+            const rsvpModal = document.getElementById('rsvpModal');
+            const rsvpFloatingBtn = document.getElementById('rsvpFloatingBtn');
+            const rsvpInlineBtn = document.getElementById('rsvpInlineBtn');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            
+            const tabButtons = document.querySelectorAll('.tab-nav-btn');
+            const scrollElements = document.querySelectorAll('.reveal-on-scroll');
+
+            // --- Welcome Envelope Opening Logic ---
+            if(envelope && envelopeContainer) {
+                envelope.addEventListener('click', () => {
+                    envelope.classList.add('opening');
+                    envelopeContainer.classList.add('opened');
+                    
+                    // Audio Engine Playback Kickoff Setup
+                    if(bgMusic) {
+                        bgMusic.play().then(() => {
+                            musicControl.classList.add('playing');
+                        }).catch(err => console.log("Audio playback user permission block: ", err));
+                    }
+                    
+                    // Smooth Transition to Main Content Screen Layout
+                    setTimeout(() => {
+                        envelopeContainer.classList.add('hidden');
+                        if(musicControl) musicControl.classList.add('visible');
+                        if(rsvpFloatingBtn) rsvpFloatingBtn.classList.add('visible');
+                        
+                        // Fire initial scroll check immediately upon entry reveal
+                        handleScrollReveal();
+                    }, 1100);
+                });
+            }
+
+            // --- Floating Audio Player Control Engine Engine ---
+            if(musicControl && bgMusic) {
+                musicControl.addEventListener('click', () => {
+                    if(bgMusic.paused) {
+                        bgMusic.play();
+                        musicControl.classList.add('playing');
+                        musicIcon.innerHTML = `<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>`;
+                    } else {
+                        bgMusic.pause();
+                        musicControl.classList.remove('playing');
+                        musicIcon.innerHTML = `<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>`;
+                    }
+                });
+            }
+
+            // --- Wedding RSVP Modal Management ---
+            const openRSVP = () => {
+                rsvpModal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Lock background scroll axis
+            };
+            
+            const closeRSVP = () => {
+                rsvpModal.classList.remove('active');
+                document.body.style.overflow = ''; // Release background scroll lock
+            };
+
+            if(rsvpFloatingBtn) rsvpFloatingBtn.addEventListener('click', openRSVP);
+            if(rsvpInlineBtn) rsvpInlineBtn.addEventListener('click', openRSVP);
+            if(closeModalBtn) closeModalBtn.addEventListener('click', closeRSVP);
+            
+            // Close modal when tapping outside content frame boundary overlay
+            if(rsvpModal) {
+                rsvpModal.addEventListener('click', (e) => {
+                    if(e.target === rsvpModal) closeRSVP();
+                });
+            }
+
+            // --- Wedding Entourage Information Tab Switcher ---
+            tabButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetId = btn.getAttribute('data-target');
+                    
+                    // Terminate current states on active elements
+                    tabButtons.forEach(b => b.classList.remove('active'));
+                    document.querySelectorAll('.tab-content-panel').forEach(p => p.classList.remove('active'));
+                    
+                    // Activate requested targeting panels
+                    btn.classList.add('active');
+                    const targetPanel = document.getElementById(targetId);
+                    if(targetPanel) targetPanel.classList.add('active');
+                });
+            });
+
+            // --- Real-time Countdown Timer Calculations ---
+            const targetWeddingDate = new Date('May 23, 2026 13:00:00').getTime();
+
+            const updateWeddingCountdown = () => {
+                const now = new Date().getTime();
+                const distanceRemaining = targetWeddingDate - now;
+
+                if (distanceRemaining < 0) {
+                    document.querySelector('.grid-cols-4').innerHTML = `<div class="col-span-4 p-4 text-emerald-800 text-xl font-bold font-['Playfair_Display']">The Celebration Has Begun!</div>`;
+                    clearInterval(countdownIntervalId);
+                    return;
+                }
+
+                const days = Math.floor(distanceRemaining / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distanceRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distanceRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distanceRemaining % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown-days').textContent = String(days).padStart(2, '0');
+                document.getElementById('countdown-hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('countdown-mins').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('countdown-secs').textContent = String(seconds).padStart(2, '0');
+            };
+            
+            updateWeddingCountdown();
+            const countdownIntervalId = setInterval(updateWeddingCountdown, 1000);
+
+            // --- Header & Section Scroll Reveal Engine ---
+            const handleScrollReveal = () => {
+                const triggerThreshold = window.innerHeight * 0.85;
+
+                scrollElements.forEach(el => {
+                    const elementTopLocation = el.getBoundingClientRect().top;
+                    if (elementTopLocation < triggerThreshold) {
+                        el.classList.add('is-visible');
+                    }
+                });
+
+                // Top Fixed Sticky Menu Bar Display Logic Toggle
+                if (window.scrollY > 350) {
+                    topHeader.classList.remove('-translate-y-full', 'opacity-0');
+                } else {
+                    topHeader.classList.add('-translate-y-full', 'opacity-0');
+                }
+            };
+
+            window.addEventListener('scroll', handleScrollReveal);
+        });
+    </script>
+</body>
+</html>
