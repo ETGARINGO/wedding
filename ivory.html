@@ -25,69 +25,88 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
                 
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Lora', serif;
             font-style: italic;
             overflow-x: hidden;
+            background-color: #efeff4;
         }
 
-        /* Neumorphic Utilities */
-        .neumorphic-flat {
-            background: #f4f4f6;
-            box-shadow: 6px 6px 16px #d1d1d6, -6px -6px 16px #ffffff;
+        /* Pure Premium Neumorphism Framework */
+        .nm-flat {
+            background: #efeff4;
+            box-shadow: 8px 8px 16px #d1d1d6, -8px -8px 16px #ffffff;
         }
-        .neumorphic-inset {
-            background: #f4f4f6;
-            box-shadow: inset 4px 4px 8px #d1d1d6, inset -4px -4px 8px #ffffff;
+        .nm-flat-accent {
+            background: linear-gradient(135deg, #e6c4ac, #bfa08a);
+            box-shadow: 6px 6px 14px #ccaa94, -6px -6px 14px #ffffff;
         }
-        .neumorphic-card {
-            background: rgba(244, 244, 246, 0.85);
-            box-shadow: 10px 10px 25px #d1d1d6, -10px -10px 25px #ffffff;
+        .nm-inset {
+            background: #efeff4;
+            box-shadow: inset 5px 5px 10px #d1d1d6, inset -5px -5px 10px #ffffff;
+        }
+        .nm-inset-accent {
+            background: #efeff4;
+            box-shadow: inset 3px 3px 6px #dfb89d, inset -3px -3px 6px #ffffff;
+        }
+        .nm-card {
+            background: rgba(239, 239, 244, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 12px 12px 28px #d1d1d6, -12px -12px 28px #ffffff;
+        }
+
+        /* Glassmorphic Overlay Mechanics */
+        .glass-header {
+            background: rgba(239, 239, 244, 0.75);
+            backdrop-filter: blur(25px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         }
 
         /* Smooth Cinematic Scroll Reveal CSS */
         .reveal-on-scroll {
             opacity: 0;
-            transform: translateY(35px);
-            transition: opacity 1.2s cubic-bezier(0.21, 1.02, 0.43, 1.01), transform 1.2s cubic-bezier(0.21, 1.02, 0.43, 1.01);
+            transform: translateY(45px) scale(0.98);
+            transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
             will-change: transform, opacity;
         }
         .reveal-on-scroll.is-visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
         }
 
-        /* Elegant Floating Animations */
+        /* Ultra Premium Floating Engine */
         .floating-premium {
             font-family: 'Playfair Display', serif;
-            animation: elegantFloat 6s ease-in-out infinite;
+            animation: elegantFloat 7s ease-in-out infinite;
             will-change: transform;
         }
         .floating-subtle {
-            animation: elegantFloatSubtle 5s ease-in-out infinite;
+            animation: elegantFloatSubtle 6s ease-in-out infinite;
             will-change: transform;
         }
         .wavy-date {
             font-family: 'Playfair Display', serif;
-            animation: elegantFloat 5.5s ease-in-out infinite alternate;
+            animation: elegantFloat 5s ease-in-out infinite alternate;
             will-change: transform;
         }
 
         @keyframes elegantFloat {
             0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(0.3deg); }
+            50% { transform: translateY(-15px) rotate(0.4deg); }
             100% { transform: translateY(0px) rotate(0deg); }
         }
         @keyframes elegantFloatSubtle {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-5px); }
+            50% { transform: translateY(-7px); }
             100% { transform: translateY(0px); }
         }
         
-        /* Envelope Animation Styles */
+        /* Interactive Welcome Gate Overlay Envelope Component Automation */
         .envelope-container {
             position: fixed;
             inset: 0;
@@ -95,273 +114,256 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            backdrop-filter: blur(16px);
-            background-color: rgba(244, 244, 246, 0.4);
-            transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), visibility 1s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(20px);
+            background-color: rgba(239, 239, 244, 0.5);
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 1.2s cubic-bezier(0.16, 1, 0.3, 1);
             overflow: hidden;
         }
         .envelope-container::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('image1.jpg') center/cover no-repeat;
-            filter: blur(20px);
-            transform: scale(1.15);
-            transition: filter 1.2s ease-out, transform 1.4s ease-out;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('image1.jpg') center/cover no-repeat;
+            filter: blur(25px);
+            transform: scale(1.2);
+            transition: filter 1.4s ease-out, transform 1.6s ease-out;
             z-index: 1;
         }
-        .envelope-container.opened::before { filter: blur(3px); transform: scale(1); }
+        .envelope-container.opened::before { filter: blur(4px); transform: scale(1.05); }
         .envelope-container.hidden {
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
         }
         .envelope {
-            width: 90%;
-            max-width: 420px;
-            height: 290px;
-            background: #f4f4f6;
-            border-radius: 24px;
-            box-shadow: 20px 20px 50px #c2c2c9, -20px -20px 50px #ffffff;
+            width: 92%;
+            max-width: 440px;
+            height: 300px;
+            background: #efeff4;
+            border-radius: 32px;
+            box-shadow: 25px 25px 55px #c8c8cf, -25px -25px 55px #ffffff;
             position: relative;
             cursor: pointer;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
-            perspective: 1200px;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+            perspective: 1500px;
             z-index: 10;
+            border: 1px solid rgba(255,255,255,0.6);
         }
         .envelope:hover { 
-            transform: scale(1.03); 
-            box-shadow: 15px 15px 40px rgba(195, 149, 117, 0.2), -15px -15px 40px #ffffff;
+            transform: scale(1.04); 
+            box-shadow: 18px 18px 45px rgba(195, 149, 117, 0.25), -18px -18px 45px #ffffff;
         }
         
         .envelope-front {
             position: absolute;
             width: 100%;
             height: 100%;
-            background: #f4f4f6;
-            border-radius: 24px;
+            background: #efeff4;
+            border-radius: 32px;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(255, 255, 255, 0.7);
         }
         .envelope-flap {
             position: absolute;
             width: 100%;
-            height: 55%;
+            height: 56%;
             background: linear-gradient(135deg, #dfb89d 0%, #c39575 100%);
             top: 0;
             left: 0;
             transform-origin: top center;
-            transition: transform 0.9s cubic-bezier(0.66, -0.15, 0.26, 1.15);
+            transition: transform 1.1s cubic-bezier(0.66, -0.15, 0.26, 1.15);
             z-index: 10;
-            border-radius: 24px 24px 0 0;
+            border-radius: 32px 32px 0 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
         }
         .envelope-flap::before {
             content: "You're Invited";
             font-family: 'Playfair Display', serif;
-            font-size: 1.75rem;
+            font-size: 1.9rem;
             color: white;
-            letter-spacing: 0.03em;
-            margin-bottom: 4px;
+            letter-spacing: 0.04em;
+            margin-bottom: 6px;
             font-style: normal;
         }
         .envelope-flap::after {
             content: "✦ Tap to Open with Music ✦";
-            font-size: 0.72rem;
-            color: rgba(255, 255, 255, 0.9);
-            letter-spacing: 0.12em;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.85);
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            font-weight: 500;
+            font-weight: 600;
             font-style: normal;
-            animation: pulseText 2s infinite;
+            animation: pulseText 2.2s infinite;
         }
         @keyframes pulseText {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; transform: scale(1.01); }
+            0%, 100% { opacity: 0.65; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.02); }
         }
-        .envelope.opening .envelope-flap { transform: rotateX(140deg); }
+        .envelope.opening .envelope-flap { transform: rotateX(145deg); }
         .envelope-content {
             text-align: center;
             z-index: 5;
             opacity: 0;
-            transform: scale(0.92) translateY(8px);
-            transition: opacity 0.6s ease-out 0.4s, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.4s;
+            transform: scale(0.9) translateY(12px);
+            transition: opacity 0.7s ease-out 0.5s, transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
             padding: 40px 20px;
         }
         .envelope.opening .envelope-content { opacity: 1; transform: scale(1) translateY(0); }
         .envelope-text {
             font-family: 'Playfair Display', serif;
-            font-size: 1.85rem;
+            font-size: 1.95rem;
             color: #2c2c2e;
             line-height: 1.4;
             font-style: normal;
         }
         
-        /* Floating HUD Controls Mechanics */
-        .music-control {
+        /* Floating Interface HUD Action Elements */
+        .hud-control {
             position: fixed;
-            bottom: 24px;
-            right: 24px;
+            bottom: 28px;
             z-index: 50;
-            width: 56px;
-            height: 56px;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0;
+            transform: translateY(40px) scale(0.8);
+        }
+        .hud-control.visible { opacity: 1; transform: translateY(0) scale(1); }
+        
+        .music-control {
+            right: 28px;
+            width: 58px;
+            height: 58px;
             border-radius: 50%;
-            background: #f4f4f6;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 6px 6px 14px #d1d1d6, -6px -6px 14px #ffffff;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 0;
-            transform: translateY(40px) scale(0.8);
-            border: 1px solid rgba(255,255,255,0.6);
+            border: 1px solid rgba(255,255,255,0.7);
         }
-        .music-control.visible { opacity: 1; transform: translateY(0) scale(1); }
         .music-control:hover {
-            background: #dfb89d;
-            transform: scale(1.08) rotate(10deg);
-            box-shadow: 4px 4px 10px rgba(195, 149, 117, 0.3);
+            transform: scale(1.1) rotate(12deg);
+            background: linear-gradient(135deg, #dfb89d 0%, #c39575 100%);
+            box-shadow: 4px 8px 18px rgba(195, 149, 117, 0.35);
         }
         .music-control:hover svg { color: white; }
         .music-control svg { width: 26px; height: 26px; color: #c39575; transition: color 0.3s ease; }
         
         @keyframes musicPulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(223, 184, 157, 0.5); }
-            70% { box-shadow: 0 0 0 12px rgba(223, 184, 157, 0); }
+            0%, 100% { box-shadow: 0 0 0 0 rgba(223, 184, 157, 0.6); }
+            70% { box-shadow: 0 0 0 14px rgba(223, 184, 157, 0); }
         }
-        .music-control.playing { animation: musicPulse 2s infinite; }
+        .music-control.playing { animation: musicPulse 2.2s infinite; }
 
         .rsvp-trigger-btn {
-            position: fixed;
-            bottom: 24px;
-            left: 24px;
-            z-index: 50;
-            height: 56px;
-            padding: 0 24px;
-            border-radius: 28px;
-            background: #f4f4f6;
+            left: 28px;
+            height: 58px;
+            padding: 0 28px;
+            border-radius: 30px;
             color: #c39575;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            font-size: 1.05rem;
-            letter-spacing: 0.03em;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.04em;
             cursor: pointer;
-            box-shadow: 6px 6px 14px #d1d1d6, -6px -6px 14px #ffffff;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 0;
-            transform: translateY(40px) scale(0.8);
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.7);
             font-style: normal;
         }
-        .rsvp-trigger-btn.visible { opacity: 1; transform: translateY(0) scale(1); }
         .rsvp-trigger-btn:hover {
-            transform: scale(1.04) translateY(-2px);
+            transform: scale(1.05) translateY(-3px);
             background: linear-gradient(135deg, #dfb89d 0%, #c39575 100%);
             color: white;
-            box-shadow: 6px 10px 20px rgba(195, 149, 117, 0.25);
+            box-shadow: 8px 12px 24px rgba(195, 149, 117, 0.3);
         }
         
         .envelope-heart {
             position: absolute;
-            width: 65px;
-            height: 65px;
+            width: 68px;
+            height: 68px;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -40%);
             z-index: 8;
-            filter: drop-shadow(0 6px 12px rgba(195, 149, 117, 0.3));
+            filter: drop-shadow(0 8px 16px rgba(195, 149, 117, 0.35));
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: heartbeat 1.6s infinite ease-in-out;
+            animation: heartbeat 1.5s infinite ease-in-out;
         }
         @keyframes heartbeat {
             0%, 100% { transform: translate(-50%, -40%) scale(1); }
-            50% { transform: translate(-50%, -40%) scale(1.08); }
+            50% { transform: translate(-50%, -40%) scale(1.1); }
         }
-        .envelope.opening .envelope-heart { opacity: 0; transform: translate(-50%, -40%) scale(0.3); }
+        .envelope.opening .envelope-heart { opacity: 0; transform: translate(-50%, -40%) scale(0.2); }
 
-        /* Overlay Modal Framework Layouts */
+        /* Premium Overlay Modal */
         .modal-overlay {
             position: fixed;
             inset: 0;
             z-index: 100;
-            background-color: rgba(44, 44, 46, 0.4);
-            backdrop-filter: blur(10px);
+            background-color: rgba(28, 28, 30, 0.45);
+            backdrop-filter: blur(12px);
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             padding: 16px;
         }
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
         .modal-wrapper {
-            background: #f4f4f6;
             width: 100%;
-            max-width: 650px;
+            max-width: 660px;
             height: 85vh;
-            max-height: 780px;
-            border-radius: 28px;
-            box-shadow: 15px 15px 40px rgba(0,0,0,0.15);
+            max-height: 790px;
+            border-radius: 36px;
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            transform: scale(0.92) translateY(20px);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(255, 255, 255, 0.7);
+            transform: scale(0.9) translateY(30px);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .modal-overlay.active .modal-wrapper {
-            transform: scale(1) translateY(0);
-        }
+        .modal-overlay.active .modal-wrapper { transform: scale(1) translateY(0); }
 
-        /* Registry Details Tabs States Styling */
-        .registry-card {
-            display: none;
-        }
+        /* Registry Details Tab Engine Styling */
+        .registry-card { display: none; }
         .registry-card.active {
             display: block;
-            animation: fadeInTab 0.5s ease-out forwards;
+            animation: fadeInTab 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         @keyframes fadeInTab {
-            from { opacity: 0; transform: translateY(6px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
-<body class="bg-[#f4f4f6] text-[#48484a]">
+<body class="text-[#48484a]">
 
-    <header id="topHeader" class="sticky top-0 w-full z-40 bg-[#f4f4f6]/80 backdrop-blur-md border-b border-gray-200/40 transition-all duration-500 transform -translate-y-full opacity-0">
-        <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+    <header id="topHeader" class="sticky top-0 w-full z-40 glass-header transition-all duration-700 transform -translate-y-full opacity-0">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
             <a href="#" class="flex items-center gap-3 group transition-transform duration-300 hover:scale-[1.01]" title="Back to top">
-                <div class="w-9 h-9 rounded-full border border-white bg-[#f4f4f6] shadow-[2px_2px_5px_#d1d1d6,-2px_-2px_5px_#ffffff] flex items-center justify-center">
+                <div class="w-10 h-10 rounded-full border border-white bg-[#efeff4] shadow-[3px_3px_6px_#d1d1d6,-3px_-3px_6px_#ffffff] flex items-center justify-center">
                     <svg class="w-5 h-5 text-[#c39575] group-hover:scale-110 transition-transform duration-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
                     </svg>
                 </div>
-                <span class="font-['Playfair_Display'] text-lg font-semibold tracking-wider text-[#2c2c2e] group-hover:text-[#c39575] transition-colors not-italic">Rico & Angel</span>
+                <span class="font-['Playfair_Display'] text-xl font-bold tracking-wider text-[#2c2c2e] group-hover:text-[#c39575] transition-colors not-italic">Rico & Angel</span>
             </a>
-            <div class="text-[11px] uppercase font-bold tracking-widest text-[#c39575] bg-white border border-gray-100 rounded-full px-3 py-1 shadow-sm font-sans not-italic">
+            <div class="text-[10px] uppercase font-bold tracking-widest text-[#c39575] bg-white border border-gray-100 rounded-full px-4 py-1.5 shadow-sm font-sans not-italic">
                 May 23, 2026
             </div>
         </div>
     </header>
 
     <div id="envelopeContainer" class="envelope-container">
-        <div class="envelope" id="envelope">
+        <div class="envelope nm-flat" id="envelope">
             <div class="envelope-flap"></div>
             <div class="envelope-front">
                 <svg class="envelope-heart" viewBox="0 0 24 24" fill="#dfb89d">
@@ -376,13 +378,13 @@
         </div>
     </div>
     
-    <div id="musicControl" class="music-control" title="Toggle Music">
+    <div id="musicControl" class="hud-control music-control nm-flat" title="Toggle Music">
         <svg id="musicIcon" viewBox="0 0 24 24" fill="currentColor">
             <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
         </svg>
     </div>
 
-    <button id="rsvpFloatingBtn" class="rsvp-trigger-btn" title="Open RSVP Form">
+    <button id="rsvpFloatingBtn" class="hud-control rsvp-trigger-btn nm-flat" title="Open RSVP Form">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
         </svg>
@@ -390,19 +392,19 @@
     </button>
 
     <div id="rsvpModal" class="modal-overlay">
-        <div class="modal-wrapper">
-            <div class="px-6 py-4 bg-white border-b border-gray-200/50 flex items-center justify-between">
+        <div class="modal-wrapper nm-card">
+            <div class="px-8 py-5 bg-white/50 border-b border-gray-200/40 flex items-center justify-between">
                 <div class="text-left">
-                    <h2 class="font-['Playfair_Display'] text-2xl font-bold text-[#2c2c2e] not-italic">Wedding RSVP</h2>
-                    <p class="text-xs text-[#8e8e93] italic">Rico & Angel Wedding • May 23, 2026</p>
+                    <h2 class="font-['Playfair_Display'] text-2xl font-bold text-[#2c2c2e] not-italic tracking-wide">Wedding RSVP</h2>
+                    <p class="text-xs font-sans text-[#8e8e93] font-medium tracking-wide uppercase mt-0.5">Rico & Angel Wedding • May 23, 2026</p>
                 </div>
-                <button id="closeModalBtn" class="w-9 h-9 rounded-full bg-[#f4f4f6] border border-white flex items-center justify-center text-gray-400 hover:text-[#c39575] shadow-sm transition-all duration-300 focus:outline-none" title="Close Form">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <button id="closeModalBtn" class="w-10 h-10 rounded-full bg-[#efeff4] border border-white flex items-center justify-center text-gray-400 hover:text-[#c39575] shadow-sm hover:scale-105 transition-all duration-300 focus:outline-none">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
             </div>
-            <div class="flex-1 w-full bg-[#f4f4f6] relative">
+            <div class="flex-1 w-full bg-[#efeff4] relative">
                 <iframe src="https://script.google.com/macros/s/AKfycbysJWowzk4Xt2GefILHx7ezirbfpvYHOJP4fzkrVQ_Y_tIkjFWYLApt2wEuq3sZ4LZDLw/exec" 
                         class="absolute inset-0 w-full h-full border-0" 
                         allow="geolocation; microphone; camera">
@@ -418,179 +420,179 @@
 
     <main id="mainContent">
         <section class="relative w-full h-screen flex items-center justify-center text-center overflow-hidden bg-[#1c1c1e]">
-            <video autoplay muted loop playsinline poster="flowers2.png" class="absolute inset-0 w-full h-full object-cover z-0 opacity-60">
+            <video autoplay muted loop playsinline poster="flowers2.png" class="absolute inset-0 w-full h-full object-cover z-0 opacity-55 scale-105">
                 <source src="Vid2.mp4" type="video/mp4">
             </video>
-            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-[#f4f4f6] z-10"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/45 via-black/20 to-[#efeff4] z-10"></div>
             
-            <div class="relative z-20 text-white space-y-6 px-6 max-w-3xl">
-                <p class="text-xl sm:text-2xl tracking-widest floating-subtle text-gray-200">
+            <div class="relative z-20 text-white space-y-6 px-6 max-w-4xl">
+                <p class="text-xl sm:text-2xl font-light tracking-widest floating-subtle text-gray-200">
                     By the grace of God and with<br>the blessing of our families,
                 </p>
-                <p class="text-2xl sm:text-3xl font-light floating-subtle text-gray-300">We,</p>
+                <p class="text-2xl sm:text-3xl font-light tracking-wider italic floating-subtle text-gray-300">We,</p>
                                 
-                <h1 class="floating-premium text-6xl sm:text-7xl lg:text-8xl break-words px-2 font-semibold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-white via-[#dfb89d] to-white drop-shadow-xl not-italic">
+                <h1 class="floating-premium text-6xl sm:text-7xl lg:text-8xl break-words px-2 font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-white via-[#dfb89d] to-white drop-shadow-2xl not-italic py-2">
                     Rico & Angel
                 </h1>
-                <p class="text-lg sm:text-xl max-w-xl mx-auto floating-subtle leading-relaxed text-gray-200">
+                <p class="text-lg sm:text-xl max-w-xl mx-auto font-light tracking-wide floating-subtle leading-relaxed text-gray-200">
                     Cordially invite you to join us as we celebrate the sacrament of matrimony on
                 </p>
-                <p class="wavy-date text-4xl sm:text-5xl lg:text-6xl font-bold text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] not-italic">
+                <p class="wavy-date text-5xl sm:text-6xl lg:text-7xl font-bold text-white drop-shadow-[0_6px_16px_rgba(0,0,0,0.45)] not-italic">
                     May 23, 2026
                 </p>
-                <div class="space-y-1 floating-subtle text-[#dfb89d] font-medium not-italic">
-                    <p class="text-lg sm:text-2xl font-serif text-white/95">@ Saint Joseph Church, Nunez St., Zamboanga City</p>
-                    <p class="text-base sm:text-lg tracking-widest uppercase text-white/80 font-sans">Saturday at 1:00 PM</p>
+                <div class="space-y-2 floating-subtle text-[#dfb89d] font-medium not-italic pt-4">
+                    <p class="text-lg sm:text-2xl font-serif text-white/95 tracking-wide">@ Saint Joseph Church, Nunez St., Zamboanga City</p>
+                    <p class="text-xs sm:text-sm tracking-[0.25em] uppercase font-bold text-white/70 font-sans">Saturday at 1:00 PM</p>
                 </div>
             </div>
         </section>
 
-        <section class="reveal-on-scroll py-12 px-6 max-w-4xl mx-auto text-center relative z-30">
-            <div class="neumorphic-card rounded-3xl p-8 border border-white/60">
-                <h2 class="text-xl md:text-2xl font-['Playfair_Display'] text-[#2c2c2e] mb-6 font-semibold tracking-wider uppercase not-italic">Counting Down to Our Forever</h2>
-                <div class="grid grid-cols-4 gap-4 max-w-lg mx-auto font-sans not-italic">
-                    <div class="neumorphic-inset rounded-2xl p-3 md:p-4 border border-white/40">
-                        <span id="countdown-days" class="font-['Playfair_Display'] text-3xl md:text-5xl font-bold text-[#c39575] block">00</span>
-                        <span class="text-[10px] uppercase font-bold tracking-widest text-gray-500 block mt-1">Days</span>
+        <section class="reveal-on-scroll py-14 px-6 max-w-4xl mx-auto text-center relative z-30 -mt-12">
+            <div class="nm-card rounded-[32px] p-8 md:p-10">
+                <h2 class="text-xs md:text-sm font-sans text-gray-400 mb-8 font-bold tracking-[0.2em] uppercase ready-text not-italic">Counting Down to Our Forever</h2>
+                <div class="grid grid-cols-4 gap-4 md:gap-6 max-w-xl mx-auto font-sans not-italic">
+                    <div class="nm-inset rounded-2xl p-4 md:p-5 border border-white/50">
+                        <span id="countdown-days" class="font-['Playfair_Display'] text-3xl md:text-5xl font-bold text-[#c39575] block tracking-tight">00</span>
+                        <span class="text-[9px] uppercase font-bold tracking-widest text-gray-400 block mt-2">Days</span>
                     </div>
-                    <div class="neumorphic-inset rounded-2xl p-3 md:p-4 border border-white/40">
-                        <span id="countdown-hours" class="font-['Playfair_Display'] text-3xl md:text-5xl font-bold text-[#c39575] block">00</span>
-                        <span class="text-[10px] uppercase font-bold tracking-widest text-gray-500 block mt-1">Hours</span>
+                    <div class="nm-inset rounded-2xl p-4 md:p-5 border border-white/50">
+                        <span id="countdown-hours" class="font-['Playfair_Display'] text-3xl md:text-5xl font-bold text-[#c39575] block tracking-tight">00</span>
+                        <span class="text-[9px] uppercase font-bold tracking-widest text-gray-400 block mt-2">Hours</span>
                     </div>
-                    <div class="neumorphic-inset rounded-2xl p-3 md:p-4 border border-white/40">
-                        <span id="countdown-mins" class="font-['Playfair_Display'] text-3xl md:text-5xl font-bold text-[#c39575] block">00</span>
-                        <span class="text-[10px] uppercase font-bold tracking-widest text-gray-500 block mt-1">Mins</span>
+                    <div class="nm-inset rounded-2xl p-4 md:p-5 border border-white/50">
+                        <span id="countdown-mins" class="font-['Playfair_Display'] text-3xl md:text-5xl font-bold text-[#c39575] block tracking-tight">00</span>
+                        <span class="text-[9px] uppercase font-bold tracking-widest text-gray-400 block mt-2">Mins</span>
                     </div>
-                    <div class="neumorphic-inset rounded-2xl p-3 md:p-4 border border-white/40">
-                        <span id="countdown-secs" class="font-['Playfair_Display'] text-3xl md:text-5xl font-bold text-[#c39575] block">00</span>
-                        <span class="text-[10px] uppercase font-bold tracking-widest text-gray-500 block mt-1">Secs</span>
+                    <div class="nm-inset rounded-2xl p-4 md:p-5 border border-white/50">
+                        <span id="countdown-secs" class="font-['Playfair_Display'] text-3xl md:text-5xl font-bold text-[#c39575] block tracking-tight">00</span>
+                        <span class="text-[9px] uppercase font-bold tracking-widest text-gray-400 block mt-2">Secs</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="reveal-on-scroll py-16 px-6 max-w-6xl mx-auto text-center relative z-20">
-            <div class="inline-block relative mx-auto mb-8">
-                <div class="bg-[#f4f4f6] p-4 rounded-3xl shadow-[12px_12px_24px_#d1d1d6,-12px_-12px_24px_#ffffff] border border-white/70 relative z-10">
-                    <div class="bg-white p-2 border border-gray-200/40 rounded-2xl overflow-hidden">
-                        <img src="image1.jpg" alt="Rico and Angel" class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-xl hover:scale-105 transition-transform duration-700 ease-out">
+            <div class="inline-block relative mx-auto mb-10">
+                <div class="bg-[#efeff4] p-5 rounded-[40px] shadow-[16px_16px_32px_#d1d1d6,-16px_-16px_32px_#ffffff] border border-white/80 relative z-10">
+                    <div class="bg-white p-2.5 border border-gray-200/30 rounded-[30px] overflow-hidden">
+                        <img src="image1.jpg" alt="Rico and Angel" class="w-68 h-68 md:w-85 md:h-85 object-cover rounded-[22px] hover:scale(1.04) transition-transform duration-700 ease-out">
                     </div>
                 </div>
             </div>
-            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-[#2c2c2e] mb-4 font-semibold tracking-wide not-italic">We are Getting Married!</h2>
-            <h3 class="text-xl font-['Playfair_Display'] font-medium mb-1 text-[#c39575] not-italic">Join us in celebrating our love</h3>
-            <h3 class="text-lg font-['Playfair_Display'] font-light italic text-gray-500 mb-8">With Love, Rico & Angel</h3>
+            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-[#2c2c2e] mb-4 font-bold tracking-wide not-italic">We are Getting Married!</h2>
+            <h3 class="text-xl font-['Playfair_Display'] font-medium mb-1 text-[#c39575] not-italic tracking-wide">Join us in celebrating our love</h3>
+            <h3 class="text-lg font-['Playfair_Display'] font-light italic text-gray-500 mb-10">With Love, Rico & Angel</h3>
 
-            <div class="flex flex-col sm:flex-row gap-5 justify-center items-center mb-10">
-                <a href="https://www.facebook.com/share/19NP9fTqxq/" target="_blank" rel="noopener noreferrer" class="neumorphic-flat hover:bg-white text-[#48484a] font-semibold py-3 px-8 rounded-full transition-all duration-300 hover:-translate-y-0.5 border border-white flex items-center gap-2 font-sans not-italic text-sm tracking-wide shadow-md">
+            <div class="flex flex-col sm:flex-row gap-5 justify-center items-center mb-6">
+                <a href="https://www.facebook.com/share/19NP9fTqxq/" target="_blank" rel="noopener noreferrer" class="nm-flat hover:bg-white text-[#48484a] font-bold py-3.5 px-8 rounded-full transition-all duration-300 border border-white/80 flex items-center gap-3 font-sans not-italic text-xs uppercase tracking-widest shadow-md">
                     <svg class="w-5 h-5 fill-[#c39575]" viewBox="0 0 24 24">
                         <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
                     </svg>
-                    Facebook: Rico John Siason
+                    Rico John Siason
                 </a>
-                <a href="https://www.facebook.com/share/18ff7YziLT/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="neumorphic-flat hover:bg-white text-[#48484a] font-semibold py-3 px-8 rounded-full transition-all duration-300 hover:-translate-y-0.5 border border-white flex items-center gap-2 font-sans not-italic text-sm tracking-wide shadow-md">
+                <a href="https://www.facebook.com/share/18ff7YziLT/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="nm-flat hover:bg-white text-[#48484a] font-bold py-3.5 px-8 rounded-full transition-all duration-300 border border-white/80 flex items-center gap-3 font-sans not-italic text-xs uppercase tracking-widest shadow-md">
                     <svg class="w-5 h-5 fill-[#c39575]" viewBox="0 0 24 24">
                         <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
                     </svg>
-                    Facebook: Tchr Angelic
+                    Tchr Angelic
                 </a>
             </div>
         </section>
 
         <section class="reveal-on-scroll py-8 px-6 max-w-4xl mx-auto text-center">
-            <div class="bg-gradient-to-br from-[#dfb89d] to-[#c39575] rounded-3xl p-8 md:p-12 shadow-xl border border-white/20 text-white relative overflow-hidden">
-                <div class="absolute -right-12 -bottom-12 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
-                <h2 class="text-3xl md:text-4xl font-['Playfair_Display'] mb-3 font-semibold tracking-wide not-italic">Are You Joining Our Special Day?</h2>
-                <p class="text-white/90 max-w-md mx-auto italic text-sm md:text-base mb-8">Please extend your response directly to assist us in finalizing our arrangements.</p>
-                <button id="rsvpInlineBtn" class="bg-[#f4f4f6] text-[#2c2c2e] font-['Playfair_Display'] font-bold tracking-widest uppercase px-8 py-3.5 rounded-full shadow-md hover:bg-white hover:scale-[1.02] active:scale-95 transition-all duration-300 text-sm not-italic">
+            <div class="nm-flat-accent rounded-[36px] p-8 md:p-14 text-white relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-white/10 rounded-full blur-3xl"></div>
+                <h2 class="text-3xl md:text-5xl font-['Playfair_Display'] mb-3 font-bold tracking-wide not-italic">Are You Joining Our Special Day?</h2>
+                <p class="text-white/85 max-w-md mx-auto italic text-sm md:text-base mb-10 font-light">Please extend your response directly to assist us in finalizing our arrangements.</p>
+                <button id="rsvpInlineBtn" class="bg-[#efeff4] text-[#2c2c2e] font-sans font-bold tracking-[0.18em] uppercase px-8 py-4 rounded-full shadow-lg hover:bg-white hover:scale-[1.02] active:scale-95 transition-all duration-300 text-xs not-italic border border-white/40">
                     Open Response Form Portal
                 </button>
             </div>
         </section>
 
         <section class="reveal-on-scroll py-16 px-6 max-w-6xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-[#2c2c2e] mb-10 font-semibold not-italic">Our Moments</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="neumorphic-flat p-2.5 rounded-2xl border border-white/60 group overflow-hidden">
-                    <img src="image2.jpg" alt="Moment 1" class="w-full h-80 object-cover rounded-xl group-hover:scale-105 transition-transform duration-700">
+            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-[#2c2c2e] mb-12 font-bold not-italic">Our Moments</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="nm-flat p-3 rounded-[32px] border border-white/70 group overflow-hidden">
+                    <img src="image2.jpg" alt="Moment 1" class="w-full h-85 object-cover rounded-[22px] group-hover:scale-[1.03] transition-transform duration-700">
                 </div>
-                <div class="neumorphic-flat p-2.5 rounded-2xl border border-white/60 group overflow-hidden">
-                    <img src="image3.jpg" alt="Moment 2" class="w-full h-80 object-cover rounded-xl group-hover:scale-105 transition-transform duration-700">
+                <div class="nm-flat p-3 rounded-[32px] border border-white/70 group overflow-hidden">
+                    <img src="image3.jpg" alt="Moment 2" class="w-full h-85 object-cover rounded-[22px] group-hover:scale-[1.03] transition-transform duration-700">
                 </div>
-                <div class="neumorphic-flat p-2.5 rounded-2xl border border-white/60 group overflow-hidden">
-                    <img src="image5.jpg" alt="Moment 3" class="w-full h-80 object-cover rounded-xl group-hover:scale-105 transition-transform duration-700">
+                <div class="nm-flat p-3 rounded-[32px] border border-white/70 group overflow-hidden">
+                    <img src="image5.jpg" alt="Moment 3" class="w-full h-85 object-cover rounded-[22px] group-hover:scale-[1.03] transition-transform duration-700">
                 </div>
             </div>
         </section>
 
         <section class="reveal-on-scroll py-16 px-6 max-w-4xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-[#2c2c2e] text-center mb-12 font-semibold not-italic">Wedding Entourage</h2>
+            <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-[#2c2c2e] text-center mb-14 font-bold not-italic">Wedding Entourage</h2>
             
             <div class="space-y-8 text-center md:text-left">
-                <div class="neumorphic-card p-6 rounded-2xl border border-white/60">
-                    <h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-3 border-b border-gray-300/60 pb-2 text-[#c39575] not-italic">Parents of the Groom</h3>
-                    <p class="text-[#2c2c2e] font-sans font-medium not-italic tracking-wide">Mr. Enerio P. Siason & Mrs. Evelyn C. Siason</p>
+                <div class="nm-card p-7 rounded-[28px]">
+                    <h3 class="text-xl font-['Playfair_Display'] font-bold mb-3 border-b border-gray-300/40 pb-2 text-[#c39575] not-italic tracking-wide">Parents of the Groom</h3>
+                    <p class="text-[#2c2c2e] font-sans font-semibold not-italic tracking-wide text-sm md:text-base">Mr. Enerio P. Siason & Mrs. Evelyn C. Siason</p>
                 </div>
                 
-                <div class="neumorphic-card p-6 rounded-2xl border border-white/60">
-                    <h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-3 border-b border-gray-300/60 pb-2 text-[#c39575] not-italic">Parents of the Bride</h3>
-                    <p class="text-[#2c2c2e] font-sans font-medium not-italic tracking-wide">Mr. Joseph S. Cagulada & Mrs. Ruth B. Cagulada</p>
+                <div class="nm-card p-7 rounded-[28px]">
+                    <h3 class="text-xl font-['Playfair_Display'] font-bold mb-3 border-b border-gray-300/40 pb-2 text-[#c39575] not-italic tracking-wide">Parents of the Bride</h3>
+                    <p class="text-[#2c2c2e] font-sans font-semibold not-italic tracking-wide text-sm md:text-base">Mr. Joseph S. Cagulada & Mrs. Ruth B. Cagulada</p>
                 </div>
                 
                 <div class="grid md:grid-cols-2 gap-6">
-                    <div class="neumorphic-card p-6 rounded-2xl border border-white/60 text-center">
-                        <h3 class="text-lg font-['Playfair_Display'] font-semibold mb-2 text-[#c39575] not-italic">Best Man</h3>
-                        <p class="text-[#2c2c2e] font-sans font-medium not-italic">Earl Quin Dane Gaurana</p>
+                    <div class="nm-card p-6 rounded-[24px] text-center">
+                        <h3 class="text-base font-sans font-bold uppercase tracking-widest text-[#c39575] mb-2 ready-text not-italic">Best Man</h3>
+                        <p class="text-[#2c2c2e] font-sans font-semibold not-italic text-base">Earl Quin Dane Gaurana</p>
                     </div>
-                    <div class="neumorphic-card p-6 rounded-2xl border border-white/60 text-center">
-                        <h3 class="text-lg font-['Playfair_Display'] font-semibold mb-2 text-[#c39575] not-italic">Maid of Honor</h3>
-                        <p class="text-[#2c2c2e] font-sans font-medium not-italic">Christel Jane B. Cagulada</p>
+                    <div class="nm-card p-6 rounded-[24px] text-center">
+                        <h3 class="text-base font-sans font-bold uppercase tracking-widest text-[#c39575] mb-2 ready-text not-italic">Maid of Honor</h3>
+                        <p class="text-[#2c2c2e] font-sans font-semibold not-italic text-base">Christel Jane B. Cagulada</p>
                     </div>
                 </div>
                 
-                <div class="neumorphic-card p-6 rounded-2xl border border-white/60">
-                    <h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-4 border-b border-gray-300/60 pb-2 text-[#c39575] text-center md:text-left not-italic">Principal Sponsors</h3>
-                    <div class="flex flex-col md:flex-row md:gap-8">
+                <div class="nm-card p-8 rounded-[32px]">
+                    <h3 class="text-xl font-['Playfair_Display'] font-bold mb-5 border-b border-gray-300/40 pb-2 text-[#c39575] text-center md:text-left not-italic tracking-wide">Principal Sponsors</h3>
+                    <div class="flex flex-col md:flex-row md:gap-10">
                         <div class="flex-1">
-                            <p class="text-xs font-bold text-gray-400 mb-2 md:hidden font-sans uppercase tracking-widest">Gentlemen Sponsors</p>
-                            <div class="space-y-1.5 font-sans not-italic">
-                                <p class="text-sm text-[#48484a]"><span class="font-bold text-[#c39575]">Mr.</span> Billy Renz M. Dalogdog</p>
-                                <p class="text-sm text-[#48484a]"><span class="font-bold text-[#c39575]">Mr.</span> Ruben Balagosa</p>
-                                <p class="text-sm text-[#48484a]"><span class="font-bold text-[#c39575]">Mr.</span> Joel Melendres</p>
-                                <p class="text-sm text-[#48484a]"><span class="font-bold text-[#c39575]">Mr.</span> Giovani V. Surigao</p>
-                                <p class="text-sm text-[#48484a]"><span class="font-bold text-[#c39575]">Mr.</span> Ranielle Sanson</p>
-                                <p class="text-sm text-[#48484a]"><span class="font-bold text-[#c39575]">Mr.</span> Norico Quinan</p>
-                                <p class="text-sm text-[#48484a]"><span class="font-bold text-[#c39575]">Mr.</span> Ruselo Cosmiano</p>
-                                <p class="text-sm text-[#48484a]"><span class="font-bold text-[#c39575]">Mr.</span> John Natividad</p>
-                                <p class="text-sm text-[#48484a]"><span class="font-bold text-[#c39575]">Mr.</span> Ermando H. Melon</p>
-                                <p class="text-sm text-[#48484a]"><span class="font-bold text-[#c39575]">Mr.</span> Rodolfo M. Relano</p>
+                            <p class="text-[10px] font-bold text-gray-400 mb-3 md:hidden font-sans uppercase tracking-[0.18em]">Gentlemen Sponsors</p>
+                            <div class="space-y-2 font-sans not-italic">
+                                <p class="text-sm font-medium text-[#48484a]"><span class="font-bold text-[#c39575]">Mr.</span> Billy Renz M. Dalogdog</p>
+                                <p class="text-sm font-medium text-[#48484a]"><span class="font-bold text-[#c39575]">Mr.</span> Ruben Balagosa</p>
+                                <p class="text-sm font-medium text-[#48484a]"><span class="font-bold text-[#c39575]">Mr.</span> Joel Melendres</p>
+                                <p class="text-sm font-medium text-[#48484a]"><span class="font-bold text-[#c39575]">Mr.</span> Giovani V. Surigao</p>
+                                <p class="text-sm font-medium text-[#48484a]"><span class="font-bold text-[#c39575]">Mr.</span> Ranielle Sanson</p>
+                                <p class="text-sm font-medium text-[#48484a]"><span class="font-bold text-[#c39575]">Mr.</span> Norico Quinan</p>
+                                <p class="text-sm font-medium text-[#48484a]"><span class="font-bold text-[#c39575]">Mr.</span> Ruselo Cosmiano</p>
+                                <p class="text-sm font-medium text-[#48484a]"><span class="font-bold text-[#c39575]">Mr.</span> John Natividad</p>
+                                <p class="text-sm font-medium text-[#48484a]"><span class="font-bold text-[#c39575]">Mr.</span> Ermando H. Melon</p>
+                                <p class="text-sm font-medium text-[#48484a]"><span class="font-bold text-[#c39575]">Mr.</span> Rodolfo M. Relano</p>
                             </div>
                         </div>
                         <div class="hidden md:block w-px bg-gradient-to-b from-gray-200 via-gray-300 to-gray-200 my-1"></div>
-                        <div class="md:hidden my-4 border-t border-gray-200/60 relative">
-                            <span class="absolute left-1/2 -top-2 -translate-x-1/2 bg-[#f4f4f6] px-2 text-[10px] text-gray-400 font-sans font-bold uppercase tracking-widest">✦</span>
+                        <div class="md:hidden my-5 border-t border-gray-200/50 relative">
+                            <span class="absolute left-1/2 -top-2.5 -translate-x-1/2 bg-[#efeff4] px-3 text-[10px] text-gray-300 font-sans font-bold uppercase tracking-widest">✦</span>
                         </div>
                         <div class="flex-1">
-                            <p class="text-xs font-bold text-gray-400 mb-2 md:hidden font-sans uppercase tracking-widest">Ladies Sponsors</p>
-                            <div class="space-y-1.5 font-sans not-italic">
-                                <p class="text-sm text-[#48484a]"><span class="font-bold text-[#c39575]">Mrs.</span> Rhelyn H. Dalogdog</p>
-                                <p class="text-sm text-[#48484a]"><span class="font-bold text-[#c39575]">Mrs.</span> Aileen Balagosa</p>
-                                <p class="text-sm text-[#48484a]"><span class="font-bold text-[#c39575]">Mrs.</span> Erlinda Melendres</p>
-                                <p class="text-sm text-[#48484a]"><span class="font-bold text-[#c39575]">Mrs.</span> Rochelyn G. Surigao</p>
-                                <p class="text-sm text-[#48484a]"><span class="font-bold text-[#c39575]">Mrs.</span> Nenevic O. Palis</p>
-                                <p class="text-sm text-[#48484a]"><span class="font-bold text-[#c39575]">Mrs.</span> Marizel Quinan</p>
-                                <p class="text-sm text-[#48484a]"><span class="font-bold text-[#c39575]">Mrs.</span> Lilian Cosmiano</p>
-                                <p class="text-sm text-[#48484a]"><span class="font-bold text-[#c39575]">Mrs.</span> Joyce Xiong</p>
-                                <p class="text-sm text-[#48484a]"><span class="font-bold text-[#c39575]">Mrs.</span> Rawsienna Cabarrubias</p>
-                                <p class="text-sm text-[#48484a]"><span class="font-bold text-[#c39575]">Mrs.</span> Zarah Marie D. Bernardino</p>
+                            <p class="text-[10px] font-bold text-gray-400 mb-3 md:hidden font-sans uppercase tracking-[0.18em]">Ladies Sponsors</p>
+                            <div class="space-y-2 font-sans not-italic">
+                                <p class="text-sm font-medium text-[#48484a]"><span class="font-bold text-[#c39575]">Mrs.</span> Rhelyn H. Dalogdog</p>
+                                <p class="text-sm font-medium text-[#48484a]"><span class="font-bold text-[#c39575]">Mrs.</span> Aileen Balagosa</p>
+                                <p class="text-sm font-medium text-[#48484a]"><span class="font-bold text-[#c39575]">Mrs.</span> Erlinda Melendres</p>
+                                <p class="text-sm font-medium text-[#48484a]"><span class="font-bold text-[#c39575]">Mrs.</span> Rochelyn G. Surigao</p>
+                                <p class="text-sm font-medium text-[#48484a]"><span class="font-bold text-[#c39575]">Mrs.</span> Nenevic O. Palis</p>
+                                <p class="text-sm font-medium text-[#48484a]"><span class="font-bold text-[#c39575]">Mrs.</span> Marizel Quinan</p>
+                                <p class="text-sm font-medium text-[#48484a]"><span class="font-bold text-[#c39575]">Mrs.</span> Lilian Cosmiano</p>
+                                <p class="text-sm font-medium text-[#48484a]"><span class="font-bold text-[#c39575]">Mrs.</span> Joyce Xiong</p>
+                                <p class="text-sm font-medium text-[#48484a]"><span class="font-bold text-[#c39575]">Mrs.</span> Rawsienna Cabarrubias</p>
+                                <p class="text-sm font-medium text-[#48484a]"><span class="font-bold text-[#c39575]">Mrs.</span> Zarah Marie D. Bernardino</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="neumorphic-card p-6 rounded-2xl border border-white/60">
-                    <h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-3 border-b border-gray-300/60 pb-2 text-[#c39575] text-center md:text-left not-italic">Secondary Sponsors</h3>
-                    <div class="space-y-2.5 text-[#48484a] font-sans not-italic text-sm md:text-base">
+                <div class="nm-card p-7 rounded-[28px]">
+                    <h3 class="text-xl font-['Playfair_Display'] font-bold mb-4 border-b border-gray-300/40 pb-2 text-[#c39575] text-center md:text-left not-italic tracking-wide">Secondary Sponsors</h3>
+                    <div class="space-y-3 text-[#48484a] font-sans not-italic text-sm md:text-base">
                         <p><strong class="font-semibold text-gray-700">Candle Sponsors:</strong> Nelito James R. Muñoz & Rachael R. Muñoz</p>
                         <p><strong class="font-semibold text-gray-700">Veil Sponsors:</strong> Erwin S. Cagulada & Karen B. Cagulada</p>
                         <p><strong class="font-semibold text-gray-700">Cord Sponsors:</strong> Ariel Siason & Aniegay Siason</p>
@@ -598,13 +600,13 @@
                 </div>
                 
                 <div class="grid md:grid-cols-2 gap-6">
-                    <div class="neumorphic-card p-6 rounded-2xl border border-white/60">
-                        <h3 class="text-lg font-['Playfair_Display'] font-semibold mb-2 text-[#c39575] text-center md:text-left not-italic">Groomsmen</h3>
-                        <p class="text-xs md:text-sm text-[#48484a] leading-relaxed font-sans not-italic">Mark John Brian B. Cagulada, Mark John Rey B. Cagulada, John Carlo C. Siason, Alvin C. Siason, Alexiz C. Quitoriano, Arvin Joey Romo, Jimuel Van Galabin, Lenard Balagosa</p>
+                    <div class="nm-card p-6 rounded-[26px]">
+                        <h3 class="text-base font-sans font-bold uppercase tracking-widest text-[#c39575] mb-2.5 text-center md:text-left not-italic ready-text">Groomsmen</h3>
+                        <p class="text-xs md:text-sm font-medium text-[#48484a] leading-relaxed font-sans not-italic">Mark John Brian B. Cagulada, Mark John Rey B. Cagulada, John Carlo C. Siason, Alvin C. Siason, Alexiz C. Quitoriano, Arvin Joey Romo, Jimuel Van Galabin, Lenard Balagosa</p>
                     </div>
-                    <div class="neumorphic-card p-6 rounded-2xl border border-white/60">
-                        <h3 class="text-lg font-['Playfair_Display'] font-semibold mb-2 text-[#c39575] text-center md:text-left not-italic">Bridesmaids</h3>
-                        <p class="text-xs md:text-sm text-[#48484a] leading-relaxed font-sans not-italic">Winshei G. Cagulada, Shanine Balagosa, Marian Macapili, Dorothy Love R. Siason, Janielle Joy R. Siason, Barbie Shaixien Cagulada, April Mae Jayyari, Rhoshelle-Anne Cagulada</p>
+                    <div class="nm-card p-6 rounded-[26px]">
+                        <h3 class="text-base font-sans font-bold uppercase tracking-widest text-[#c39575] mb-2.5 text-center md:text-left not-italic ready-text">Bridesmaids</h3>
+                        <p class="text-xs md:text-sm font-medium text-[#48484a] leading-relaxed font-sans not-italic">Winshei G. Cagulada, Shanine Balagosa, Marian Macapili, Dorothy Love R. Siason, Janielle Joy R. Siason, Barbie Shaixien Cagulada, April Mae Jayyari, Rhoshelle-Anne Cagulada</p>
                     </div>
                 </div>
             </div>
@@ -612,33 +614,33 @@
 
         <section class="reveal-on-scroll py-16 px-6 relative">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-[#2c2c2e] text-center mb-12 font-semibold not-italic">Venue & Details</h2>
+                <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] text-[#2c2c2e] text-center mb-14 font-bold not-italic">Venue & Details</h2>
                 <div class="grid md:grid-cols-2 gap-8">
                     
-                    <div class="text-center p-8 neumorphic-card rounded-2xl border border-white/60 hover:scale-[1.01] transition-all duration-500">
-                        <h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-3 text-[#c39575] not-italic">Ceremony Venue</h3>
+                    <div class="text-center p-8 nm-card rounded-[32px] hover:scale-[1.01] transition-all duration-500">
+                        <h3 class="text-2xl font-['Playfair_Display'] font-bold mb-3 text-[#c39575] not-italic">Ceremony Venue</h3>
                         <p class="text-xl font-bold text-[#2c2c2e] not-italic">Saint Joseph Church</p>
-                        <p class="text-base text-gray-500 italic">(Nunez Street, Z.C.)</p>
-                        <p class="text-xs mt-3 font-bold text-[#c39575] bg-white shadow-inner inline-block px-4 py-1.5 rounded-full font-sans not-italic tracking-wider">TIME: 1:00 PM</p>
+                        <p class="text-base text-gray-400 italic">(Nunez Street, Z.C.)</p>
+                        <p class="text-[10px] mt-4 font-bold text-[#c39575] bg-white shadow-sm inline-block px-5 py-1.5 rounded-full font-sans not-italic tracking-[0.15em] border border-gray-100">TIME: 1:00 PM</p>
                                                                                                                                                                                 
-                        <div class="mt-6 flex justify-center">
-                            <a href="https://maps.app.goo.gl/tDbxCJhx1rn3qUQM7?g_st=com.google.maps.preview.copy" target="_blank" rel="noopener noreferrer" class="group/qr bg-white p-3 rounded-2xl border border-gray-100 inline-block shadow-sm hover:border-[#dfb89d] transition-all duration-300 cursor-pointer" title="Click to open map">
+                        <div class="mt-8 flex justify-center">
+                            <a href="https://maps.app.goo.gl/tDbxCJhx1rn3qUQM7?g_st=com.google.maps.preview.copy" target="_blank" rel="noopener noreferrer" class="bg-white p-3.5 rounded-2xl border border-gray-100 inline-block shadow-sm hover:border-[#dfb89d] transition-all duration-300 cursor-pointer" title="Click to open map">
                                 <img src="scan1.png" alt="QR code for ceremony venue" class="w-36 h-36 object-contain" />
-                                <p class="text-[10px] text-[#c39575] font-bold tracking-widest uppercase mt-3 font-sans not-italic">✦ Tap to Open Map ✦</p>
+                                <p class="text-[9px] text-[#c39575] font-bold tracking-[0.18em] uppercase mt-3.5 font-sans not-italic">✦ Tap to Open Map ✦</p>
                             </a>
                         </div>
                     </div>
 
-                    <div class="text-center p-8 neumorphic-card rounded-2xl border border-white/60 hover:scale-[1.01] transition-all duration-500">
-                        <h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-3 text-[#c39575] not-italic">Reception Venue</h3>
+                    <div class="text-center p-8 nm-card rounded-[32px] hover:scale-[1.01] transition-all duration-500">
+                        <h3 class="text-2xl font-['Playfair_Display'] font-bold mb-3 text-[#c39575] not-italic">Reception Venue</h3>
                         <p class="text-xl font-bold text-[#2c2c2e] not-italic">Grand Astoria Hotel</p>
-                        <p class="text-base text-gray-500 italic">(Mayor Jaldon Street, Z.C.)</p>
-                        <p class="text-xs mt-3 font-bold text-[#c39575] bg-white shadow-inner inline-block px-4 py-1.5 rounded-full font-sans not-italic tracking-wider">TIME: 5:30 PM</p>
+                        <p class="text-base text-gray-400 italic">(Mayor Jaldon Street, Z.C.)</p>
+                        <p class="text-[10px] mt-4 font-bold text-[#c39575] bg-white shadow-sm inline-block px-5 py-1.5 rounded-full font-sans not-italic tracking-[0.15em] border border-gray-100">TIME: 5:30 PM</p>
                                                                                                                                                                                 
-                        <div class="mt-6 flex justify-center">
-                            <a href="https://maps.app.goo.gl/ipWuEwVhtLB7zQJS8?g_st=com.google.maps.preview.copy" target="_blank" rel="noopener noreferrer" class="group/qr bg-white p-3 rounded-2xl border border-gray-100 inline-block shadow-sm hover:border-[#dfb89d] transition-all duration-300 cursor-pointer" title="Click to open map">
+                        <div class="mt-8 flex justify-center">
+                            <a href="https://maps.app.goo.gl/ipWuEwVhtLB7zQJS8?g_st=com.google.maps.preview.copy" target="_blank" rel="noopener noreferrer" class="bg-white p-3.5 rounded-2xl border border-gray-100 inline-block shadow-sm hover:border-[#dfb89d] transition-all duration-300 cursor-pointer" title="Click to open map">
                                 <img src="scan2.png" alt="QR code for reception venue" class="w-36 h-36 object-contain" />
-                                <p class="text-[10px] text-[#c39575] font-bold tracking-widest uppercase mt-3 font-sans not-italic">✦ Tap to Open Map ✦</p>
+                                <p class="text-[9px] text-[#c39575] font-bold tracking-[0.18em] uppercase mt-3.5 font-sans not-italic">✦ Tap to Open Map ✦</p>
                             </a>
                         </div>
                     </div>
@@ -647,68 +649,68 @@
         </section>
 
         <section class="reveal-on-scroll py-16 px-6 max-w-4xl mx-auto text-center">
-            <div class="neumorphic-card rounded-3xl p-8 md:p-12 border border-white/60">
-                <div class="w-11 h-11 bg-white text-[#c39575] rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm border border-gray-100">
+            <div class="nm-card rounded-[36px] p-8 md:p-14">
+                <div class="w-12 h-12 bg-white text-[#c39575] rounded-full flex items-center justify-center mx-auto mb-5 shadow-sm border border-gray-100">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
                     </svg>
                 </div>
-                <h2 class="text-3xl md:text-4xl font-['Playfair_Display'] text-[#2c2c2e] font-semibold mb-4 not-italic">Gift Registry</h2>
-                <p class="text-gray-500 max-w-lg mx-auto mb-8 text-sm md:text-base leading-relaxed">
+                <h2 class="text-3xl md:text-4xl font-['Playfair_Display'] text-[#2c2c2e] font-bold mb-4 not-italic">Gift Registry</h2>
+                <p class="text-gray-500 max-w-lg mx-auto mb-10 text-sm md:text-base font-light leading-relaxed">
                     Your presence at our wedding is the greatest gift of all. However, if you wish to honor us with a gift, a monetary contribution toward our future home together would be sincerely appreciated.
                 </p>
 
-                <div class="flex justify-center border-b border-gray-200/60 mb-8 max-w-xs mx-auto">
-                    <button id="tab-btn-gcash" onclick="switchRegistryTab('gcash')" class="px-5 py-2 font-sans font-bold text-xs uppercase tracking-widest text-[#c39575] border-b-2 border-[#c39575] focus:outline-none transition-all duration-300">
+                <div class="flex justify-center border-b border-gray-200 mb-8 max-w-xs mx-auto">
+                    <button id="tab-btn-gcash" onclick="switchRegistryTab('gcash')" class="px-6 py-2.5 font-sans font-bold text-xs uppercase tracking-[0.15em] text-[#c39575] border-b-2 border-[#c39575] focus:outline-none transition-all duration-300">
                         GCash
                     </button>
-                    <button id="tab-btn-bank" onclick="switchRegistryTab('bank')" class="px-5 py-2 font-sans font-bold text-xs uppercase tracking-widest text-gray-400 border-b-2 border-transparent hover:text-[#c39575] focus:outline-none transition-all duration-300">
+                    <button id="tab-btn-bank" onclick="switchRegistryTab('bank')" class="px-6 py-2.5 font-sans font-bold text-xs uppercase tracking-[0.15em] text-gray-400 border-b-2 border-transparent hover:text-[#c39575] focus:outline-none transition-all duration-300">
                         Bank Transfer
                     </button>
                 </div>
 
                 <div id="registry-card-gcash" class="registry-card active max-w-xs mx-auto">
-                    <div class="p-5 neumorphic-inset rounded-2xl border border-white/40 text-center space-y-4">
-                        <div class="inline-block bg-white p-2.5 rounded-xl shadow-sm border border-gray-100">
-                            <img src="gcas.jpg" alt="GCash Receiver QR Code" class="w-40 h-40 object-contain mx-auto rounded-lg">
+                    <div class="p-6 nm-inset rounded-[28px] border border-white/50 text-center space-y-4">
+                        <div class="inline-block bg-white p-3 rounded-2xl shadow-sm border border-gray-100">
+                            <img src="gcas.jpg" alt="GCash Receiver QR Code" class="w-40 h-40 object-contain mx-auto rounded-xl">
                         </div>
                         <div class="space-y-1">
-                            <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold font-sans">Account Name</p>
+                            <p class="text-[9px] uppercase tracking-[0.15em] text-gray-400 font-bold font-sans">Account Name</p>
                             <p class="text-base font-bold text-[#2c2c2e] font-sans not-italic tracking-wide">Rico John Siason</p>
-                            <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold font-sans mt-2">Mobile Number</p>
+                            <p class="text-[9px] uppercase tracking-[0.15em] text-gray-400 font-bold font-sans mt-3">Mobile Number</p>
                             <p class="text-sm font-bold text-gray-700 font-sans tracking-widest">09177270282</p>
                         </div>
                         
-                        <div class="pt-1">
-                            <button onclick="launchGCashApp()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-sans font-bold text-xs uppercase tracking-wider py-2.5 px-4 rounded-xl shadow-sm transition-all duration-300 flex items-center justify-center gap-2 not-italic">
+                        <div class="pt-2">
+                            <button onclick="launchGCashApp()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-sans font-bold text-xs uppercase tracking-[0.12em] py-3 px-4 rounded-xl shadow-md transition-all duration-300 flex items-center justify-center gap-2 not-italic">
                                 <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24">
                                     <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
                                 </svg>
                                 Share via GCash App
                             </button>
-                            <p class="text-[9px] text-gray-400 mt-2 font-sans italic">Launches application protocol window when hosted on dynamic systems.</p>
+                            <p class="text-[9px] text-gray-400 mt-2.5 font-sans italic">Launches deep link engine securely when verified natively.</p>
                         </div>
                     </div>
                 </div>
 
                 <div id="registry-card-bank" class="registry-card max-w-xs mx-auto">
-                    <div class="p-5 neumorphic-inset rounded-2xl border border-white/40 text-center space-y-4">
+                    <div class="p-6 nm-inset rounded-[28px] border border-white/50 text-center space-y-4">
                         <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto border border-gray-100 shadow-sm text-[#c39575]">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
                             </svg>
                         </div>
-                        <div class="space-y-3 text-center">
+                        <div class="space-y-3.5 text-center">
                             <div>
-                                <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold font-sans">Bank Institution</p>
-                                <p class="text-sm font-bold text-[#2c2c2e] font-sans not-italic">GCash App Platform</p>
+                                <p class="text-[9px] uppercase tracking-[0.15em] text-gray-400 font-bold font-sans">Bank Institution</p>
+                                <p class="text-sm font-bold text-[#2c2c2e] font-sans not-italic">GCash Financial System</p>
                             </div>
                             <div>
-                                <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold font-sans">Account Name</p>
+                                <p class="text-[9px] uppercase tracking-[0.15em] text-gray-400 font-bold font-sans">Account Name</p>
                                 <p class="text-sm font-bold text-[#2c2c2e] font-sans not-italic tracking-wide">Rico John Siason</p>
                             </div>
                             <div>
-                                <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold font-sans">Account Number</p>
+                                <p class="text-[9px] uppercase tracking-[0.15em] text-gray-400 font-bold font-sans">Account Number</p>
                                 <p class="text-base font-mono font-bold text-[#c39575] tracking-widest">09177270282</p>
                             </div>
                         </div>
@@ -741,26 +743,26 @@
             setupScrollRevealObserver();
         });
 
-        // 2. Interactive Welcome Gate Overlay Envelope Component Automation
+        // 2. Interactive Envelope Animation Gate
         envelope.addEventListener('click', () => {
             envelope.classList.add('opening');
             envelopeContainer.classList.add('opened');
             
-            // Audio engine initialization workflow
+            // Audio execution lifecycle initialization
             bgMusic.play().then(() => {
                 musicControl.classList.add('playing');
-            }).catch(err => console.log("Audio restrictions framework handled: ", err));
+            }).catch(err => console.log("Audio pipeline configuration note: ", err));
 
             setTimeout(() => {
                 envelopeContainer.classList.add('hidden');
-                // Display auxiliary global functional nodes gracefully
+                // Display auxiliary control nodes fluidly
                 topHeader.classList.remove('-translate-y-full', 'opacity-0');
                 musicControl.classList.add('visible');
                 rsvpFloatingBtn.classList.add('visible');
-            }, 1100);
+            }, 1200);
         });
 
-        // 3. Audio Controller Toggle Execution Wrapper
+        // 3. Audio Stream Interface Actions Toggle 
         musicControl.addEventListener('click', () => {
             if (bgMusic.paused) {
                 bgMusic.play();
@@ -773,7 +775,7 @@
             }
         });
 
-        // 4. Modal Window HUD Control Actions
+        // 4. RSVP Modal Controller Layout Functions
         const openRSVPModal = () => rsvpModal.classList.add('active');
         const closeRSVPModal = () => rsvpModal.classList.remove('active');
 
@@ -794,7 +796,7 @@
                         entry.target.classList.add('is-visible');
                     }
                 });
-            }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+            }, { threshold: 0.08, rootMargin: "0px 0px -30px 0px" });
 
             elements.forEach(el => observer.observe(el));
         }
@@ -839,19 +841,19 @@
             const bcard = document.getElementById('registry-card-bank');
 
             if (targetTab === 'gcash') {
-                gbtn.className = "px-5 py-2 font-sans font-bold text-xs uppercase tracking-widest text-[#c39575] border-b-2 border-[#c39575] focus:outline-none transition-all duration-300";
-                bbtn.className = "px-5 py-2 font-sans font-bold text-xs uppercase tracking-widest text-gray-400 border-b-2 border-transparent hover:text-[#c39575] focus:outline-none transition-all duration-300";
+                gbtn.className = "px-6 py-2.5 font-sans font-bold text-xs uppercase tracking-[0.15em] text-[#c39575] border-b-2 border-[#c39575] focus:outline-none transition-all duration-300";
+                bbtn.className = "px-6 py-2.5 font-sans font-bold text-xs uppercase tracking-[0.15em] text-gray-400 border-b-2 border-transparent hover:text-[#c39575] focus:outline-none transition-all duration-300";
                 gcard.classList.add('active');
                 bcard.classList.remove('active');
             } else {
-                bbtn.className = "px-5 py-2 font-sans font-bold text-xs uppercase tracking-widest text-[#c39575] border-b-2 border-[#c39575] focus:outline-none transition-all duration-300";
-                gbtn.className = "px-5 py-2 font-sans font-bold text-xs uppercase tracking-widest text-gray-400 border-b-2 border-transparent hover:text-[#c39575] focus:outline-none transition-all duration-300";
+                bbtn.className = "px-6 py-2.5 font-sans font-bold text-xs uppercase tracking-[0.15em] text-[#c39575] border-b-2 border-[#c39575] focus:outline-none transition-all duration-300";
+                gbtn.className = "px-6 py-2.5 font-sans font-bold text-xs uppercase tracking-[0.15em] text-gray-400 border-b-2 border-transparent hover:text-[#c39575] focus:outline-none transition-all duration-300";
                 bcard.classList.add('active');
                 gcard.classList.remove('active');
             }
         }
 
-        // 8. Mobile Native Deep Linking Routing Mechanism for GCash
+        // 8. Mobile Native Protocol Router Deep Link Registry Mapping
         function launchGCashApp() {
             const gcashUniversalScheme = "gcash://";
             const webFallbackUrl = "https://www.gcash.com/";
